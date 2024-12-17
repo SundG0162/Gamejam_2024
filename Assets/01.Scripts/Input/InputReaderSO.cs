@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace BSM.Inputs
 {
     [CreateAssetMenu(fileName = "InputReaderSO", menuName = "SO/InputReaderSO")]
-    public class InputReaderSO : ScriptableObject, Controls.IPlayerActions
+    public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions
     {
         private Controls _controls;
 
@@ -52,6 +52,7 @@ namespace BSM.Inputs
             _controls.Disable();
         }
 
+
         #region Event Functions
         public void OnAttack(InputAction.CallbackContext context)
         {
@@ -79,6 +80,48 @@ namespace BSM.Inputs
         {
             Movement = context.ReadValue<Vector2>();
             OnMovementEvent?.Invoke(Movement);
+        }
+        #endregion
+
+        #region Unused Functions
+        public void OnNavigate(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnPoint(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnClick(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnRightClick(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnMiddleClick(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnScrollWheel(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnTrackedDevicePosition(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
+        {
         }
         #endregion
     }
