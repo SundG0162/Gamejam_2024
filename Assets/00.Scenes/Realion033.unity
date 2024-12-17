@@ -297,6 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142548131}
   - component: {fileID: 2142548132}
+  - component: {fileID: 2142548133}
   m_Layer: 0
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -331,6 +332,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38f02aeeebd72c4888f217af7ac6272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2142548133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142548130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -4873128171416342580, guid: 92150663362d8b844ae1ccb2681822b5, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 9203982548745322847
+  - rid: 9203982548745322848
+  references:
+    version: 2
+    RefIds:
+    - rid: 9203982548745322847
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 2142548130}
+    - rid: 9203982548745322848
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17772403498379002706
+          m_Value1: 1372632421461889460
+        Name: Player
+        m_Value: {fileID: 346597216}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
