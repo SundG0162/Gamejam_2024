@@ -23,20 +23,6 @@ namespace BSM.Entities
         public void Initialize(Entity entity)
         {
             _entity = entity;
-
-            HandleFunction(_trigger);
-        }
-
-        private void HandleFunction(EAnimationTrigger trigger)
-        {
-            if((trigger & EAnimationTrigger.End) != 0)
-            {
-                Debug.Log("End 걸림");
-            }
-            if ((trigger & EAnimationTrigger.Attack) != 0)
-            {
-                Debug.Log("Attack걸림");
-            }
         }
 
         protected virtual void TriggerAnimation(EAnimationTrigger trigger)
