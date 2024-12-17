@@ -11,6 +11,7 @@ namespace BSM.Entities
 
         protected virtual void Awake()
         {
+            _componentDict = new Dictionary<Type, IEntityComponent>();
             AddEntityComponentsToDictionary();
             InitializeComponent();
             AfterInitialize();
