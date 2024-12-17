@@ -1,19 +1,11 @@
+using BSM.Inputs;
 using UnityEngine;
 
-namespace BSM
+namespace BSM.Entities
 {
-    public class Player : MonoBehaviour
+    public class Player : Entity
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        [field: SerializeField]
+        public InputReaderSO InputReader { get; private set; }
     }
 }
