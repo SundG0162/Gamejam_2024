@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 3984247353747ec40a790d0af4921342
+guid: 37e4a7e075ed8604b8880d7da752ecf2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3076927197089290165
-    second: ArmorPlayerSheet_0
+      213: -8198797766935534855
+    second: DamagePlayerSheet_0
   - first:
-      213: 6235457671613171952
-    second: ArmorPlayerSheet_1
+      213: 1367270759029332479
+    second: DamagePlayerSheet_1
   - first:
-      213: 107341145720084285
-    second: ArmorPlayerSheet_2
+      213: -3321516339376756004
+    second: DamagePlayerSheet_2
   - first:
-      213: -8914971556241799356
-    second: ArmorPlayerSheet_3
+      213: 7223954025641377512
+    second: DamagePlayerSheet_3
   - first:
-      213: -414906340851467542
-    second: ArmorPlayerSheet_4
+      213: -5923102509073463237
+    second: DamagePlayerSheet_4
   - first:
-      213: -8787904709627864136
-    second: ArmorPlayerSheet_5
+      213: 6056863383503496607
+    second: DamagePlayerSheet_5
   - first:
-      213: -1320021290881693398
-    second: ArmorPlayerSheet_6
+      213: 2227519652536056173
+    second: DamagePlayerSheet_6
   - first:
-      213: 5443215202921867865
-    second: ArmorPlayerSheet_7
+      213: -8014603565880452390
+    second: DamagePlayerSheet_7
   - first:
-      213: 8508518943446382413
-    second: ArmorPlayerSheet_8
+      213: 5839262426938487690
+    second: DamagePlayerSheet_8
   - first:
-      213: 5794913497080765360
-    second: ArmorPlayerSheet_9
+      213: 8544064607149030923
+    second: DamagePlayerSheet_9
   - first:
-      213: 1454943014289608355
-    second: ArmorPlayerSheet_10
+      213: -2576322951953754571
+    second: DamagePlayerSheet_10
   - first:
-      213: 759876138837376715
-    second: ArmorPlayerSheet_11
+      213: -4058087410277036002
+    second: DamagePlayerSheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,7 +105,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -133,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArmorPlayerSheet_0
+      name: DamagePlayerSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,21 +141,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4821c9340f8c45d0800000000000000
-      internalID: -3076927197089290165
+      spriteID: 9f2aa8cbed4083e80800000000000000
+      internalID: -8198797766935534855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_1
+      name: DamagePlayerSheet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -163,21 +163,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f8cc7827bbc88650800000000000000
-      internalID: 6235457671613171952
+      spriteID: ff9d8bfd28589f210800000000000000
+      internalID: 1367270759029332479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_2
+      name: DamagePlayerSheet_2
       rect:
         serializedVersion: 2
         x: 32
@@ -185,21 +185,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d37dd6c043a5d7100800000000000000
-      internalID: 107341145720084285
+      spriteID: cdaeacbcc7a97e1d0800000000000000
+      internalID: -3321516339376756004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_3
+      name: DamagePlayerSheet_3
       rect:
         serializedVersion: 2
         x: 48
@@ -207,21 +207,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4470f776a98a74480800000000000000
-      internalID: -8914971556241799356
+      spriteID: 8ee7b1489e3a04460800000000000000
+      internalID: 7223954025641377512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_4
+      name: DamagePlayerSheet_4
       rect:
         serializedVersion: 2
         x: 64
@@ -229,21 +229,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aeabd7a91e4fd3af0800000000000000
-      internalID: -414906340851467542
+      spriteID: b38837266a9eccda0800000000000000
+      internalID: -5923102509073463237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_5
+      name: DamagePlayerSheet_5
       rect:
         serializedVersion: 2
         x: 80
@@ -251,21 +251,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8bb16a61a371b0680800000000000000
-      internalID: -8787904709627864136
+      spriteID: f95ebca182d4e0450800000000000000
+      internalID: 6056863383503496607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_6
+      name: DamagePlayerSheet_6
       rect:
         serializedVersion: 2
         x: 96
@@ -273,21 +273,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a294b0531a75eade0800000000000000
-      internalID: -1320021290881693398
+      spriteID: d69fc93725db9ee10800000000000000
+      internalID: 2227519652536056173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_7
+      name: DamagePlayerSheet_7
       rect:
         serializedVersion: 2
         x: 112
@@ -295,21 +295,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95ae92e336f2a8b40800000000000000
-      internalID: 5443215202921867865
+      spriteID: adadd10258866c090800000000000000
+      internalID: -8014603565880452390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_8
+      name: DamagePlayerSheet_8
       rect:
         serializedVersion: 2
         x: 128
@@ -317,21 +317,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d47bdc426e4541670800000000000000
-      internalID: 8508518943446382413
+      spriteID: a8334f35d3a390150800000000000000
+      internalID: 5839262426938487690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_9
+      name: DamagePlayerSheet_9
       rect:
         serializedVersion: 2
         x: 144
@@ -339,21 +339,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0bb9d917f1bab6050800000000000000
-      internalID: 5794913497080765360
+      spriteID: b0efa17ed7d929670800000000000000
+      internalID: 8544064607149030923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_10
+      name: DamagePlayerSheet_10
       rect:
         serializedVersion: 2
         x: 160
@@ -361,21 +361,21 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ae0b2f76fef03410800000000000000
-      internalID: 1454943014289608355
+      spriteID: 5365c16dcef0f3cd0800000000000000
+      internalID: -2576322951953754571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmorPlayerSheet_11
+      name: DamagePlayerSheet_11
       rect:
         serializedVersion: 2
         x: 176
@@ -383,15 +383,15 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bce72b0825f9b8a00800000000000000
-      internalID: 759876138837376715
+      spriteID: e10d3f24007cea7c0800000000000000
+      internalID: -4058087410277036002
       vertices: []
       indices: 
       edges: []
@@ -400,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7bfdf3ce1d52ae74595f2abc1d12b983
+    spriteID: 486de82e132cd9a4eaecfe529a57f6dc
     internalID: 0
     vertices: []
     indices: 
@@ -410,18 +410,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ArmorPlayerSheet_0: -3076927197089290165
-      ArmorPlayerSheet_1: 6235457671613171952
-      ArmorPlayerSheet_10: 1454943014289608355
-      ArmorPlayerSheet_11: 759876138837376715
-      ArmorPlayerSheet_2: 107341145720084285
-      ArmorPlayerSheet_3: -8914971556241799356
-      ArmorPlayerSheet_4: -414906340851467542
-      ArmorPlayerSheet_5: -8787904709627864136
-      ArmorPlayerSheet_6: -1320021290881693398
-      ArmorPlayerSheet_7: 5443215202921867865
-      ArmorPlayerSheet_8: 8508518943446382413
-      ArmorPlayerSheet_9: 5794913497080765360
+      DamagePlayerSheet_0: -8198797766935534855
+      DamagePlayerSheet_1: 1367270759029332479
+      DamagePlayerSheet_10: -2576322951953754571
+      DamagePlayerSheet_11: -4058087410277036002
+      DamagePlayerSheet_2: -3321516339376756004
+      DamagePlayerSheet_3: 7223954025641377512
+      DamagePlayerSheet_4: -5923102509073463237
+      DamagePlayerSheet_5: 6056863383503496607
+      DamagePlayerSheet_6: 2227519652536056173
+      DamagePlayerSheet_7: -8014603565880452390
+      DamagePlayerSheet_8: 5839262426938487690
+      DamagePlayerSheet_9: 8544064607149030923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
