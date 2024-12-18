@@ -2,7 +2,7 @@ using SSH;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BSM
+namespace SSH.UI
 {
     public class SettingCanvasManager : OpenableCanvas
     {

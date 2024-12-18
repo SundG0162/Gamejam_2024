@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Device.Application;
 
-namespace BSM
+namespace SSH.UI
 {
     public class TitleCanvasManager : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using BSM.Inputs;
 using UnityEngine;
 using DG.Tweening;
 
-namespace SSH
+namespace SSH.UI
 {
     public class OpenableCanvas : MonoBehaviour
     {
