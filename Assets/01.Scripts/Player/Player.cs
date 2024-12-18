@@ -1,3 +1,4 @@
+using BSM.Animators;
 using BSM.Core.Cameras;
 using BSM.Entities;
 using BSM.Inputs;
@@ -13,6 +14,9 @@ namespace BSM.Players
         public InputReaderSO InputReader { get; private set; }
         protected EntityMover _entityMover;
         protected EntityRenderer _entityRenderer;
+
+        [SerializeField]
+        private AnimatorParameterSO _idleParameter;
 
         public bool StopFlip { get; set; } = false;
 
@@ -45,6 +49,10 @@ namespace BSM.Players
 
         protected virtual void HandleOnMovementEvent(Vector2 movement)
         {
+            if(movement == Vector2.zero)
+                _entityRenderer.SetParameter(_idleParameter, true);
+            else
+                _entityRenderer.SetParameter(_idleParameter, false);
             _entityMover.SetMovement(movement);
         }
     }
