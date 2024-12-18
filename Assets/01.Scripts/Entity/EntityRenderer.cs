@@ -27,7 +27,7 @@ namespace BSM.Entities
         public void Flip()
         {
             FacingDirection *= -1;
-            _entity.transform.Rotate(new Vector3(0, 180f, 0));
+            gameObject.transform.Rotate(new Vector3(0, 180f, 0));
         }
 
         public void Flip(float x)
