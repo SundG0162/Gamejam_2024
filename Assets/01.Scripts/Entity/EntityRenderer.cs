@@ -1,12 +1,14 @@
+using BSM.Animators;
 using DG.Tweening;
 using UnityEngine;
 
 namespace BSM.Entities
 {
-    public class EntityRenderer : MonoBehaviour, IEntityComponent
+    public class EntityRenderer : AnimateRenderer, IEntityComponent
     {
         private Entity _entity;
         private SpriteRenderer _spriteRenderer;
+        
         private Material _sampleMaterial;
         private readonly int _blinkValueID = Shader.PropertyToID("_BlinkValue");
         private readonly int _dissolveAmountID = Shader.PropertyToID("_DissolveAmount");
