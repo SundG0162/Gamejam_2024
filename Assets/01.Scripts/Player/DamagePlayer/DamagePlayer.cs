@@ -10,7 +10,6 @@ namespace BSM.Players.DamagePlayer
     {
         private DamagePlayerWeapon _weapon;
 
-
         protected override void Awake()
         {
             base.Awake();
@@ -20,12 +19,11 @@ namespace BSM.Players.DamagePlayer
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
         }
 
-        private void Update()
+        protected override void OnDisable()
         {
-            if(Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                GetEntityComponent<EntityHealth>().ApplyDamage(this, 1, false, 0);
-            }
+            base.OnDisable();
+            InputReader.OnAttackEvent -= HandleOnAttackEvent;
+            InputReader.OnMouseUpEvent -= HandleOnTryAttackEvent;
         }
 
         private void HandleOnAttackEvent()

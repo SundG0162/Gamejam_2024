@@ -92,11 +92,13 @@ namespace BSM.Players.DamagePlayer
         public override void Attack()
         {
             _isCanceling = true;
+            _player.StopFlip = true;
             CastDamage();
             _pivotTrm.DOLocalRotate(new Vector3(0, 0, -380f), 0.25f, RotateMode.FastBeyond360)
                 .OnComplete(() => 
                 {
                     UnsetWeapon();
+                    _player.StopFlip = false;
                     _lastAttackTime = Time.time;
                 });
             CameraManager.Instance.ShakeCamera(5, 3, 0.3f);
