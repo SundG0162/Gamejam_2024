@@ -1118,6 +1118,54 @@ MonoBehaviour:
   AmplitudeGain: 0
   FrequencyGain: 0
   m_NoiseOffsets: {x: -425.14954, y: 295.67, z: -986.8364}
+--- !u!1 &1158404558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158404559}
+  - component: {fileID: 1158404560}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158404559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158404558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0345263, y: -0.2487975, z: -0.01191135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158404560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158404558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f4d242c3a8314488b5328acb336965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioBase: {fileID: 11400000, guid: 83696cde4f06bb64e90629b789187073, type: 2}
+  audioPairs:
+  - key: Test
+    clip: {fileID: 0}
 --- !u!1 &1263625077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 11400000, guid: 8751211b50bb95144b1f2b79b907e257, type: 2}
+  _shell: {fileID: 2093861723327593700, guid: d1e1a2f4196733f48aafb613f0adcd28, type: 3}
 --- !u!1 &1648365935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,8 +1941,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolBase: {fileID: 11400000, guid: 286033b731b861849bca3618b3ab1255, type: 2}
   poolingPairs:
-  - poolType: DamageText
-    prefab: {fileID: 1815615242}
+  - poolType: Shell
+    prefab: {fileID: 925948527579942387, guid: d1e1a2f4196733f48aafb613f0adcd28, type: 3}
+    poolCount: 30
+  - poolType: AudioPlayer
+    prefab: {fileID: 1866734606823914424, guid: 7f09f3d315da1df48a12a0b8d304e5ef, type: 3}
     poolCount: 20
 --- !u!1 &2018943429
 GameObject:
@@ -2113,3 +2165,4 @@ SceneRoots:
   - {fileID: 919857810}
   - {fileID: 1815615243}
   - {fileID: 1975498783}
+  - {fileID: 1158404559}

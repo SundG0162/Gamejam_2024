@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PoolBase
   m_EditorClassIdentifier: 
   pairs:
-  - poolType: DamageText
-    prefab: {fileID: 0}
+  - poolType: Shell
+    prefab: {fileID: 925948527579942387, guid: d1e1a2f4196733f48aafb613f0adcd28, type: 3}
+    poolCount: 30
+  - poolType: AudioPlayer
+    prefab: {fileID: 1866734606823914424, guid: 7f09f3d315da1df48a12a0b8d304e5ef, type: 3}
     poolCount: 20
