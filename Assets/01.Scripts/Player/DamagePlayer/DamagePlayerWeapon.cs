@@ -17,14 +17,26 @@ namespace BSM.Players.DamagePlayer
         private readonly int _blinkTriggerHash = Animator.StringToHash("Blink");
 
         public bool IsSetupEnd { get; private set; } = false;
-        [SerializeField]
         private bool _isCanceling = false;
         private Sequence _setupSequence;
         private Tween _unsetTween;
 
+        [Space]
+        [Header("Damage Cast Setting")]
+        [SerializeField]
+        private float _radius;
+        [SerializeField]
+        private int _maxDetectEnemy;
+        [SerializeField]
+        private LayerMask _whatIsTarget;
+        private Collider2D[] _targets;
+
+        [Space]
+        [Header("Material Setting")]
         [SerializeField]
         [ColorUsage(true, true)]
         private Color _dissolveColor;
+
 
 
 
@@ -36,6 +48,8 @@ namespace BSM.Players.DamagePlayer
             _sampleMaterial.SetVector(Shader.PropertyToID("_SheetSize"), new Vector2(16, 48));
             _sampleMaterial.SetFloat(_dissolveAmountID, 0);
             _sampleMaterial.SetColor(_dissolveColorID, _dissolveColor);
+
+            _targets = new Collider2D[_maxDetectEnemy];
         }
 
         public void SetupWeapon()
@@ -78,6 +92,7 @@ namespace BSM.Players.DamagePlayer
         public override void Attack()
         {
             _isCanceling = true;
+            CastDamage();
             _pivotTrm.DOLocalRotate(new Vector3(0, 0, -380f), 0.25f, RotateMode.FastBeyond360)
                 .OnComplete(() => 
                 {
@@ -85,6 +100,18 @@ namespace BSM.Players.DamagePlayer
                     _lastAttackTime = Time.time;
                 });
             CameraManager.Instance.ShakeCamera(5, 3, 0.3f);
+        }
+
+        public void CastDamage()
+        {
+            int count = Physics2D.OverlapCircle(transform.position, _radius, new ContactFilter2D { useLayerMask = true, layerMask = _whatIsTarget, useTriggers = true }, _targets);
+            for(int i = 0; i < count; i++)
+            {
+                if (_targets[i].TryGetComponent(out IDamageable target))
+                {
+                    target.ApplyDamage(_player, _damage, false, 6);
+                }
+            }
         }
     }
 }

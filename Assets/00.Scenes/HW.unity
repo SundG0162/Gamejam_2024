@@ -1388,7 +1388,7 @@ GameObject:
   - component: {fileID: 1616691227}
   - component: {fileID: 1616691228}
   - component: {fileID: 1616691229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1696,11 @@ MonoBehaviour:
   _damageElement: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
   _attackDelayElement: {fileID: 11400000, guid: 6227f2e0c1b264b4391a0c3ff0fd102a, type: 2}
   _cooldownBar: {fileID: 650583043}
-  _isCanceling: 0
+  _radius: 4
+  _maxDetectEnemy: 40
+  _whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 128
   _dissolveColor: {r: 3.031433, g: 1.1174694, b: 0, a: 1}
 --- !u!1 &2040653867
 GameObject:
