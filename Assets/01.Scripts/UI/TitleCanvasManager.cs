@@ -1,7 +1,8 @@
 using SSH;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Application = UnityEngine.Device.Application;
+using UnityEngine.UI;
+using DG.Tweening;
 
 namespace SSH.UI
 {
@@ -9,10 +10,13 @@ namespace SSH.UI
     {
         [SerializeField]private OpenableCanvas SettingCanvas;
         public string GameSceneName;
+        [SerializeField] private Image _changeEffect;
         
         public void StartGame()
         {
-            SceneManager.LoadScene(GameSceneName);
+            
+            _changeEffect.material.DOFloat(1f, "_Center", 0.5f)
+                .OnComplete(()=>SceneManager.LoadScene(GameSceneName));
         }
 
         public void EndGame()
