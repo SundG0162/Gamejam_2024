@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BSM.Enemies
 {
-    public class MeleeEnemy : BTEnemy
+    public class MeleeEnemy : Entity
     {
         //Todo
     }
