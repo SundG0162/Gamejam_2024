@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &346597216
 Transform:
   m_ObjectHideFlags: 0
@@ -155,7 +155,6 @@ Transform:
   - {fileID: 467619744}
   - {fileID: 1369786862}
   - {fileID: 744795182}
-  - {fileID: 634322357}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &346597217
@@ -310,6 +309,7 @@ GameObject:
   - component: {fileID: 467619743}
   - component: {fileID: 467619742}
   - component: {fileID: 467619741}
+  - component: {fileID: 467619745}
   m_Layer: 0
   m_Name: ' Visual'
   m_TagString: Untagged
@@ -422,51 +422,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 346597216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &634322355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 634322357}
-  - component: {fileID: 634322356}
-  m_Layer: 0
-  m_Name: EntityRenderer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &634322356
+--- !u!114 &467619745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634322355}
+  m_GameObject: {fileID: 467619740}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9affa30c1b99fe4483fc6138c64e139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <FacingDirection>k__BackingField: 1
---- !u!4 &634322357
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634322355}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 346597216}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744795180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1017,10 @@ MonoBehaviour:
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 3
+  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 10
 --- !u!1 &2142548130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,6 +1034,7 @@ GameObject:
   - component: {fileID: 2142548133}
   - component: {fileID: 2142548134}
   - component: {fileID: 2142548135}
+  - component: {fileID: 2142548136}
   m_Layer: 0
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -1121,8 +1094,9 @@ MonoBehaviour:
   - rid: 9203982557428842638
   - rid: 9203982557428842811
   - rid: 9203982558735631260
-  - rid: 9203982559724175776
   - rid: 9203982563643752803
+  - rid: 9203982566251037344
+  - rid: 9203982566251037368
   references:
     version: 2
     RefIds:
@@ -1166,14 +1140,6 @@ MonoBehaviour:
           m_Value1: 18313114541004812025
         Name: StopRange
         m_Value: 2
-    - rid: 9203982559724175776
-      type: {class: 'BlackboardVariable`1[[BSM.Entities.Entity, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 14752742220106052428
-          m_Value1: 11944345880000024211
-        Name: MeleeEnemy
-        m_Value: {fileID: 2142548132}
     - rid: 9203982563643752803
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -1182,6 +1148,22 @@ MonoBehaviour:
           m_Value1: 11313348375563766684
         Name: DashPower
         m_Value: 15
+    - rid: 9203982566251037344
+      type: {class: 'BlackboardVariable`1[[BSM.Entities.EntityRenderer, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2080121996321631164
+          m_Value1: 17324477617304999061
+        Name: Renderer
+        m_Value: {fileID: 915603436}
+    - rid: 9203982566251037368
+      type: {class: 'BlackboardVariable`1[[BSM.Entities.Entity, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13950808240642839707
+          m_Value1: 1861435840345591449
+        Name: MeleeEnemy
+        m_Value: {fileID: 2142548132}
 --- !u!50 &2142548134
 Rigidbody2D:
   serializedVersion: 5
@@ -1245,6 +1227,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &2142548136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142548130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ea0450294f1b14a85d8a923e478c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealthElement: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
