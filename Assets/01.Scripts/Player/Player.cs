@@ -33,7 +33,7 @@ namespace BSM.Players
             InputReader.OnMovementEvent -= HandleOnMovementEvent;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             FlipToMouseCursor();
         }
