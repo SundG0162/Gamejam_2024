@@ -990,6 +990,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 346597216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1565346129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3164652134523394945, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+  m_PrefabInstance: {fileID: 220150230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2142548130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1049,7 @@ MonoBehaviour:
   _whatIsTarget:
     serializedVersion: 2
     m_Bits: 0
+  _hpBar: {fileID: 1565346129}
 --- !u!114 &2142548133
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using BSM.Entities;
+using BSM.UI;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,8 +10,10 @@ namespace BSM.Enemies
 {
     public class MeleeEnemy : BTEnemy
     {
+        [SerializeField] private GameObject _hpBar;
         private EntityHealth _health;
         private EntityRenderer _renderer;
+        private EntityMover _mover;
         private MeleeEnemy _meleeEnemy;
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
 
@@ -18,7 +22,9 @@ namespace BSM.Enemies
             base.Awake();
 
             _health = GetComponent<EntityHealth>();
+            _mover = GetComponent<EntityMover>();
             _renderer = GetComponentInChildren<EntityRenderer>();
+
             _meleeEnemy = this;
             _health.OnDeadEvent += HandleDeadEvt;
         }
@@ -33,8 +39,20 @@ namespace BSM.Enemies
 
         private void HandleDeadEvt()
         {
-            Debug.Log("DIE");
+            _btAgent.enabled = false;
+
+            _hpBar.SetActive(false);
+            _mover.StopImmediately();
+            
             _renderer.Dissolve(0f, 2.5f);
+
+            StartCoroutine(WaitDieTime(2.5f));
+        }
+
+        IEnumerator WaitDieTime(float time)
+        {
+            yield return new WaitForSeconds(time);
+            Destroy(gameObject);
         }
     }
 }
