@@ -1,6 +1,8 @@
+using BSM.Entities;
 using BSM.UI;
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace BSM.Players.DamagePlayer
 {
@@ -16,6 +18,14 @@ namespace BSM.Players.DamagePlayer
 
             InputReader.OnAttackEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
+        }
+
+        private void Update()
+        {
+            if(Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                GetEntityComponent<EntityHealth>().ApplyDamage(this, 1, false, 0);
+            }
         }
 
         private void HandleOnAttackEvent()
