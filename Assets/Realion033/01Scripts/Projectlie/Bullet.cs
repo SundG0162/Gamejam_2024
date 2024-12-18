@@ -12,7 +12,7 @@ namespace BSM.Projectile
         {
             currentTime += Time.deltaTime;
 
-            transform.Translate(Vector2.right * _speed * Time.deltaTime);
+            transform.Translate(Vector2.up * _speed * Time.deltaTime);
 
             if (currentTime >= _moveTime)
             {
