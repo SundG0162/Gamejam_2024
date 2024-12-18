@@ -1,10 +1,11 @@
 using BSM.Core.Cameras;
+using BSM.Entities;
 using BSM.Inputs;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BSM.Entities
+namespace BSM.Players
 {
     public class Player : Entity
     {
