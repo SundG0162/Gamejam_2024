@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingCanvas: {fileID: 306340080}
-  GameSceneName: HW
+  GameSceneName: SampleScene
   _changeEffect: {fileID: 987208557}
 --- !u!1 &306340079
 GameObject:
@@ -1349,7 +1349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 20, y: -100}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &793048957
@@ -2085,11 +2085,11 @@ RectTransform:
   - {fileID: 594850804}
   m_Father: {fileID: 1035284680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -120}
   m_SizeDelta: {x: 800, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1337003222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,7 +2164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 20, y: 50}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1362304291
@@ -2747,7 +2747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -250}
+  m_AnchoredPosition: {x: 20, y: -250}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1683706286
