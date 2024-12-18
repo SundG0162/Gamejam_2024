@@ -16,7 +16,7 @@ public partial class GetVariableAction : Action
     {
         BTEnemy enemy = Entity.Value;
         enemy.SetVariable("Mover", enemy.GetEntityComponent<EntityMover>());
-        //enemy.SetVariable("Renderer", enemy.GetEntityComponent<EntityRenderer>());
+        enemy.SetVariable("Renderer", enemy.GetEntityComponent<EntityRenderer>());
         //enemy.SetVariable("AnimTriggrier", enemy.GetEntityComponent<EntityAnimatorTrigger>());
 
         return Status.Success;
