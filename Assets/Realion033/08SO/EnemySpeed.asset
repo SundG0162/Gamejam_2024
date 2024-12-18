@@ -16,7 +16,7 @@ MonoBehaviour:
   statName: EnemySpeed
   description: "\uC801 \uC774\uB3D9\uC18D\uB3C4"
   displayName: SPD
-  _icon: {fileID: 0}
+  _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   _baseValue: 5
   _minValue: 0
   _maxValue: 30

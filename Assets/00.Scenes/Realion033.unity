@@ -119,6 +119,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &220150230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 915603432}
+    m_Modifications:
+    - target: {fileID: 2076895176381962697, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: _entityHealth
+      value: 
+      objectReference: {fileID: 2142548138}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164652134523394945, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+      propertyPath: m_Name
+      value: HPBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+--- !u!4 &220150231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2720590624573288061, guid: 5c9fd12c535c1bf479b5203f87b7f79f, type: 3}
+  m_PrefabInstance: {fileID: 220150230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &346597215
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &346597216
 Transform:
   m_ObjectHideFlags: 0
@@ -516,7 +582,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 220150231}
   m_Father: {fileID: 2142548131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &915603433
@@ -542,7 +609,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2625aa90a1ee73a4bb1a68e7aafeec9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -923,104 +990,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 346597216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1510248343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1510248344}
-  - component: {fileID: 1510248345}
-  m_Layer: 0
-  m_Name: EntityMover
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1510248344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510248343}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2142548131}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1510248345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510248343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b9d3f6214a17f4d80318defcdd0a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeedElement: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
---- !u!1 &1730118460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1730118461}
-  - component: {fileID: 1730118462}
-  m_Layer: 0
-  m_Name: EntityStat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1730118461
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730118460}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2142548131}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1730118462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730118460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d64a3bde0a4905479d299921fc1bf27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _statOverriders:
-  - _stat: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
-    _statValueType: 0
-    _isUseOverride: 1
-    _overridedBaseValue: 3
-  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
-    _statValueType: 0
-    _isUseOverride: 1
-    _overridedBaseValue: 10
 --- !u!1 &2142548130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,10 +1000,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2142548131}
   - component: {fileID: 2142548132}
+  - component: {fileID: 2142548136}
+  - component: {fileID: 2142548137}
+  - component: {fileID: 2142548138}
   - component: {fileID: 2142548133}
   - component: {fileID: 2142548134}
   - component: {fileID: 2142548135}
-  - component: {fileID: 2142548136}
   m_Layer: 0
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -1056,8 +1027,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 915603432}
-  - {fileID: 1510248344}
-  - {fileID: 1730118461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2142548132
@@ -1090,13 +1059,13 @@ MonoBehaviour:
   m_Graph: {fileID: -4873128171416342580, guid: 92150663362d8b844ae1ccb2681822b5, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 9203982548745322847
-  - rid: 9203982548745322848
-  - rid: 9203982557428842638
-  - rid: 9203982557428842811
-  - rid: 9203982558735631260
-  - rid: 9203982563643752803
-  - rid: 9203982566251037344
-  - rid: 9203982566251037368
+  - rid: 9203982566625640697
+  - rid: 9203982566625640696
+  - rid: 9203982566625640695
+  - rid: 9203982566625640694
+  - rid: 9203982566625640693
+  - rid: 9203982566625640976
+  - rid: 9203982566771917218
   references:
     version: 2
     RefIds:
@@ -1108,47 +1077,15 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 2142548130}
-    - rid: 9203982548745322848
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 9203982566625640693
+      type: {class: 'BlackboardVariable`1[[BSM.Enemies.BTEnemy, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 17772403498379002706
-          m_Value1: 1372632421461889460
-        Name: PlayerTrm
-        m_Value: {fileID: 1049492269}
-    - rid: 9203982557428842638
-      type: {class: 'BlackboardVariable`1[[BSM.Entities.EntityMover, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1268713928032585954
-          m_Value1: 6180714875963539747
-        Name: Mover
-        m_Value: {fileID: 1510248345}
-    - rid: 9203982557428842811
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 6263187699051862037
-          m_Value1: 15287789446536231426
-        Name: Speed
-        m_Value: 5
-    - rid: 9203982558735631260
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 13132057445421539298
-          m_Value1: 18313114541004812025
-        Name: StopRange
-        m_Value: 2
-    - rid: 9203982563643752803
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11466347331274191364
-          m_Value1: 11313348375563766684
-        Name: DashPower
-        m_Value: 15
-    - rid: 9203982566251037344
+          m_Value0: 14755838153281493770
+          m_Value1: 12306338841245373585
+        Name: MeleeEnemy
+        m_Value: {fileID: 2142548132}
+    - rid: 9203982566625640694
       type: {class: 'BlackboardVariable`1[[BSM.Entities.EntityRenderer, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1156,14 +1093,46 @@ MonoBehaviour:
           m_Value1: 17324477617304999061
         Name: Renderer
         m_Value: {fileID: 915603436}
-    - rid: 9203982566251037368
-      type: {class: 'BlackboardVariable`1[[BSM.Entities.Entity, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 9203982566625640695
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 13950808240642839707
-          m_Value1: 1861435840345591449
-        Name: MeleeEnemy
-        m_Value: {fileID: 2142548132}
+          m_Value0: 11466347331274191364
+          m_Value1: 11313348375563766684
+        Name: DashPower
+        m_Value: 15
+    - rid: 9203982566625640696
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6263187699051862037
+          m_Value1: 15287789446536231426
+        Name: Speed
+        m_Value: 3
+    - rid: 9203982566625640697
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17772403498379002706
+          m_Value1: 1372632421461889460
+        Name: PlayerTrm
+        m_Value: {fileID: 1049492269}
+    - rid: 9203982566625640976
+      type: {class: 'BlackboardVariable`1[[BSM.Entities.EntityMover, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1268713928032585954
+          m_Value1: 6180714875963539747
+        Name: Mover
+        m_Value: {fileID: 0}
+    - rid: 9203982566771917218
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13132057445421539298
+          m_Value1: 18313114541004812025
+        Name: StopRange
+        m_Value: 2
 --- !u!50 &2142548134
 Rigidbody2D:
   serializedVersion: 5
@@ -1228,6 +1197,40 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
 --- !u!114 &2142548136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142548130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b9d3f6214a17f4d80318defcdd0a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeedElement: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
+--- !u!114 &2142548137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142548130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d64a3bde0a4905479d299921fc1bf27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statOverriders:
+  - _stat: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 3
+  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 10
+--- !u!114 &2142548138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
