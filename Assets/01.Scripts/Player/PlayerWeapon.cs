@@ -10,6 +10,9 @@ namespace BSM.Players
         protected Player _player;
         protected EntityStat _entityStat;
 
+        protected Transform _pivotTrm;
+        protected Transform _visualTrm;
+
         private float _lastAttackTime;
 
         protected float _damage, _attackDelay;
@@ -31,6 +34,9 @@ namespace BSM.Players
             _attackDelayElement = _entityStat.GetStatElement(_attackDelayElement);
             _attackDelay = _attackDelayElement.Value;
             _attackDelayElement.OnValueChangeEvent += HandleOnAttackDelayChangeEvent;
+
+            _pivotTrm = transform.Find("Pivot");
+            _visualTrm = _pivotTrm.Find("Visual");
         }
 
         private void HandleOnDamageChangeEvent(StatElementSO stat, float prevValue, float currentValue)

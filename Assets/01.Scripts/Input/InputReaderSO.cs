@@ -13,6 +13,7 @@ namespace BSM.Inputs
         public Vector2 MousePosition { get; private set; }
 
         public event Action OnAttackEvent;
+        public event Action OnMouseUpEvent;
         public event Action OnInteractEvent;
         public event Action<Vector2> OnMovementEvent;
         public event Action<Vector2> OnMouseMoveEvent;
@@ -58,6 +59,8 @@ namespace BSM.Inputs
         {
             if (context.performed)
                 OnAttackEvent?.Invoke();
+            else if (context.canceled)
+                OnMouseUpEvent?.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
