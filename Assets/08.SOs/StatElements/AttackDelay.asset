@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9e3a2536a895347af5098da95bab68, type: 3}
+  m_Name: AttackDelay
+  m_EditorClassIdentifier: 
+  statValueType: 0
+  statName: AttackDelay
+  description: "\uACF5\uACA9\uC18D\uB3C4\uC785\uB2C8\uB2E4."
+  displayName: Attack Delay
+  _icon: {fileID: -6746367964621234244, guid: 517e6ddc15ac6c343850001cf675e1c3, type: 3}
+  _baseValue: 0.1
+  _minValue: 0
+  _maxValue: 30
+  <IsPercent>k__BackingField: 0

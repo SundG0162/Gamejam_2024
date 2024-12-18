@@ -24,7 +24,9 @@ namespace BSM.Core.StatSystem
             StatElementSO newStat = _stat.Clone() as StatElementSO;
             newStat.statValueType = _statValueType;
             if (_isUseOverride)
+            {
                 newStat.BaseValue = _overridedBaseValue;
+            }
             return newStat;
         }
     }

@@ -8,8 +8,8 @@ namespace BSM.Entities
         private Entity _entity;
         private SpriteRenderer _spriteRenderer;
         private Material _sampleMaterial;
-        private readonly int _blinkValue = Shader.PropertyToID("_BlinkValue");
-        private readonly int _dissolveAmount = Shader.PropertyToID("_DissolveAmount");
+        private readonly int _blinkValueID = Shader.PropertyToID("_BlinkValue");
+        private readonly int _dissolveAmountID = Shader.PropertyToID("_DissolveAmount");
 
         private Tween _blinkTween;
         private Tween _dissolveTween;
@@ -40,15 +40,15 @@ namespace BSM.Entities
         {
             if (_blinkTween != null && _blinkTween.IsActive())
                 _blinkTween.Kill();
-            _sampleMaterial.SetFloat(_blinkValue, 1f);
-            _blinkTween = DOTween.To(() => _sampleMaterial.GetFloat(_blinkValue), v => _sampleMaterial.SetFloat(_blinkValue, v), 0, time);
+            _sampleMaterial.SetFloat(_blinkValueID, 1f);
+            _blinkTween = DOTween.To(() => _sampleMaterial.GetFloat(_blinkValueID), v => _sampleMaterial.SetFloat(_blinkValueID, v), 0, time);
         }
 
         public void Dissolve(float endValue, float time)
         {
             if (_dissolveTween != null && _dissolveTween.IsActive())
                 _dissolveTween.Kill();
-            _dissolveTween = DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmount), v => _sampleMaterial.SetFloat(_dissolveAmount, v), endValue, time);
+            _dissolveTween = DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), endValue, time);
         }
     }
 }
