@@ -1,5 +1,5 @@
 
 public enum PoolType
 {
-    pf_Cube, 
+    DamageText, 
 }  

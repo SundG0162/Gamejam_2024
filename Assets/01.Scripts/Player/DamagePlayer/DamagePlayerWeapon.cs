@@ -14,6 +14,7 @@ namespace BSM.Players.DamagePlayer
         private readonly int _blinkValueIDID = Shader.PropertyToID("_BlinkValue");
         private readonly int _dissolveAmountID = Shader.PropertyToID("_DissolveAmount");
         private readonly int _dissolveColorID = Shader.PropertyToID("_DissolveColor");
+        private readonly int _dissolveNoiseScaleID = Shader.PropertyToID("_DissolveNoiseScale");
         private readonly int _blinkTriggerHash = Animator.StringToHash("Blink");
 
         public bool IsSetupEnd { get; private set; } = false;
@@ -60,10 +61,11 @@ namespace BSM.Players.DamagePlayer
             _pivotTrm.localRotation = Quaternion.identity;
             _sampleMaterial.SetFloat(_blinkTriggerHash, 0);
             _sampleMaterial.SetFloat(_dissolveAmountID, 0);
+            _sampleMaterial.SetFloat(_dissolveNoiseScaleID, Random.Range(4f, 16f));
 
             _setupSequence = DOTween.Sequence();
             _setupSequence
-                .Append(DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0.7f, 2.5f).SetEase(Ease.Linear))
+                .Append(DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0.7f, 2.5f).SetEase(Ease.OutQuad))
                 .AppendCallback(() => _sampleMaterial.SetFloat(_blinkValueIDID, 1))
                 .Append(DOTween.To(() => _sampleMaterial.GetFloat(_blinkValueIDID), v => _sampleMaterial.SetFloat(_blinkValueIDID, v), 0, 0.15f))
                 .JoinCallback(() => 
@@ -91,6 +93,7 @@ namespace BSM.Players.DamagePlayer
 
         public override void Attack()
         {
+            base.Attack();
             _isCanceling = true;
             _player.StopFlip = true;
             CastDamage();

@@ -5,5 +5,9 @@ namespace BSM.UI
 {
     public class DamageText : MonoBehaviour
     {
+        public void Initialize()
+        {
+
+        }
     }
 }

@@ -16,13 +16,14 @@ namespace BSM.Players
 
         protected float _lastAttackTime;
 
+        [SerializeField]
+        private StatElementSO _damageElement, _attackDelayElement;
         protected float _damage, _attackDelay;
 
         [SerializeField]
-        private StatElementSO _damageElement, _attackDelayElement;
-
-        [SerializeField]
         private Bar _cooldownBar;
+
+        public event Action OnAttackEvent;
 
         public virtual void Initialize(Entity entity)
         {
@@ -69,6 +70,9 @@ namespace BSM.Players
             return _lastAttackTime + _attackDelay <= Time.time;
         }
 
-        public abstract void Attack();
+        public virtual void Attack()
+        {
+
+        }
     }
 }
