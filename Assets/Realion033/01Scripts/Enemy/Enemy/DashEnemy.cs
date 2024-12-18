@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 namespace BSM.Enemies
 {
-    public class MeleeEnemy : BTEnemy
+    public class DashEnemy : BTEnemy
     {
         [SerializeField] private GameObject _hpBar;
         private EntityHealth _health;
         private EntityRenderer _renderer;
         private EntityMover _mover;
-        private MeleeEnemy _meleeEnemy;
+        private DashEnemy _meleeEnemy;
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
 
         protected override void Awake()
@@ -40,7 +40,7 @@ namespace BSM.Enemies
 
             _hpBar.SetActive(false);
             _mover.StopImmediately();
-
+            
             _renderer.Dissolve(0f, 2.5f);
 
             StartCoroutine(WaitDieTime(2.5f));
@@ -50,12 +50,6 @@ namespace BSM.Enemies
         {
             yield return new WaitForSeconds(time);
             Destroy(gameObject);
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 1.2f);
         }
     }
 }

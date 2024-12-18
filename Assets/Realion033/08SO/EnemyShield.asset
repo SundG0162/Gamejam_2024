@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd9e3a2536a895347af5098da95bab68, type: 3}
-  m_Name: EnemyHealth
+  m_Name: EnemyShield
   m_EditorClassIdentifier: 
   statValueType: 0
-  statName: EnemyHealth
-  description: "\uC801 \uCCB4\uB825"
-  displayName: HP
+  statName: EnemyShield
+  description: "\uC801 \uBC29\uC5B4\uB825"
+  displayName: SHD
   _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   _baseValue: 5
   _minValue: 0
-  _maxValue: 9999
+  _maxValue: 30
   <IsPercent>k__BackingField: 0
