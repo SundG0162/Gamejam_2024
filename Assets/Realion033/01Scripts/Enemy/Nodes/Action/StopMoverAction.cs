@@ -13,6 +13,7 @@ public partial class StopMoverAction : Action
 
     protected override Status OnStart()
     {
+        Mover.Value.CanManualMove = true;
         Mover.Value.StopImmediately();
         return Status.Success;
     }

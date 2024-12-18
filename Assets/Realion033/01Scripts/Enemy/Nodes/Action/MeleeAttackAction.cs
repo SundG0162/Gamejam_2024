@@ -47,7 +47,7 @@ public partial class MeleeAttackAction : Action
         }
 
         Debug.Log("Player is not in range.");
-        return Status.Running;
+        return Status.Success;
     }
 }
 
