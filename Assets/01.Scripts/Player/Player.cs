@@ -55,5 +55,16 @@ namespace BSM.Players
                 _entityRenderer.SetParameter(_idleParameter, false);
             _entityMover.SetMovement(movement);
         }
+
+        public virtual void Join()
+        {
+
+        }
+
+        public virtual void Quit()
+        {
+
+        }
+
     }
 }
