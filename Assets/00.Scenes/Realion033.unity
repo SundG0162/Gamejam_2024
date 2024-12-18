@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &346597216
 Transform:
   m_ObjectHideFlags: 0
@@ -147,8 +147,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 924922108}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915603431
@@ -161,6 +160,8 @@ GameObject:
   m_Component:
   - component: {fileID: 915603432}
   - component: {fileID: 915603433}
+  - component: {fileID: 915603434}
+  - component: {fileID: 915603435}
   m_Layer: 0
   m_Name: ' Visual'
   m_TagString: Untagged
@@ -227,7 +228,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7511179920580538099, guid: bb3c5f20431c0544893dc26264edf51d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -238,6 +239,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &915603434
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915603431}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &915603435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915603431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf9b4d56cc3e674dac32688e0ade8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trigger: 0
 --- !u!1 &924922107
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,12 +299,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924922107}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 346597216}
+  m_Father: {fileID: 1049492269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &924922109
 SpriteRenderer:
@@ -325,6 +361,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1049492268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049492269}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1049492269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049492268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 924922108}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265033274
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +738,10 @@ MonoBehaviour:
   - rid: 9203982548745322848
   - rid: 9203982557428842638
   - rid: 9203982557428842811
+  - rid: 9203982558735631260
+  - rid: 9203982559724175776
+  - rid: 9203982560670515216
+  - rid: 9203982560670515391
   references:
     version: 2
     RefIds:
@@ -688,7 +760,7 @@ MonoBehaviour:
           m_Value0: 17772403498379002706
           m_Value1: 1372632421461889460
         Name: PlayerTrm
-        m_Value: {fileID: 346597216}
+        m_Value: {fileID: 1049492269}
     - rid: 9203982557428842638
       type: {class: 'BlackboardVariable`1[[BSM.Entities.EntityMover, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -705,6 +777,38 @@ MonoBehaviour:
           m_Value1: 15287789446536231426
         Name: Speed
         m_Value: 5
+    - rid: 9203982558735631260
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13132057445421539298
+          m_Value1: 18313114541004812025
+        Name: StopRange
+        m_Value: 2
+    - rid: 9203982559724175776
+      type: {class: 'BlackboardVariable`1[[BSM.Entities.Entity, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14752742220106052428
+          m_Value1: 11944345880000024211
+        Name: MeleeEnemy
+        m_Value: {fileID: 2142548132}
+    - rid: 9203982560670515216
+      type: {class: 'BlackboardVariable`1[[BSM.Entities.EntityStat, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14262213750558975212
+          m_Value1: 7482681552981988110
+        Name: EnemyStat
+        m_Value: {fileID: 1730118462}
+    - rid: 9203982560670515391
+      type: {class: 'BlackboardVariable`1[[BSM.Core.StatSystem.StatElementSO, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13319002249567107376
+          m_Value1: 7772242542507138311
+        Name: MoveStat
+        m_Value: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
 --- !u!50 &2142548134
 Rigidbody2D:
   serializedVersion: 5
@@ -775,3 +879,4 @@ SceneRoots:
   - {fileID: 1265033277}
   - {fileID: 2142548131}
   - {fileID: 346597216}
+  - {fileID: 1049492269}
