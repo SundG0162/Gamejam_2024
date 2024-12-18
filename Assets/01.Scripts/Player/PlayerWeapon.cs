@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace BSM.Players
 {
-    public abstract class PlayerAttack : MonoBehaviour, IEntityComponent
+    public abstract class PlayerWeapon : MonoBehaviour, IEntityComponent
     {
         protected Player _player;
         protected EntityStat _entityStat;

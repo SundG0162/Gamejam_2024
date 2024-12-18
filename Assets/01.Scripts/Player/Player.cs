@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace BSM.Players
 {
-    public class Player : Entity
+    public abstract class Player : Entity
     {
         [field: SerializeField]
         public InputReaderSO InputReader { get; private set; }
@@ -23,15 +23,6 @@ namespace BSM.Players
         protected virtual void HandleOnMovementEvent(Vector2 movement)
         {
             _entityMover.SetMovement(movement);
-        }
-
-        private void Update()
-        {
-            if(Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                GetEntityComponent<EntityHealth>().ApplyDamage(this, 5, false, 0);
-                CameraManager.Instance.ShakeCamera(2, 1, 0.15f);
-            }
         }
     }
 }
