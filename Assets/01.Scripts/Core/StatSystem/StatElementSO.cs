@@ -10,6 +10,7 @@ namespace BSM.Core.StatSystem
         Infinite
     }
 
+    [CreateAssetMenu(menuName = "SO/StatSystem/StatElement")]
     public class StatElementSO : ScriptableObject, ICloneable
     {
         public delegate void OnValueChangeHandler(StatElementSO stat, float prevValue, float currentValue);
