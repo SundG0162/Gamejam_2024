@@ -1,9 +1,9 @@
 using BSM.Entities;
 using UnityEngine;
 
-namespace BSM.Entities
+namespace BSM.Enemies
 {
-    public class MeleeEnemy : Entity
+    public class RangeEnemy : BTEnemy
     {
         //Todo
     }
