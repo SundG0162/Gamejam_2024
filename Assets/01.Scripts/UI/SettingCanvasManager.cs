@@ -11,6 +11,7 @@ namespace BSM
         public void OpenSettingCanvas()
         {
             OpenCanvas();
+            volumeSlider.value = PlayerPrefs.GetFloat("Volume");
         }
         
         public void SaveAndClose()
