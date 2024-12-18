@@ -25,8 +25,9 @@ namespace BSM.Players.DamagePlayer
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 ShellEffect shell = gameObject.Pop(PoolType.Shell, transform.position, Quaternion.identity).gameObject.GetComponent<ShellEffect>();

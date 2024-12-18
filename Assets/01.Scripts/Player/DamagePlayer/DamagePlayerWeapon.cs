@@ -65,7 +65,7 @@ namespace BSM.Players.DamagePlayer
 
             _setupSequence = DOTween.Sequence();
             _setupSequence
-                .Append(DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0.7f, 2.5f).SetEase(Ease.OutQuad))
+                .Append(DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0.7f, 2.5f).SetEase(Ease.OutSine))
                 .AppendCallback(() => _sampleMaterial.SetFloat(_blinkValueIDID, 1))
                 .Append(DOTween.To(() => _sampleMaterial.GetFloat(_blinkValueIDID), v => _sampleMaterial.SetFloat(_blinkValueIDID, v), 0, 0.15f))
                 .JoinCallback(() => 
