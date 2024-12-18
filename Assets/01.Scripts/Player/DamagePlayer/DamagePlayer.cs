@@ -1,5 +1,8 @@
+using BSM.Entities;
+using BSM.UI;
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace BSM.Players.DamagePlayer
 {
@@ -14,6 +17,13 @@ namespace BSM.Players.DamagePlayer
 
             InputReader.OnAttackEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            InputReader.OnAttackEvent -= HandleOnAttackEvent;
+            InputReader.OnMouseUpEvent -= HandleOnTryAttackEvent;
         }
 
         private void HandleOnAttackEvent()

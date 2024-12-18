@@ -1,5 +1,6 @@
 using BSM.Core.StatSystem;
 using BSM.Entities;
+using BSM.UI;
 using System;
 using UnityEngine;
 
@@ -13,18 +14,20 @@ namespace BSM.Players
         protected Transform _pivotTrm;
         protected Transform _visualTrm;
 
-        private float _lastAttackTime;
+        protected float _lastAttackTime;
 
         protected float _damage, _attackDelay;
 
         [SerializeField]
         private StatElementSO _damageElement, _attackDelayElement;
 
+        [SerializeField]
+        private Bar _cooldownBar;
+
         public virtual void Initialize(Entity entity)
         {
             _player = entity as Player;
 
-            _lastAttackTime = 0;
             _entityStat = entity.GetEntityComponent<EntityStat>();
 
             _damageElement = _entityStat.GetStatElement(_damageElement);
@@ -33,6 +36,7 @@ namespace BSM.Players
 
             _attackDelayElement = _entityStat.GetStatElement(_attackDelayElement);
             _attackDelay = _attackDelayElement.Value;
+            _lastAttackTime = -_attackDelay;
             _attackDelayElement.OnValueChangeEvent += HandleOnAttackDelayChangeEvent;
 
             _pivotTrm = transform.Find("Pivot");
@@ -45,6 +49,20 @@ namespace BSM.Players
         private void HandleOnAttackDelayChangeEvent(StatElementSO stat, float prevValue, float currentValue)
             => _attackDelay = currentValue;
 
+        private void Update()
+        {
+            //공격 쿨다운 표시해주는 바. 코드가 똥이고 맛도 없고 연출도 구려서 일단 주석처리.
+            //float ratio = (Time.time - _lastAttackTime) / _attackDelay;
+            //if (ratio <= 1)
+            //{
+            //    _cooldownBar.gameObject.SetActive(true);
+            //    _cooldownBar.SetFillAmount(ratio);
+            //}
+            //else
+            //{
+            //    _cooldownBar.gameObject.SetActive(false);
+            //}
+        }
 
         public virtual bool CanAttack()
         {
