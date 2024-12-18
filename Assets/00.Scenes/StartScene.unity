@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.98
 --- !u!222 &1035284684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3024,6 +3024,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1198859328464381372, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198859328464381372, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5287572672410136929, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Name
       value: BackgroundMap
@@ -3069,7 +3077,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6485461849857988710, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+    - {fileID: 8554288762607446143, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+    - {fileID: 3529064177716857884, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+    - {fileID: 2473297000008115524, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+    - {fileID: 6423228999875588445, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+    - {fileID: 2559265578637815681, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+    - {fileID: 3486482330821755301, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
