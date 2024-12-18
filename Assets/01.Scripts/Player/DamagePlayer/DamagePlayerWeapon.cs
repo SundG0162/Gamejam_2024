@@ -57,7 +57,7 @@ namespace BSM.Players.DamagePlayer
             if (_setupSequence != null && _setupSequence.IsActive())
                 _setupSequence.Kill();
             IsSetupEnd = false;
-            _pivotTrm.rotation = Quaternion.identity;
+            _pivotTrm.localRotation = Quaternion.identity;
             _sampleMaterial.SetFloat(_blinkTriggerHash, 0);
             _sampleMaterial.SetFloat(_dissolveAmountID, 0);
 
@@ -83,7 +83,7 @@ namespace BSM.Players.DamagePlayer
             if (_setupSequence != null && _setupSequence.IsActive())
                 _setupSequence.Kill();
             _isCanceling = true;
-            _sampleMaterial.SetFloat(_blinkTriggerHash, 0);
+            _sampleMaterial.SetFloat(_blinkTriggerHash, 0.2f);
             _unsetTween = DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0, 0.2f)
                 .OnComplete(() => _isCanceling = false);
             IsSetupEnd = false;
