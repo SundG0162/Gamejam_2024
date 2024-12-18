@@ -13,6 +13,7 @@ namespace BSM.UI
 
         public void SetFillAmount(float fillAmount)
         {
+            fillAmount = Mathf.Clamp01(fillAmount);
             _pivotTrm.transform.localScale = new Vector2(fillAmount, 1);
         }
     }

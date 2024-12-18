@@ -1,3 +1,4 @@
+using BSM.UI;
 using System;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace BSM.Players.DamagePlayer
     public class DamagePlayer : Player
     {
         private DamagePlayerWeapon _weapon;
+
 
         protected override void Awake()
         {

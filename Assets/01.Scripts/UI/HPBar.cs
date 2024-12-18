@@ -21,7 +21,10 @@ namespace BSM.UI
 
         private void HandleOnHealthChangeEvent(float prevHealth, float currentHealth)
         {
-            throw new NotImplementedException();
+            if(prevHealth > currentHealth)
+            {
+
+            }
         }
     }
 }
