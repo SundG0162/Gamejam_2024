@@ -17,6 +17,7 @@ public partial class ChaseTargetAction : Action
     protected override Status OnStart()
     {
         Vector3 direction = (Target.Value.position - Self.Value.transform.position).normalized;
+        Mover.Value.CanManualMove = true;
         Mover.Value.SetMovement(direction);
         return Status.Running;
     }
