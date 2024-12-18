@@ -1,3 +1,4 @@
+using BSM.Core.Cameras;
 using BSM.Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,7 @@ namespace BSM.Entities
             if(Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 GetEntityComponent<EntityHealth>().ApplyDamage(this, 5, false, 0);
+                CameraManager.Instance.ShakeCamera(2, 1, 0.15f);
             }
         }
     }
