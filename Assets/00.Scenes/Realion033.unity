@@ -463,12 +463,12 @@ GameObject:
   m_Component:
   - component: {fileID: 346597216}
   - component: {fileID: 346597219}
-  - component: {fileID: 346597218}
   - component: {fileID: 346597220}
+  - component: {fileID: 346597218}
+  - component: {fileID: 346597224}
   - component: {fileID: 346597222}
   - component: {fileID: 346597221}
   - component: {fileID: 346597223}
-  - component: {fileID: 346597224}
   m_Layer: 0
   m_Name: Enemy_Beta
   m_TagString: Untagged
@@ -611,14 +611,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statOverriders:
+  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 30
+  - _stat: {fileID: 11400000, guid: 90bc22fd3677900408c46a05302383c9, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 5
+  - _stat: {fileID: 11400000, guid: b7ab1e53d432c5c48ba6d888070910dd, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 15
   - _stat: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 3
-  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
-    _statValueType: 0
-    _isUseOverride: 1
-    _overridedBaseValue: 10
 --- !u!114 &346597222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,12 +1340,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1817558491}
   - component: {fileID: 1817558492}
-  - component: {fileID: 1817558489}
   - component: {fileID: 1817558488}
+  - component: {fileID: 1817558489}
+  - component: {fileID: 1817558484}
   - component: {fileID: 1817558487}
   - component: {fileID: 1817558486}
   - component: {fileID: 1817558485}
-  - component: {fileID: 1817558484}
   m_Layer: 0
   m_Name: Enemy_Alpha
   m_TagString: Untagged
@@ -1417,14 +1425,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statOverriders:
+  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 30
+  - _stat: {fileID: 11400000, guid: 90bc22fd3677900408c46a05302383c9, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 15
+  - _stat: {fileID: 11400000, guid: b7ab1e53d432c5c48ba6d888070910dd, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 5
   - _stat: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 3
-  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
-    _statValueType: 0
-    _isUseOverride: 1
-    _overridedBaseValue: 10
 --- !u!114 &1817558487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,12 +1604,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2142548131}
   - component: {fileID: 2142548132}
-  - component: {fileID: 2142548136}
-  - component: {fileID: 2142548137}
-  - component: {fileID: 2142548138}
   - component: {fileID: 2142548133}
   - component: {fileID: 2142548134}
   - component: {fileID: 2142548139}
+  - component: {fileID: 2142548136}
+  - component: {fileID: 2142548137}
+  - component: {fileID: 2142548138}
   m_Layer: 0
   m_Name: Enemy_Gamma
   m_TagString: Untagged
@@ -1792,7 +1808,7 @@ MonoBehaviour:
   - _stat: {fileID: 11400000, guid: 90bc22fd3677900408c46a05302383c9, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 10
+    _overridedBaseValue: 25
   - _stat: {fileID: 11400000, guid: b7ab1e53d432c5c48ba6d888070910dd, type: 2}
     _statValueType: 0
     _isUseOverride: 1
