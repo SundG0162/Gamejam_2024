@@ -22,8 +22,6 @@ namespace BSM.Core.Cameras
             if (_shakeSequence != null && _shakeSequence.IsActive())
                 _shakeSequence.Kill();
 
-            _shakeSequence = DOTween.Sequence();
-
             _multiChannelPerlin.AmplitudeGain = amplitude;
             _multiChannelPerlin.FrequencyGain = frequency;
 

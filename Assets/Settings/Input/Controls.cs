@@ -433,15 +433,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""OpenStatUI"",
-                    ""type"": ""Button"",
-                    ""id"": ""971d02be-19b1-4ffe-8449-4a364c542907"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -862,17 +853,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""939e63fc-1a4b-4a96-9867-de26a0619d67"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenStatUI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -959,7 +939,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        m_UI_OpenStatUI = m_UI.FindAction("OpenStatUI", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -1115,7 +1094,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
-    private readonly InputAction m_UI_OpenStatUI;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -1130,7 +1108,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
-        public InputAction @OpenStatUI => m_Wrapper.m_UI_OpenStatUI;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1170,9 +1147,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
-            @OpenStatUI.started += instance.OnOpenStatUI;
-            @OpenStatUI.performed += instance.OnOpenStatUI;
-            @OpenStatUI.canceled += instance.OnOpenStatUI;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1207,9 +1181,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
-            @OpenStatUI.started -= instance.OnOpenStatUI;
-            @OpenStatUI.performed -= instance.OnOpenStatUI;
-            @OpenStatUI.canceled -= instance.OnOpenStatUI;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1292,6 +1263,5 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
-        void OnOpenStatUI(InputAction.CallbackContext context);
     }
 }

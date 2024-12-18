@@ -13,11 +13,9 @@ namespace BSM.Inputs
         public Vector2 MousePosition { get; private set; }
 
         public event Action OnAttackEvent;
-        public event Action OnMouseUpEvent;
         public event Action OnInteractEvent;
         public event Action<Vector2> OnMovementEvent;
         public event Action<Vector2> OnMouseMoveEvent;
-        public event Action OnOpenStatUIEvent;
 
         private void OnEnable()
         {
@@ -60,14 +58,12 @@ namespace BSM.Inputs
         {
             if (context.performed)
                 OnAttackEvent?.Invoke();
-            else if (context.canceled)
-                OnMouseUpEvent?.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.performed)
-                OnInteractEvent?.Invoke();
+                OnAttackEvent?.Invoke();
         }
 
         public void OnJump(InputAction.CallbackContext context)
@@ -84,13 +80,6 @@ namespace BSM.Inputs
         {
             Movement = context.ReadValue<Vector2>();
             OnMovementEvent?.Invoke(Movement);
-        }
-        
-        
-        public void OnOpenStatUI(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnOpenStatUIEvent?.Invoke();
         }
         #endregion
 
@@ -134,7 +123,6 @@ namespace BSM.Inputs
         public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
         {
         }
-
         #endregion
     }
 }

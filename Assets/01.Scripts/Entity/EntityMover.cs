@@ -9,7 +9,6 @@ namespace BSM.Entities
     {
         private Entity _entity;
         private EntityStat _entityStat;
-        private EntityRenderer _entityRenderer;
 
         public event Action<Vector2> OnMovementEvent;
 
@@ -27,7 +26,6 @@ namespace BSM.Entities
             _entity = entity;
             _rigidbody = entity.GetComponent<Rigidbody2D>();
             _entityStat = entity.GetEntityComponent<EntityStat>();
-            _entityRenderer = entity.GetEntityComponent<EntityRenderer>();
         }
 
         public void OnAfterInitialize()
