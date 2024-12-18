@@ -1,4 +1,5 @@
 using BSM.Core.StatSystem;
+using DG.Tweening;
 using System;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace BSM.Entities
         private Entity _entity;
         private EntityMover _entityMover;
         private EntityStat _entityStat;
+        private EntityRenderer _entityRenderer;
 
         public delegate void DamageTakenEvent(Entity dealer, float damage, bool isCritical);
         public delegate void HealthChangeEvent(float prevHealth, float currentHealth);
@@ -23,11 +25,13 @@ namespace BSM.Entities
         [SerializeField]
         private StatElementSO _maxHealthElement;
 
+
         public void Initialize(Entity entity)
         {
             _entity = entity;
             _entityMover = entity.GetEntityComponent<EntityMover>();
             _entityStat = entity.GetEntityComponent<EntityStat>();
+            _entityRenderer = entity.GetEntityComponent<EntityRenderer>();
             _maxHealthElement = _entityStat.GetStatElement(_maxHealthElement);
             MaxHealth = _maxHealthElement.Value;
             CurrentHealth = MaxHealth;
@@ -38,7 +42,7 @@ namespace BSM.Entities
         {
             MaxHealth = currentValue;
             float prevHealth = CurrentHealth;
-            if(prevValue < currentValue)
+            if (prevValue < currentValue)
             {
                 CurrentHealth += currentValue - prevValue;
             }
@@ -47,13 +51,19 @@ namespace BSM.Entities
 
         public void ApplyDamage(Entity dealer, float damage, bool isCritical, float knockbackPower, float knockbackTime = 0.3f)
         {
+            _entityRenderer.Blink();
             Vector2 direction = transform.position - dealer.transform.position;
             direction.Normalize();
-            _entityMover.Knockback(direction * knockbackPower, knockbackTime);
+            if (knockbackPower != 0)
+                _entityMover.Knockback(direction * knockbackPower, knockbackTime);
             float prevHealth = CurrentHealth;
             OnDamageTakenEvent?.Invoke(dealer, damage, isCritical);
             CurrentHealth -= damage;
             OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
+            if(CurrentHealth <= 0)
+            {
+                OnDeadEvent?.Invoke();
+            }
         }
     }
 }
