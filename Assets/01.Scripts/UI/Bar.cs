@@ -4,17 +4,21 @@ namespace BSM.UI
 {
     public class Bar : MonoBehaviour
     {
-        private Transform _pivotTrm;
+        protected Transform _pivotTrm;
 
-        private void Awake()
+        public float FillAmount
         {
-            _pivotTrm = transform.Find("Pivot");
+            get => _pivotTrm.transform.localScale.x;
+            set
+            {
+                value = Mathf.Clamp01(value);
+                _pivotTrm.transform.localScale = new Vector2(value, 1);
+            }
         }
 
-        public void SetFillAmount(float fillAmount)
+        protected virtual void Awake()
         {
-            fillAmount = Mathf.Clamp01(fillAmount);
-            _pivotTrm.transform.localScale = new Vector2(fillAmount, 1);
+            _pivotTrm = transform.Find("Pivot");
         }
     }
 }
