@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using BSM.Core.Cameras;
 using BSM.Entities;
+using BSM.Inputs;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,14 @@ namespace BSM.Players
     public class PlayerTag : MonoBehaviour
     {
         [SerializeField]
+        private InputReaderSO _inputReader;
+
+        [SerializeField]
         [SerializedDictionary("Player Type", "Player Prefab")]
         private SerializedDictionary<EPlayerType, Player> _playerDictionary;
 
         public Player CurrentPlayer { get; private set; }
+        public EPlayerType CurrentPlayerEnum { get; private set; }
 
         [field: SerializeField]
         public float MaxMana { get; private set; }
@@ -32,9 +37,11 @@ namespace BSM.Players
         public event Action<Player> OnPlayerChangeEvent;
         public event ManaChangeEvent OnManaChangeEvent;
 
+        private EPlayerType[] _tagPlayers = new EPlayerType[3];
 
         private void Awake()
         {
+            int index = 0;
             foreach (EPlayerType type in Enum.GetValues(typeof(EPlayerType)))
             {
                 _playerDictionary[type] = Instantiate(_playerDictionary[type], transform);
@@ -43,13 +50,20 @@ namespace BSM.Players
                 player.transform.localPosition = Vector3.zero;
                 player.GetEntityComponent<EntityRenderer>().Disappear(0);
                 player.Initialize(this);
+                _tagPlayers[index++] = type;
             }
 
             CurrentPlayer = _playerDictionary[EPlayerType.Damage];
+            CurrentPlayerEnum = EPlayerType.Damage;
             CurrentPlayer.gameObject.SetActive(true);
             CurrentPlayer.GetEntityComponent<EntityRenderer>().Appear(0);
             CameraManager.Instance.ChangeTarget(CurrentPlayer.transform);
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
+            _inputReader.OnTagEvent += HandleOnTagEvent;
+        }
+
+        private void HandleOnTagEvent(int index)
+        {
         }
 
         private void Update()
@@ -85,6 +99,7 @@ namespace BSM.Players
                 CurrentPlayer.gameObject.SetActive(false);
                 pos = CurrentPlayer.transform.position;
             }
+            CurrentPlayerEnum = type;
             CurrentPlayer = _playerDictionary[type];
             CurrentPlayer.transform.position = pos;
             CurrentPlayer.gameObject.SetActive(true);
