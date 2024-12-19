@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using BSM.Core.Cameras;
 using BSM.Entities;
 using BSM.Inputs;
+using BSM.UI;
 using BSM.Utils;
 using DG.Tweening;
 using System;
@@ -41,6 +42,11 @@ namespace BSM.Players
         [SerializeField]
         private EPlayerType[] _tagPlayers = new EPlayerType[3];
 
+        [SerializeField]
+        private ResultPanelUI _resultPanelUI;
+        [SerializeField]
+        private PausePanelUI _pausePanelUI;
+
         private void Awake()
         {
             int index = 0;
@@ -52,6 +58,7 @@ namespace BSM.Players
                 player.transform.localPosition = Vector3.zero;
                 player.GetEntityComponent<EntityRenderer>().Disappear(0);
                 player.Initialize(this);
+                player.GetEntityComponent<EntityHealth>().OnDeadEvent += HandleOnDeadEvent;
                 _tagPlayers[index++] = type;
             }
 
@@ -62,6 +69,27 @@ namespace BSM.Players
             CameraManager.Instance.ChangeTarget(CurrentPlayer.transform);
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
             _inputReader.OnTagEvent += HandleOnTagEvent;
+            _inputReader.OnPauseEvent += HandleOnPauseEvent;
+        }
+
+        private void HandleOnPauseEvent()
+        {
+            _pausePanelUI.Open();
+        }
+
+        private void OnDestroy()
+        {
+            _inputReader.OnTagEvent -= HandleOnTagEvent;
+            _inputReader.OnPauseEvent -= HandleOnPauseEvent;
+        }
+
+        private void HandleOnDeadEvent()
+        {
+            Time.timeScale = 0;
+            CameraManager.Instance.CameraOnDead(() => 
+            {
+                _resultPanelUI.Open();
+            });
         }
 
         private void HandleOnTagEvent(int index)

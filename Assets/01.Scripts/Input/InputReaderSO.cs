@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace BSM.Inputs
 {
@@ -20,6 +21,7 @@ namespace BSM.Inputs
         public event Action<Vector2> OnMouseMoveEvent;
         public event Action OnOpenStatUIEvent;
         public event Action<int> OnTagEvent;
+        public event Action OnPauseEvent;
 
         private void OnEnable()
         {
@@ -106,6 +108,13 @@ namespace BSM.Inputs
         {
             if (context.performed)
                 OnDashEvent?.Invoke();
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnPauseEvent?.Invoke();
+
         }
         #endregion
 

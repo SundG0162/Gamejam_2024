@@ -3,6 +3,7 @@ using SSH.Spawn;
 using System;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 namespace BSM.Core.Cameras
@@ -35,16 +36,23 @@ namespace BSM.Core.Cameras
                 .Join(DOTween.To(() => _multiChannelPerlin.FrequencyGain, v => _multiChannelPerlin.FrequencyGain = v, 0, time).SetEase(ease));
         }
 
-        public void TiltCamera(float tiltValue, float time)
+        public void TiltCamera(float tiltValue, float time, Ease ease = Ease.InOutSine)
         {
             if (_tiltTween != null && _tiltTween.IsActive())
                 _tiltTween.Kill();
-            _tiltTween = CurrentCam.transform.DORotate(new Vector3(0, 0, tiltValue), time);
+            _tiltTween = CurrentCam.transform.DORotate(new Vector3(0, 0, tiltValue), time).SetEase(ease).SetUpdate(true);
         }
 
         public void ChangeTarget(Transform target)
         {
             CurrentCam.Follow = target;
+        }
+
+        public void CameraOnDead(Action OnComplete)
+        {
+            TiltCamera(50, 0.7f, Ease.InQuart);
+            DOTween.To(() => CurrentCam.Lens.OrthographicSize, v => CurrentCam.Lens.OrthographicSize = v, 3f, 0.7f).SetEase(Ease.InQuart)
+                .OnComplete(()=> OnComplete?.Invoke());
         }
     }
 }
