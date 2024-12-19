@@ -38,10 +38,6 @@ namespace BSM.Players.DamagePlayer
         [ColorUsage(true, true)]
         private Color _dissolveColor;
 
-
-
-
-
         public override void Initialize(Entity entity)
         {
             base.Initialize(entity);
@@ -71,7 +67,7 @@ namespace BSM.Players.DamagePlayer
                 .Append(DOTween.To(() => _sampleMaterial.GetFloat(_blinkValueIDID), v => _sampleMaterial.SetFloat(_blinkValueIDID, v), 0, 0.15f))
                 .JoinCallback(() =>
                 {
-                    _animator.SetTrigger(_blinkTriggerHash);
+                    _animator.SetBool(_blinkTriggerHash, true);
                     IsSetupEnd = true;
                     _shakeTween = transform.DOShakePosition(0.5f, 0.05f, 50, 90, fadeOut: false).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
                 });
@@ -86,6 +82,7 @@ namespace BSM.Players.DamagePlayer
         {
             if (_setupSequence != null && _setupSequence.IsActive())
                 _setupSequence.Kill();
+            _animator.SetBool(_blinkTriggerHash, false);
             _isCanceling = true;
             _sampleMaterial.SetFloat(_blinkTriggerHash, 0.2f);
             DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0, 0.2f)
