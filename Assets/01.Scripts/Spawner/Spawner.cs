@@ -47,7 +47,7 @@ namespace SSH.Spawn
                             print("spawned");
                             print(Time.time);
                             //Instantiate(Waves[0]._spawnInfoListSO.SpawnObject[i]);
-                            PoolManager.poolDic[(PoolType.Enemy_Alpha + i)].Pop();
+                            PoolManager.poolDic[(PoolType.EnemyAlpha + i)].Pop();
                         }
                     }
                     yield return new WaitForSeconds(spawnInfo._spawnDelay);
