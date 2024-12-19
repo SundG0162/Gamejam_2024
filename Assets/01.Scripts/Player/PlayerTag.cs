@@ -69,11 +69,14 @@ namespace BSM.Players
             }
         }
 
-        public void TagPlayer(EPlayerType type)
+        public void TagPlayer(EPlayerType type, bool withoutMana = false)
         {
-            if (_currentMana < MaxMana / 2)
-                return;
-            ModifyMana(-MaxMana / 2);
+            if (!withoutMana)
+            {
+                if (_currentMana < MaxMana / 2)
+                    return;
+                ModifyMana(-MaxMana / 2);
+            }
             Vector3 pos = Vector3.zero;
             if (CurrentPlayer != null)
             {
