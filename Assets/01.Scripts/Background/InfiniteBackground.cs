@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +11,13 @@ namespace SSH
 
         public void MovePosition(Vector3 pos)
         {
+            StartCoroutine(movePositionAfterFrame(pos));
+        }
+
+        public IEnumerator movePositionAfterFrame(Vector3 pos)
+        {
+            yield return null;
             transform.position += pos;
         }
-        
     }
 }
