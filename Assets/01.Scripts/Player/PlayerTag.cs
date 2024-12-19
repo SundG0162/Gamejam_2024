@@ -57,15 +57,15 @@ namespace BSM.Players
             if (CurrentPlayer != null)
             {
                 CurrentPlayer.GetEntityComponent<EntityMover>().StopImmediately();
-                CurrentPlayer.GetEntityComponent<EntityRenderer>().Disappear(0.15f);
+                CurrentPlayer.Quit();
                 CurrentPlayer.gameObject.SetActive(false);
                 pos = CurrentPlayer.transform.position;
             }
             CurrentPlayer = _playerDictionary[type];
             CurrentPlayer.transform.position = pos;
             CurrentPlayer.gameObject.SetActive(true);
-            CurrentPlayer.GetEntityComponent<EntityRenderer>().Appear(0.15f);
             CurrentPlayer.GetEntityComponent<EntityMover>().StopImmediately();
+            CurrentPlayer.Join();
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
         }
     }

@@ -54,8 +54,6 @@ namespace BSM.Players.DamagePlayer
             }
         }
 
-       
-
         private void HandleOnAttackEvent()
         {
             if (_weapon.CanAttack())
@@ -70,6 +68,11 @@ namespace BSM.Players.DamagePlayer
                 _weapon.Attack();
             else
                 _weapon.UnsetWeapon();
+        }
+
+        public override void Join()
+        {
+            base.Join();
         }
     }
 }
