@@ -20,7 +20,7 @@ namespace BSM.Players.DamagePlayer
         public bool IsSetupEnd { get; private set; } = false;
         private bool _isCanceling = false;
         private Sequence _setupSequence;
-        private Tween _unsetTween;
+        private Tween _shakeTween;
 
         [Space]
         [Header("Damage Cast Setting")]
@@ -68,10 +68,11 @@ namespace BSM.Players.DamagePlayer
                 .Append(DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0.7f, 2.5f).SetEase(Ease.OutSine))
                 .AppendCallback(() => _sampleMaterial.SetFloat(_blinkValueIDID, 1))
                 .Append(DOTween.To(() => _sampleMaterial.GetFloat(_blinkValueIDID), v => _sampleMaterial.SetFloat(_blinkValueIDID, v), 0, 0.15f))
-                .JoinCallback(() => 
+                .JoinCallback(() =>
                 {
                     _animator.SetTrigger(_blinkTriggerHash);
                     IsSetupEnd = true;
+                    _shakeTween = transform.DOShakePosition(0.5f, 0.05f, 50, 90, fadeOut: false).SetEase(Ease.Linear).SetLoops(-1, LoopType.Restart);
                 });
         }
 
@@ -86,7 +87,7 @@ namespace BSM.Players.DamagePlayer
                 _setupSequence.Kill();
             _isCanceling = true;
             _sampleMaterial.SetFloat(_blinkTriggerHash, 0.2f);
-            _unsetTween = DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0, 0.2f)
+            DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0, 0.2f)
                 .OnComplete(() => _isCanceling = false);
             IsSetupEnd = false;
         }
@@ -96,9 +97,10 @@ namespace BSM.Players.DamagePlayer
             base.Attack();
             _isCanceling = true;
             _player.StopFlip = true;
+            _shakeTween.Kill();
             CastDamage();
             _pivotTrm.DOLocalRotate(new Vector3(0, 0, -380f), 0.25f, RotateMode.FastBeyond360)
-                .OnComplete(() => 
+                .OnComplete(() =>
                 {
                     UnsetWeapon();
                     _player.StopFlip = false;
@@ -110,7 +112,7 @@ namespace BSM.Players.DamagePlayer
         public void CastDamage()
         {
             int count = Physics2D.OverlapCircle(transform.position, _radius, new ContactFilter2D { useLayerMask = true, layerMask = _whatIsTarget, useTriggers = true }, _targets);
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (_targets[i].TryGetComponent(out IDamageable target))
                 {
