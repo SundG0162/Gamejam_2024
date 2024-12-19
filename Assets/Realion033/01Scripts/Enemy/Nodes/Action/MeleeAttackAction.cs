@@ -3,6 +3,7 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using BSM.Enemies;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "MeleeAttack", story: "[Self] attack [Player] in [AttackRange]", category: "Action", id: "5856d3b217d1501c675119d91169ba84")]
@@ -41,8 +42,6 @@ public partial class MeleeAttackAction : Action
 
         if (hit != null)
         {
-            Debug.Log("Player is in range! Attacking...");
-            // Trigger attack logic here (e.g., damage the player)
             return Status.Success;
         }
 

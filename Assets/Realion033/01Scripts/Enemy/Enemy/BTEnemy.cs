@@ -68,9 +68,22 @@ namespace BSM.Enemies
             return collider != null ? collider.transform : null;
         }
 
-        public void Attack(float Damage)
+        public void Attack(float damage, Transform target)
         {
-            
+            if (target == null)
+            {
+                Debug.Log("NO");
+                return;
+            }
+            IDamageable damageable = target.GetComponent<IDamageable>();
+
+            Debug.Log(target);
+
+            if (target != null)
+            {
+                Debug.Log("Yes");
+                damageable. ApplyDamage(transform, damage, false, 0);
+            }
         }
 
         public PoolType OriginPoolType { get; set; }
