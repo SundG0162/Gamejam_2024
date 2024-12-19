@@ -71,6 +71,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Tag1"",
+                    ""type"": ""Button"",
+                    ""id"": ""213ea93b-584d-4b75-ad38-01c1ae522010"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tag2"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6719494-219d-461d-9c07-7d693ead4bbd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -335,6 +353,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""561bf479-7e86-4e7d-9fd7-832bff44ab67"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Tag1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ddc04d38-e891-4513-81b2-07022cf97dde"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Tag2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -947,6 +987,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
+        m_Player_Tag1 = m_Player.FindAction("Tag1", throwIfNotFound: true);
+        m_Player_Tag2 = m_Player.FindAction("Tag2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1032,6 +1074,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_MouseMove;
+    private readonly InputAction m_Player_Tag1;
+    private readonly InputAction m_Player_Tag2;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1041,6 +1085,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
+        public InputAction @Tag1 => m_Wrapper.m_Player_Tag1;
+        public InputAction @Tag2 => m_Wrapper.m_Player_Tag2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1065,6 +1111,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseMove.started += instance.OnMouseMove;
             @MouseMove.performed += instance.OnMouseMove;
             @MouseMove.canceled += instance.OnMouseMove;
+            @Tag1.started += instance.OnTag1;
+            @Tag1.performed += instance.OnTag1;
+            @Tag1.canceled += instance.OnTag1;
+            @Tag2.started += instance.OnTag2;
+            @Tag2.performed += instance.OnTag2;
+            @Tag2.canceled += instance.OnTag2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1084,6 +1136,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MouseMove.started -= instance.OnMouseMove;
             @MouseMove.performed -= instance.OnMouseMove;
             @MouseMove.canceled -= instance.OnMouseMove;
+            @Tag1.started -= instance.OnTag1;
+            @Tag1.performed -= instance.OnTag1;
+            @Tag1.canceled -= instance.OnTag1;
+            @Tag2.started -= instance.OnTag2;
+            @Tag2.performed -= instance.OnTag2;
+            @Tag2.canceled -= instance.OnTag2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1279,6 +1337,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
+        void OnTag1(InputAction.CallbackContext context);
+        void OnTag2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
