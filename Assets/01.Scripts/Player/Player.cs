@@ -14,6 +14,7 @@ namespace BSM.Players
         public InputReaderSO InputReader { get; private set; }
         protected EntityMover _entityMover;
         protected EntityRenderer _entityRenderer;
+        public PlayerTag PlayerTag => _playerTag;
         protected PlayerTag _playerTag;
 
         [SerializeField]

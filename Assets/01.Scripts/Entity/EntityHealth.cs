@@ -65,5 +65,12 @@ namespace BSM.Entities
                 OnDeadEvent?.Invoke();
             }
         }
+
+        public void Heal(float amount)
+        {
+            float prevHealth = CurrentHealth;
+            CurrentHealth += amount;
+            OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
+        }
     }
 }
