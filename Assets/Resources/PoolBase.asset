@@ -58,3 +58,6 @@ MonoBehaviour:
   - poolType: EnemyKappa
     prefab: {fileID: 6562991813257440665, guid: 242dbaccbbb057c48bf39f28ca5f1fca, type: 3}
     poolCount: 15
+  - poolType: ManaPiece
+    prefab: {fileID: 5702118648930319915, guid: 31f56caa461fbe54a9eb597f62f435fe, type: 3}
+    poolCount: 20

@@ -55,7 +55,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""f1ba0d36-48eb-4cd5-b651-1c94a6531f70"",
                     ""expectedControlType"": """",
@@ -297,7 +297,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -308,7 +308,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -319,7 +319,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -985,7 +985,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
         m_Player_Tag1 = m_Player.FindAction("Tag1", throwIfNotFound: true);
         m_Player_Tag2 = m_Player.FindAction("Tag2", throwIfNotFound: true);
@@ -1072,7 +1072,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_MouseMove;
     private readonly InputAction m_Player_Tag1;
     private readonly InputAction m_Player_Tag2;
@@ -1083,7 +1083,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
         public InputAction @Tag1 => m_Wrapper.m_Player_Tag1;
         public InputAction @Tag2 => m_Wrapper.m_Player_Tag2;
@@ -1105,9 +1105,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
             @MouseMove.started += instance.OnMouseMove;
             @MouseMove.performed += instance.OnMouseMove;
             @MouseMove.canceled += instance.OnMouseMove;
@@ -1130,9 +1130,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
             @MouseMove.started -= instance.OnMouseMove;
             @MouseMove.performed -= instance.OnMouseMove;
             @MouseMove.canceled -= instance.OnMouseMove;
@@ -1335,7 +1335,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
         void OnTag1(InputAction.CallbackContext context);
         void OnTag2(InputAction.CallbackContext context);

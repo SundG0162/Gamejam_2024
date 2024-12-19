@@ -5,6 +5,7 @@ using Unity.Behavior;
 using BSM.UI;
 using System;
 using BSM.Players;
+using Unity.Mathematics;
 
 namespace BSM.Enemies
 {
@@ -14,6 +15,7 @@ namespace BSM.Enemies
         public bool isDashAttack = false;
         public GameObject _hpBar;
         protected EntityHealth _health;
+        protected Animator _animator;
         protected BoxCollider2D _coll;
         protected PlayerTag _tag;
         protected BehaviorGraphAgent _btAgent;
@@ -24,8 +26,8 @@ namespace BSM.Enemies
             _tag = GameObject.Find("Player").GetComponent<PlayerTag>();
             _coll = GetComponent<BoxCollider2D>();
             _btAgent = GetComponent<BehaviorGraphAgent>();
+            _animator = GetComponentInChildren<Animator>();
             GetEntityComponent<EntityHealth>().OnDamageTakenEvent += HandleOnDamageTaken;
-
             GetEntityComponent<EntityHealth>().OnDeadEvent += HandleDeadEvt;
 
             _tag.OnPlayerChangeEvent += HandleChangeValue;
@@ -38,7 +40,14 @@ namespace BSM.Enemies
 
         public virtual void HandleDeadEvt()
         {
+            _animator.enabled = false;
             _coll.enabled = false;
+
+            // 30% 확률로 Pop 호출
+            if (UnityEngine.Random.value <= 0.3f) // Random.value는 0.0f에서 1.0f 사이의 값을 반환
+            {
+                gameObject.Pop(PoolType.ManaPiece, transform.position, Quaternion.identity);
+            }
         }
 
         private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)

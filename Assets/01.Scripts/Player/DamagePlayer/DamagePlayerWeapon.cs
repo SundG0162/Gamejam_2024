@@ -110,6 +110,10 @@ namespace BSM.Players.DamagePlayer
         public void CastDamage()
         {
             int count = Physics2D.OverlapCircle(transform.position, _radius, new ContactFilter2D { useLayerMask = true, layerMask = _whatIsTarget, useTriggers = true }, _targets);
+            if(count >= 10)
+            {
+                _player.GetEntityComponent<EntityHealth>().Heal(20);
+            }
             for (int i = 0; i < count; i++)
             {
                 if (_targets[i].TryGetComponent(out IDamageable target))
