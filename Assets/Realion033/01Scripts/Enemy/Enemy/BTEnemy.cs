@@ -68,6 +68,11 @@ namespace BSM.Enemies
             return collider != null ? collider.transform : null;
         }
 
+        public void Attack(float Damage)
+        {
+            
+        }
+
         public PoolType OriginPoolType { get; set; }
 
         GameObject IPoolingObject.gameObject { get; set; }

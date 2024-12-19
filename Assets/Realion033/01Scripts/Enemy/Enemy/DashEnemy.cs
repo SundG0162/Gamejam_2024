@@ -5,7 +5,8 @@ using UnityEngine;
 namespace BSM.Enemies
 {
     public class DashEnemy : BTEnemy
-    {        private EntityRenderer _renderer;
+    {
+        private EntityRenderer _renderer;
         private EntityMover _mover;
         private DashEnemy _meleeEnemy;
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
@@ -26,12 +27,12 @@ namespace BSM.Enemies
         public override void HandleDeadEvt()
         {
             base.HandleDeadEvt();
-            
+
             _btAgent.enabled = false;
 
             _hpBar.SetActive(false);
             _mover.StopImmediately();
-            
+
             _renderer.Dissolve(0f, 2.5f);
 
             StartCoroutine(WaitDieTime(2.5f));
