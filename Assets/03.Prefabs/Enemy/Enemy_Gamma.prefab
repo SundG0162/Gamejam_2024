@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 366848403532834544}
   - component: {fileID: 5597467729546377748}
   - component: {fileID: 8218989285045409378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy_Gamma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
