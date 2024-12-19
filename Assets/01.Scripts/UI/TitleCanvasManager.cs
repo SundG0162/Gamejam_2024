@@ -11,6 +11,7 @@ namespace SSH.UI
     {
         [SerializeField]private OpenableCanvas SettingCanvas;
         public string GameSceneName;
+        public string TutorialSceneName;
         [SerializeField] private Image _changeEffect;
         private static readonly int Center = Shader.PropertyToID("_Center");
 
@@ -38,6 +39,10 @@ namespace SSH.UI
 
         }
 
+        public void StartTutorial()
+        {
+            SceneManager.LoadScene(TutorialSceneName);
+        }
         public void EndGame()
         {
             Application.Quit();

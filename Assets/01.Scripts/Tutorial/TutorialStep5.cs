@@ -14,7 +14,7 @@ namespace BSM.Tutorials
             switch (textIndex)
             {
                 case 0:
-                    _tutorialManager.SetText("이건 마나조각입니다. 마나조각을 모아 태그를 할 수 있습니다..");
+                    _tutorialManager.SetText("이건 마나조각입니다. 마나조각을 모아 마나가 충분할면\n숫자 1과 2를 눌러 캐릭터를 태그 할 수 있습니다.");
                     _tutorialManager.CreateManaPart();
                     break;
                 case 1:
@@ -42,7 +42,7 @@ namespace BSM.Tutorials
         {
             _tutorialManager.InputSO.OnMouseClickEvent -= SetIndexText;
             _tutorialManager.SetBackground(false);
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("CopyTitle");
         }
     }
 }

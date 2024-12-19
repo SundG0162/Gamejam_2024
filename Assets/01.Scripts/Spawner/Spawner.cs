@@ -115,7 +115,7 @@ namespace SSH.Spawn
 
         private void Start()
         {
-            _currentWave = 1;
+            _currentWave = 0;
             PlayerTag tag = GameObject.Find("Player").GetComponent<PlayerTag>();
             tag.OnPlayerChangeEvent += HandleOnPlayerChange;
             playerObject = tag.CurrentPlayer;
@@ -155,12 +155,13 @@ namespace SSH.Spawn
                 AddEnemyToQueue(1, 2,  PoolType.EnemyEta, index);
 
                 yield return _waitFor17Seconds;
+                ++_currentWave;
             }
         }
 
         private void AddEnemyToQueue(int minCount, int maxCount, PoolType startPoolType, int scope)
         {
-            int count = Random.Range(minCount, maxCount);
+            int count = Random.Range(minCount, maxCount+_currentWave);
             float time = Random.Range(0f, 17f);
             SpawnInfo spawnInfo;
             spawnInfo.enemyPoolType = (PoolType)((int)startPoolType + scope);
