@@ -1,6 +1,9 @@
 using BSM.Entities;
 using UnityEngine;
 using Unity.Behavior;
+using System;
+using Crogen.CrogenPooling;
+using BSM.UI;
 
 namespace BSM.Enemies
 {
@@ -13,6 +16,12 @@ namespace BSM.Enemies
         {
             base.Awake();
             _btAgent = GetComponent<BehaviorGraphAgent>();
+            GetEntityComponent<EntityHealth>().OnDamageTakenEvent += HandleOnDamageTaken;
+        }
+
+        private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)
+        {
+            gameObject.Pop(PoolType.DamageText, transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.2f, Quaternion.identity).gameObject.GetComponent<DamageText>().Initialize(damage);
         }
 
         public BlackboardVariable<T> GetVariable<T>(string variableName)
