@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &419699407
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1101,8 +1101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927485826234bf948a2094453ad61d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
   _text: {fileID: 1087197609}
   destination: {fileID: 419699406}
+  blackBackground: {fileID: 0}
 --- !u!4 &1139661499
 Transform:
   m_ObjectHideFlags: 0

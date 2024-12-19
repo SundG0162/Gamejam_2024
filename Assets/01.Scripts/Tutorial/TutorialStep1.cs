@@ -30,11 +30,11 @@ namespace BSM.Tutorials
         {
             _tutorialManager.SetBackground(true);
             SetIndexText();
+            _tutorialManager.input.OnMouseClickEvent += SetIndexText;
         }
 
         public override void OnUpdate()
         {
-            _tutorialManager.input.OnMouseClickEvent += SetIndexText;
                 
         }
 
