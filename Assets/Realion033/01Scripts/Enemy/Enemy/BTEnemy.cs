@@ -1,13 +1,15 @@
 using BSM.Entities;
+using Crogen.CrogenPooling;
 using UnityEngine;
 using Unity.Behavior;
 
 namespace BSM.Enemies
 {
-    public class BTEnemy : Entity
+    public class BTEnemy : Entity, IPoolingObject
     {
         [SerializeField] protected LayerMask _whatIsTarget;
         protected BehaviorGraphAgent _btAgent;
+        private IPoolingObject _poolingObjectImplementation;
 
         protected override void Awake()
         {
@@ -35,6 +37,28 @@ namespace BSM.Enemies
         {
             Collider2D collider = Physics2D.OverlapCircle(transform.position, radius, _whatIsTarget);
             return collider != null ? collider.transform : null;
+        }
+
+        public PoolType OriginPoolType
+        {
+            get => _poolingObjectImplementation.OriginPoolType;
+            set => _poolingObjectImplementation.OriginPoolType = value;
+        }
+
+        public GameObject gameObject
+        {
+            get => _poolingObjectImplementation.gameObject;
+            set => _poolingObjectImplementation.gameObject = value;
+        }
+
+        public void OnPop()
+        {
+            _poolingObjectImplementation.OnPop();
+        }
+
+        public void OnPush()
+        {
+            _poolingObjectImplementation.OnPush();
         }
     }
 }
