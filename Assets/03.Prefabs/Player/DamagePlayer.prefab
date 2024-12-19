@@ -229,6 +229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2926227000398747971}
+  - {fileID: 184684394292912479}
   m_Father: {fileID: 3337075563922582350}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4703841323350898455
@@ -376,11 +377,12 @@ MonoBehaviour:
   <InputReader>k__BackingField: {fileID: 11400000, guid: 8751211b50bb95144b1f2b79b907e257, type: 2}
   _idleParameter: {fileID: 11400000, guid: 77fc51e75bc034f4f8fa2f7d12a9974f, type: 2}
   _swipeRadius: 2
-  _swipeForce: 5
+  _swipeForce: 15
   _maxDetectEnemy: 30
   _whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
+  _shockwaveParticle: {fileID: 8820344823197767242}
 --- !u!114 &3798666149601175807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,3 +592,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad61ebfb7ec10f4c9736b2a59a01e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &3339993377691185270
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6938631255196466936}
+    m_Modifications:
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774897325148068525, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: m_Name
+      value: Shockwave
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066949742273242684, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066949742273242684, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066949742273242684, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+--- !u!4 &184684394292912479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3227439626240364841, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+  m_PrefabInstance: {fileID: 3339993377691185270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8820344823197767242 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6066949742273242684, guid: 208e85621ecaf3e468073a73772b9478, type: 3}
+  m_PrefabInstance: {fileID: 3339993377691185270}
+  m_PrefabAsset: {fileID: 0}

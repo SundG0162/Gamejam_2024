@@ -41,6 +41,7 @@ namespace BSM.Players.DamagePlayer
 
 
 
+
         public override void Initialize(Entity entity)
         {
             base.Initialize(entity);

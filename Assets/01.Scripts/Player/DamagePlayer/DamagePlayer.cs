@@ -1,3 +1,4 @@
+using BSM.Core.Cameras;
 using BSM.Entities;
 using DG.Tweening;
 using System.Collections;
@@ -20,6 +21,10 @@ namespace BSM.Players.DamagePlayer
         [SerializeField]
         private LayerMask _whatIsTarget;
         private Collider2D[] _targets;
+
+        [Space]
+        [SerializeField]
+        private ParticleSystem _shockwaveParticle;
 
         protected override void Awake()
         {
@@ -78,14 +83,15 @@ namespace BSM.Players.DamagePlayer
 
         private void SwipeEnemies()
         {
-            int count = Physics2D.OverlapCircle(transform.position, _swipeRadius, new ContactFilter2D { layerMask = _whatIsTarget, useLayerMask = true, useTriggers = true},_targets);
-            for(int i = 0; i < count;i++)
+            int count = Physics2D.OverlapCircle(transform.position, _swipeRadius, new ContactFilter2D { layerMask = _whatIsTarget, useLayerMask = true, useTriggers = true }, _targets);
+            _shockwaveParticle.Play();
+            for (int i = 0; i < count; i++)
             {
                 if (_targets[i].TryGetComponent(out EntityMover mover))
                 {
                     Vector2 direction = _targets[i].transform.position - transform.position;
                     direction.Normalize();
-                    mover.Knockback(direction * _swipeForce, 0.6f);
+                    mover.Knockback(direction * _swipeForce, 1f);
                 }
             }
         }
