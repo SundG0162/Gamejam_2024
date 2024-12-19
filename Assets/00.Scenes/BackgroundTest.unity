@@ -752,6 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1067284673}
   - component: {fileID: 1067284672}
+  - component: {fileID: 1067284674}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -797,6 +798,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1067284674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067284671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4889394bf6bb225498bb7f1958045b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolBase: {fileID: 11400000, guid: 286033b731b861849bca3618b3ab1255, type: 2}
+  poolingPairs:
+  - poolType: Shell
+    prefab: {fileID: 925948527579942387, guid: d1e1a2f4196733f48aafb613f0adcd28, type: 3}
+    poolCount: 30
+  - poolType: AudioPlayer
+    prefab: {fileID: 1866734606823914424, guid: 7f09f3d315da1df48a12a0b8d304e5ef, type: 3}
+    poolCount: 20
+  - poolType: EnemyBullet
+    prefab: {fileID: 8235313467199476190, guid: d400ebe5b769d1b4fbf649e22a8453cd, type: 3}
+    poolCount: 15
+  - poolType: EnemyAlpha
+    prefab: {fileID: 2404621302896030209, guid: 6d03629bef9c215449be0f3febe31d2b, type: 3}
+    poolCount: 15
+  - poolType: EnemyBeta
+    prefab: {fileID: 1442838733302112682, guid: 7e66d9012fc007f42a0ade1d967f5807, type: 3}
+    poolCount: 15
+  - poolType: EnemyGamma
+    prefab: {fileID: 1137223674268225865, guid: 763956964ad3c6a47a05aa77222281e3, type: 3}
+    poolCount: 15
+  - poolType: PlayerBullet
+    prefab: {fileID: 2458067274638834981, guid: ae16a3ddd20a22a4dab1254234375ac5, type: 3}
+    poolCount: 30
+  - poolType: Enemy_Alpha
+    prefab: {fileID: 2404621302896030209, guid: 6d03629bef9c215449be0f3febe31d2b, type: 3}
+    poolCount: 20
+  - poolType: Enemy_Beta
+    prefab: {fileID: 1442838733302112682, guid: 7e66d9012fc007f42a0ade1d967f5807, type: 3}
+    poolCount: 20
+  - poolType: Enemy_Gamma
+    prefab: {fileID: 1137223674268225865, guid: 763956964ad3c6a47a05aa77222281e3, type: 3}
+    poolCount: 20
 --- !u!1 &1321894014
 GameObject:
   m_ObjectHideFlags: 0
