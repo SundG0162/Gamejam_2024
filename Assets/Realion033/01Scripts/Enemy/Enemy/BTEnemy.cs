@@ -10,7 +10,8 @@ namespace BSM.Enemies
 {
     public class BTEnemy : Entity, IPoolingObject
     {
-        [SerializeField] protected LayerMask _whatIsTarget;
+        [SerializeField] private LayerMask _whatIsTarget;
+        public GameObject _hpBar;
         protected EntityHealth _health;
         protected BoxCollider2D _coll;
         protected PlayerTag _tag;

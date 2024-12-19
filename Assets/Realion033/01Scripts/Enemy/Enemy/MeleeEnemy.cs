@@ -6,7 +6,6 @@ namespace BSM.Enemies
 {
     public class MeleeEnemy : BTEnemy
     {
-        [SerializeField] private GameObject _hpBar;
         private EntityRenderer _renderer;
         private EntityMover _mover;
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");

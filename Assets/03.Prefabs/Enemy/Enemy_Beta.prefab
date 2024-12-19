@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b9d3f6214a17f4d80318defcdd0a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeedElement: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
+  _moveSpeedElement: {fileID: 11400000, guid: ac4587744a9c7d24da986f8824e2ced2, type: 2}
 --- !u!114 &2559543866097252200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,19 +217,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statOverriders:
-  - _stat: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
+  - _stat: {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 30
-  - _stat: {fileID: 11400000, guid: 90bc22fd3677900408c46a05302383c9, type: 2}
+  - _stat: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 5
-  - _stat: {fileID: 11400000, guid: b7ab1e53d432c5c48ba6d888070910dd, type: 2}
+  - _stat: {fileID: 11400000, guid: 050333ef50e262f4dab8238704358151, type: 2}
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 15
-  - _stat: {fileID: 11400000, guid: 8d05f0b1dcc75654990e7e7f598f0bd1, type: 2}
+  - _stat: {fileID: 11400000, guid: ac4587744a9c7d24da986f8824e2ced2, type: 2}
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 3
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea0450294f1b14a85d8a923e478c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealthElement: {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
+  _maxHealthElement: {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
 --- !u!1 &6068641228767794043
 GameObject:
   m_ObjectHideFlags: 0
