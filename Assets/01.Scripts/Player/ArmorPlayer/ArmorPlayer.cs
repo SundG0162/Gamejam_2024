@@ -45,7 +45,7 @@ namespace BSM.Players.ArmorPlayer
             EPlayerType result = _playerSelectPanel.Result;
             TimeController.Instance.SetTimeFreeze(1, 0, 0);
             CameraManager.Instance.TiltCamera(0, 0.5f);
-            _playerTag.TagPlayer(result, true);
+            _playerTag.TagPlayer(result);
             InputReader.EnablePlayerInput();
         }
     }
