@@ -5,9 +5,15 @@ using UnityEngine;
 namespace SSH.Spawn
 {
     [Serializable]
+    public struct SpawnEnemyPair
+    {
+        public PoolType enemyPoolType;
+        public int spawnCount;
+    }
+    [Serializable]
     public struct SpawnInfo
     {
-        public List<int> _spawnCount;
+        public List<SpawnEnemyPair> _spawnEnemyInfo;
         public float _spawnDelay;
     }
     
