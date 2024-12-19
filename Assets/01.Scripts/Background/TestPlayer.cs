@@ -1,3 +1,4 @@
+using System;
 using BSM.Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,6 +19,11 @@ namespace SSH
         private void HandleOnMovementEvent(Vector2 dir)
         {
             transform.Translate(dir * _moveSpeed);
+        }
+
+        private void OnDestroy()
+        {
+            _inputReaderSO.OnMovementEvent -= HandleOnMovementEvent;
         }
 
         // Update is called once per frame

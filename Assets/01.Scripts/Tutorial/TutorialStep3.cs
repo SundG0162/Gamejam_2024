@@ -23,18 +23,18 @@ namespace BSM.Tutorials
                     _tutorialManager.HighlightOneCharacter(0);
                     break;
                 case 2:
-                    _tutorialManager.SetText("무제한 공격력을 가진 캐릭터.\n 모든 적을 한번에 죽입니다.");
+                    _tutorialManager.SetText("무제한 공격력을 가진 캐릭터. 모든 적을 한번에 죽입니다.\n한번에 10마리 이상 처치시 체력을 회복합니다.");
                     _tutorialManager.HighlightOneCharacter(1);
                     break;
                 case 3:
                     _tutorialManager.SetText("<무제한 공격속도를 가진 캐릭터.\n 빠른 공격으로 적을 밀쳐내 처치합니다.");
                     _tutorialManager.HighlightOneCharacter(2);
                     break;
-                //case 4:
-                    //_tutorialManager.SetText("숫자 1과 2를 눌러 캐릭터를 태그 할 수 있습니다.");
-                    //_tutorialManager.HighlightOneCharacter(-1);
-                    //break;
                 case 4:
+                    _tutorialManager.SetText("마나가 충분할때 숫자 1과 2를 눌러 캐릭터를 태그 할 수 있습니다.");
+                    _tutorialManager.HighlightOneCharacter(-1);
+                    break;
+                case 5:
                     _tutorialManager.SetCharacterVisual(false);
                     _tutorialManager.NextTutorial();
                     break;

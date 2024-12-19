@@ -17,7 +17,7 @@ namespace BSM.Tutorials
                     _tutorialManager.SetText("<b>태그!</b>는 스탯중 하나가 무제한인 캐릭터들을 바꿔가며 싸우는 게임입니다.");
                     break;
                 case 1:
-                    _tutorialManager.SetText("지금부터 튜토리얼을 알려드리겠습니다.");
+                    _tutorialManager.SetText("지금부터 튜토리얼을 시작하겠습니다.");
                     break;
                 case 2:
                     _tutorialManager.NextTutorial();
