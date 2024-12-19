@@ -6,6 +6,7 @@ using BSM.UI;
 using System;
 using BSM.Players;
 using Unity.Mathematics;
+using BSM.Core.DamageCalculator;
 
 namespace BSM.Enemies
 {
@@ -85,14 +86,13 @@ namespace BSM.Enemies
                 //Debug.Log("NO");
                 return;
             }
-            IDamageable damageable = target.GetComponent<IDamageable>();
 
-            //Debug.Log(target);
+            IDamageable damageable = target.GetComponent<IDamageable>();
+            float calcDmg = DamageCalculator.GetCaculatedDamage(this, target.GetComponent<Entity>());
 
             if (target != null)
             {
-                //Debug.Log("Yes");
-                damageable.ApplyDamage(transform, damage, false, 0);
+                damageable.ApplyDamage(transform, calcDmg, false, 0);
             }
         }
 

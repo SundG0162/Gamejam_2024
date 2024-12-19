@@ -21,6 +21,7 @@ namespace BSM.Entities
 
         public float MaxHealth { get; private set; }
         public float CurrentHealth { get; private set; }
+        public bool isinvincible = false;
 
         [SerializeField]
         private StatElementSO _maxHealthElement;
@@ -40,29 +41,37 @@ namespace BSM.Entities
 
         private void HandleOnMaxHealthChangeEvent(StatElementSO stat, float prevValue, float currentValue)
         {
-            MaxHealth = currentValue;
-            float prevHealth = CurrentHealth;
-            if (prevValue < currentValue)
+            if (!isinvincible)
             {
-                CurrentHealth += currentValue - prevValue;
+                MaxHealth = currentValue;
+                float prevHealth = CurrentHealth;
+                if (prevValue < currentValue)
+                {
+                    CurrentHealth += currentValue - prevValue;
+                }
+                OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
             }
-            OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
         }
 
         public void ApplyDamage(Transform dealer, float damage, bool isCritical, float knockbackPower, float knockbackTime = 0.3f)
         {
-            _entityRenderer.Blink();
-            Vector2 direction = transform.position - dealer.position;
-            direction.Normalize();
-            if (knockbackPower != 0)
-                _entityMover.Knockback(direction * knockbackPower, knockbackTime);
-            float prevHealth = CurrentHealth;
-            OnDamageTakenEvent?.Invoke(dealer, damage, isCritical);
-            CurrentHealth -= damage;
-            OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
-            if(CurrentHealth <= 0)
+            if (!isinvincible)
             {
-                OnDeadEvent?.Invoke();
+                _entityRenderer.Blink();
+                Vector2 direction = transform.position - dealer.position;
+                direction.Normalize();
+                if (knockbackPower != 0)
+                    _entityMover.Knockback(direction * knockbackPower, knockbackTime);
+                float prevHealth = CurrentHealth;
+                OnDamageTakenEvent?.Invoke(dealer, damage, isCritical);
+
+                CurrentHealth -= damage;
+
+                OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
+                if (CurrentHealth <= 0)
+                {
+                    OnDeadEvent?.Invoke();
+                }
             }
         }
 
