@@ -41,5 +41,10 @@ namespace BSM.Core.Cameras
                 _tiltTween.Kill();
             _tiltTween = CurrentCam.transform.DORotate(new Vector3(0, 0, tiltValue), time);
         }
+
+        public void ChangeTarget(Transform target)
+        {
+            CurrentCam.Follow = target;
+        }
     }
 }

@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using BSM.Core.Cameras;
 using BSM.Entities;
 using DG.Tweening;
 using System;
@@ -40,6 +41,7 @@ namespace BSM.Players
             CurrentPlayer = _playerDictionary[EPlayerType.Damage];
             CurrentPlayer.gameObject.SetActive(true);
             CurrentPlayer.GetEntityComponent<EntityRenderer>().Appear(0);
+            CameraManager.Instance.ChangeTarget(CurrentPlayer.transform);
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
         }
 
@@ -74,6 +76,7 @@ namespace BSM.Players
             CurrentPlayer.gameObject.SetActive(true);
             CurrentPlayer.GetEntityComponent<EntityMover>().StopImmediately();
             CurrentPlayer.Join();
+            CameraManager.Instance.ChangeTarget(CurrentPlayer.transform);
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
         }
     }
