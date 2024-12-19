@@ -262,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 11400000, guid: 8751211b50bb95144b1f2b79b907e257, type: 2}
   _idleParameter: {fileID: 11400000, guid: 77fc51e75bc034f4f8fa2f7d12a9974f, type: 2}
+  _dashCooltimeElement: {fileID: 11400000, guid: 7e9ec0df68cbdae4d93d15d57bf9f787, type: 2}
 --- !u!114 &8065168632472090924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +296,10 @@ MonoBehaviour:
     _statValueType: 0
     _isUseOverride: 1
     _overridedBaseValue: 1500
+  - _stat: {fileID: 11400000, guid: 7e9ec0df68cbdae4d93d15d57bf9f787, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 0.8
 --- !u!114 &6457802363227824443
 MonoBehaviour:
   m_ObjectHideFlags: 0

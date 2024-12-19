@@ -80,7 +80,7 @@ namespace BSM.Core.StatSystem
                 _modifierDict[key] = value;
             }
             else
-                _modifierDict.Add(key, Value);
+                _modifierDict.Add(key, value);
             TryInvokeValueChangeEvent(prevValue, Value);
         }
 
