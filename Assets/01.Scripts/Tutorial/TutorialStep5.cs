@@ -21,6 +21,7 @@ namespace BSM.Tutorials
                     _tutorialManager.SetText("설명은 여기까지입니다. 다양한 적들이 기다리고 있습니다.\n 이제 직접 게임을 플레이해 보세요!");
                     break;
                 case 2:
+                    
                     _tutorialManager.NextTutorial();
                     break;
             }

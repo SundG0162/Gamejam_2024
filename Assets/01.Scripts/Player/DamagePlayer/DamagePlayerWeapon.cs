@@ -50,7 +50,7 @@ namespace BSM.Players.DamagePlayer
             _targets = new Collider2D[_maxDetectEnemy];
         }
 
-        public void SetupWeapon(float setupTime = 2.5f)
+        public void SetupWeapon(float setupTime = 2f)
         {
             if (_setupSequence != null && _setupSequence.IsActive())
                 _setupSequence.Kill();
@@ -85,7 +85,7 @@ namespace BSM.Players.DamagePlayer
             _animator.SetBool(_blinkTriggerHash, false);
             _isCanceling = true;
             _sampleMaterial.SetFloat(_blinkTriggerHash, 0.2f);
-            DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0, 0.2f)
+            DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), 0, 0.15f)
                 .OnComplete(() => _isCanceling = false);
             IsSetupEnd = false;
         }
@@ -104,7 +104,7 @@ namespace BSM.Players.DamagePlayer
                     _player.StopFlip = false;
                     _lastAttackTime = Time.time;
                 });
-            CameraManager.Instance.ShakeCamera(5, 3, 0.3f);
+            CameraManager.Instance.ShakeCamera(6, 3, 0.3f);
         }
 
         public void CastDamage()

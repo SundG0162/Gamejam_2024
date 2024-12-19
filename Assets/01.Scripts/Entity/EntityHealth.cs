@@ -20,7 +20,12 @@ namespace BSM.Entities
         public event Action OnDeadEvent;
 
         public float MaxHealth { get; private set; }
-        public float CurrentHealth { get; private set; }
+        private float _currentHealth = 0f;
+        public float CurrentHealth { get => _currentHealth;
+            private set 
+            {
+                _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
+            } }
         public bool isinvincible = false;
 
         [SerializeField]
