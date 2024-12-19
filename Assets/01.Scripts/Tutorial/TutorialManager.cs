@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BSM.Inputs;
 using TMPro;
 using UnityEngine;
 
@@ -7,13 +8,15 @@ namespace BSM.Tutorials
 {
     public class TutorialManager : MonoBehaviour
     {
+        public InputReaderSO input;
+        
         private List<TutorialStep> _tutorialStepList = new List<TutorialStep>();
         private int _tutorialCount = 2; //올려줘야함
         private int _currentStepIndex = 1;
         private TutorialStep _currentStep;
         [SerializeField] private TextMeshProUGUI _text;
         public GameObject destination;
-
+        public SpriteRenderer blackBackground;
         private void Awake()
         {
             for (int i = 1; i <= _tutorialCount; i++)
@@ -48,6 +51,16 @@ namespace BSM.Tutorials
         public void CreateDestiantion()
         {
             destination.SetActive(true);
+        }
+
+        public void SetBackground(bool isBlack)
+        {
+            Color color = blackBackground.color;
+            if (isBlack)
+                color.a = 0.5f;
+            else
+                color.a = 0f;
+            blackBackground.color = color;
         }
     }
 }

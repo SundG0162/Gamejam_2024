@@ -28,17 +28,19 @@ namespace BSM.Tutorials
         
         public override void OnEnter()
         {
+            _tutorialManager.SetBackground(true);
             SetIndexText();
         }
 
         public override void OnUpdate()
         {
-            if(Mouse.current.leftButton.isPressed) SetIndexText();
+            _tutorialManager.input.OnMouseClickEvent += SetIndexText;
                 
         }
 
         public override void OnExit()
         {
+            _tutorialManager.input.OnMouseClickEvent -= SetIndexText;
             
         }
     }

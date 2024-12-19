@@ -17,6 +17,7 @@ namespace BSM.Inputs
         public event Action OnInteractEvent;
         public event Action<Vector2> OnMovementEvent;
         public event Action<Vector2> OnMouseMoveEvent;
+        public event Action OnMouseClickEvent;
         public event Action OnOpenStatUIEvent;
 
         private void OnEnable()
@@ -92,6 +93,13 @@ namespace BSM.Inputs
             if (context.performed)
                 OnOpenStatUIEvent?.Invoke();
         }
+        
+        public void OnClick(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnMouseClickEvent?.Invoke();
+        }
+        
         #endregion
 
         #region Unused Functions
@@ -108,10 +116,6 @@ namespace BSM.Inputs
         }
 
         public void OnPoint(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnClick(InputAction.CallbackContext context)
         {
         }
 
