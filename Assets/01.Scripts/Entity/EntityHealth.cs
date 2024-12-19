@@ -12,7 +12,7 @@ namespace BSM.Entities
         private EntityStat _entityStat;
         private EntityRenderer _entityRenderer;
 
-        public delegate void DamageTakenEvent(Entity dealer, float damage, bool isCritical);
+        public delegate void DamageTakenEvent(Transform dealer, float damage, bool isCritical);
         public delegate void HealthChangeEvent(float prevHealth, float currentHealth);
 
         public event DamageTakenEvent OnDamageTakenEvent;
@@ -49,10 +49,10 @@ namespace BSM.Entities
             OnHealthChangeEvent?.Invoke(prevHealth, CurrentHealth);
         }
 
-        public void ApplyDamage(Entity dealer, float damage, bool isCritical, float knockbackPower, float knockbackTime = 0.3f)
+        public void ApplyDamage(Transform dealer, float damage, bool isCritical, float knockbackPower, float knockbackTime = 0.3f)
         {
             _entityRenderer.Blink();
-            Vector2 direction = transform.position - dealer.transform.position;
+            Vector2 direction = transform.position - dealer.position;
             direction.Normalize();
             if (knockbackPower != 0)
                 _entityMover.Knockback(direction * knockbackPower, knockbackTime);

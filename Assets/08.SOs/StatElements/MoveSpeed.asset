@@ -18,6 +18,6 @@ MonoBehaviour:
   displayName: Move Speed
   _icon: {fileID: -6746367964621234244, guid: 517e6ddc15ac6c343850001cf675e1c3, type: 3}
   _baseValue: 5
-  _minValue: 5
+  _minValue: 0
   _maxValue: 30
   <IsPercent>k__BackingField: 0

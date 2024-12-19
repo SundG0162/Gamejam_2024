@@ -31,14 +31,6 @@ namespace BSM.Enemies
             _health.OnDeadEvent += HandleDeadEvt;
         }
 
-        private void Update()
-        {
-            if (Keyboard.current.zKey.wasPressedThisFrame)
-            {
-                _health.ApplyDamage(_meleeEnemy, 1, false, 0);
-            }
-        }
-
         private void HandleDeadEvt()
         {
             _btAgent.enabled = false;
