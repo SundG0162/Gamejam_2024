@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Behavior;
 using BSM.UI;
 using System;
+using BSM.Players;
 
 namespace BSM.Enemies
 {
@@ -12,16 +13,25 @@ namespace BSM.Enemies
         [SerializeField] protected LayerMask _whatIsTarget;
         protected EntityHealth _health;
         protected BoxCollider2D _coll;
+        protected PlayerTag _tag;
         protected BehaviorGraphAgent _btAgent;
         protected override void Awake()
         {
             base.Awake();
 
+            _tag = GameObject.Find("Player").GetComponent<PlayerTag>();
             _coll = GetComponent<BoxCollider2D>();
             _btAgent = GetComponent<BehaviorGraphAgent>();
             GetEntityComponent<EntityHealth>().OnDamageTakenEvent += HandleOnDamageTaken;
 
             GetEntityComponent<EntityHealth>().OnDeadEvent += HandleDeadEvt;
+
+            _tag.OnPlayerChangeEvent += HandleChangeValue;
+        }
+
+        private void HandleChangeValue(Player player)
+        {
+            SetVariable("PlayerTrm", player.GetComponentInChildren<Player>().transform);
         }
 
         public virtual void HandleDeadEvt()
