@@ -15,9 +15,12 @@ public partial class GetVariableAction : Action
     protected override Status OnStart()
     {
         BTEnemy enemy = Entity.Value;
+        GameObject playerObject = GameObject.Find("Player");
+
         enemy.SetVariable("Mover", enemy.GetEntityComponent<EntityMover>());
         enemy.SetVariable("Renderer", enemy.GetEntityComponent<EntityRenderer>());
         enemy.SetVariable("Coll", enemy.GetComponent<BoxCollider2D>());
+        enemy.SetVariable("PlayerTrm", playerObject.transform);
         //enemy.SetVariable("AnimTriggrier", enemy.GetEntityComponent<EntityAnimatorTrigger>());
 
         return Status.Success;
