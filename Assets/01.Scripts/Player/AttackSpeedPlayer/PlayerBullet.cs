@@ -1,4 +1,5 @@
 using BSM.Core.DamageCalculator;
+using BSM.Core.StatSystem;
 using BSM.Enemies;
 using BSM.Entities;
 using Crogen.CrogenPooling;
@@ -42,7 +43,8 @@ namespace BSM.Players.AttackSpeedPlayer
             if (collision.TryGetComponent(out BTEnemy enemy))
             {
                 float calcDamage = DamageCalculator.GetCaculatedDamage(_shooter, enemy);
-                enemy.GetEntityComponent<EntityHealth>().ApplyDamage(transform, calcDamage, false, 3);
+                calcDamage += Random.Range(0f, 2f);
+                enemy.GetEntityComponent<EntityHealth>().ApplyDamage(transform, calcDamage, false, 1f, 0.1f);
                 this.Push();
             }
         }

@@ -34,3 +34,6 @@ MonoBehaviour:
   - poolType: PlayerBullet
     prefab: {fileID: 2458067274638834981, guid: ae16a3ddd20a22a4dab1254234375ac5, type: 3}
     poolCount: 30
+  - poolType: DamageText
+    prefab: {fileID: 4468071641363645857, guid: d89f1f988910b724281936a61ded1f52, type: 3}
+    poolCount: 30
