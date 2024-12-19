@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33720753a4333df4eb81750f7786b83a, type: 3}
-  m_Name: Wave 3
+  m_Name: Round 2
   m_EditorClassIdentifier: 
   _spawnInfoListSO: {fileID: 11400000, guid: 0f5f9c6de2be8f348b02548a620e246a, type: 2}
   _spawnInfos:
   - _spawnCount: 030000000000000000000000
-    _spawnDelay: 0.5
+    _spawnDelay: 2
   - _spawnCount: 000000000300000000000000
-    _spawnDelay: 0.5
+    _spawnDelay: 2
   - _spawnCount: 000000000000000003000000
-    _spawnDelay: 0.5
+    _spawnDelay: 2
