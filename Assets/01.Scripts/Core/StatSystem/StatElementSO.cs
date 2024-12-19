@@ -49,9 +49,9 @@ namespace BSM.Core.StatSystem
 
         public float Value
         {
-            get 
+            get
             {
-                if(statValueType == EStatValueType.Infinite)
+                if (statValueType == EStatValueType.Infinite)
                     return float.MaxValue;
                 return Mathf.Clamp(_baseValue + _modifyValue, _minValue, _maxValue);
             }
@@ -72,13 +72,16 @@ namespace BSM.Core.StatSystem
 
         public void AddModifier(object key, float value)
         {
-            if (_modifierDict.ContainsKey(key)) return;
-
             float prevValue = Value;
             _modifyValue += value;
-            _modifierDict.Add(key, value);
-
-            TryInvokeValueChangeEvent(prevValue, value);
+            if (_modifierDict.ContainsKey(key))
+            {
+                _modifyValue -= _modifierDict[key];
+                _modifierDict[key] = value;
+            }
+            else
+                _modifierDict.Add(key, Value);
+            TryInvokeValueChangeEvent(prevValue, Value);
         }
 
         public void RemoveModifier(object key)

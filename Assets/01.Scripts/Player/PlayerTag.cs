@@ -24,7 +24,14 @@ namespace BSM.Players
 
         public Player CurrentPlayer { get; private set; }
 
+        [field: SerializeField]
+        public float MaxMana { get; private set; }
+        private float _currentMana = 0;
+        public delegate void ManaChangeEvent(float prevValue, float currentValue);
+
         public event Action<Player> OnPlayerChangeEvent;
+        public event ManaChangeEvent OnManaChangeEvent;
+
 
         private void Awake()
         {
@@ -47,6 +54,7 @@ namespace BSM.Players
 
         private void Update()
         {
+            ModifyMana(Time.deltaTime);
             if (Keyboard.current.gKey.wasPressedThisFrame)
             {
                 TagPlayer(EPlayerType.AttackSpeed);
@@ -63,6 +71,9 @@ namespace BSM.Players
 
         public void TagPlayer(EPlayerType type)
         {
+            if (_currentMana < MaxMana / 2)
+                return;
+            ModifyMana(-MaxMana / 2);
             Vector3 pos = Vector3.zero;
             if (CurrentPlayer != null)
             {
@@ -78,6 +89,14 @@ namespace BSM.Players
             CurrentPlayer.Join();
             CameraManager.Instance.ChangeTarget(CurrentPlayer.transform);
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
+        }
+
+        public void ModifyMana(float value)
+        {
+            float prevMana = _currentMana;
+            _currentMana += value;
+            _currentMana = Mathf.Clamp(_currentMana, 0, MaxMana);
+            OnManaChangeEvent?.Invoke(prevMana, _currentMana);
         }
     }
 }

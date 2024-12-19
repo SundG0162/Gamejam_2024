@@ -42,6 +42,12 @@ namespace BSM.Players.AttackSpeedPlayer
             _overheatThresholdElement = entity.GetEntityComponent<EntityStat>().GetStatElement(_overheatThresholdElement);
             _overheatThreshold = _overheatThresholdElement.Value;
             _overheatThresholdElement.OnValueChangeEvent += HandleOnOverheatThresholdChangeEvent;
+            _player.OnJoinEvent += HandleOnJoinEvent;
+        }
+
+        private void HandleOnJoinEvent()
+        {
+            _currentOverheat = 0;
         }
 
         private void Update()

@@ -22,18 +22,39 @@ MonoBehaviour:
   - poolType: EnemyBullet
     prefab: {fileID: 8235313467199476190, guid: d400ebe5b769d1b4fbf649e22a8453cd, type: 3}
     poolCount: 15
-  - poolType: EnemyAlpha
-    prefab: {fileID: 2404621302896030209, guid: 6d03629bef9c215449be0f3febe31d2b, type: 3}
-    poolCount: 15
-  - poolType: EnemyBeta
-    prefab: {fileID: 1442838733302112682, guid: 7e66d9012fc007f42a0ade1d967f5807, type: 3}
-    poolCount: 15
-  - poolType: EnemyGamma
-    prefab: {fileID: 1137223674268225865, guid: 763956964ad3c6a47a05aa77222281e3, type: 3}
-    poolCount: 15
   - poolType: DamageText
     prefab: {fileID: 4468071641363645857, guid: d89f1f988910b724281936a61ded1f52, type: 3}
     poolCount: 20
   - poolType: PlayerBullet
     prefab: {fileID: 2458067274638834981, guid: ae16a3ddd20a22a4dab1254234375ac5, type: 3}
     poolCount: 30
+  - poolType: BulletDestroyEffect
+    prefab: {fileID: 3010148952300280233, guid: d4e03d6f96f95bb41be541fc931ad088, type: 3}
+    poolCount: 15
+  - poolType: EnemyAlpha
+    prefab: {fileID: 6194442047223876792, guid: adeae04069fdfa440bb24aa30aaafb35, type: 3}
+    poolCount: 15
+  - poolType: EnemyBeta
+    prefab: {fileID: 7769059952299546417, guid: 04f26c041ae7b7041b07a93cf4d6683d, type: 3}
+    poolCount: 15
+  - poolType: EnemyDeGamma
+    prefab: {fileID: 906485585355395079, guid: deeb8a3763d90db4d9c7c390e4f6cf91, type: 3}
+    poolCount: 15
+  - poolType: EnemyDelta
+    prefab: {fileID: 2425206145128649423, guid: acc5e454aa6ec404ca96883dca4764ff, type: 3}
+    poolCount: 15
+  - poolType: EnemyEpsilon
+    prefab: {fileID: 6229196444330697396, guid: 849a3c58627d286458155a31758b1860, type: 3}
+    poolCount: 15
+  - poolType: EnemyEta
+    prefab: {fileID: 5429768852771109424, guid: 7eb1b7e3af26901408fefb3e8518b174, type: 3}
+    poolCount: 15
+  - poolType: EnemyGamma
+    prefab: {fileID: 5232562627376042524, guid: 0bc9706e5d1bc7543990a0b890875c2e, type: 3}
+    poolCount: 15
+  - poolType: EnemyIota
+    prefab: {fileID: 430927969290554915, guid: 1d14bf8e817d2924faa4500d646775a4, type: 3}
+    poolCount: 15
+  - poolType: EnemyKappa
+    prefab: {fileID: 6562991813257440665, guid: 242dbaccbbb057c48bf39f28ca5f1fca, type: 3}
+    poolCount: 15

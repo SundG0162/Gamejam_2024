@@ -114,7 +114,7 @@ namespace BSM.Players.DamagePlayer
             {
                 if (_targets[i].TryGetComponent(out IDamageable target))
                 {
-                    target.ApplyDamage(_player.transform, _damage, false, 6);
+                    target.ApplyDamage(_player.transform, _damage, false, 30);
                 }
             }
         }
