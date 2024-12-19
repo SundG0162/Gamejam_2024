@@ -206,7 +206,7 @@ MonoBehaviour:
   - _stat: {fileID: 11400000, guid: edb2c290326c3684db2ce646367068c6, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 5000
+    _overridedBaseValue: 1500
 --- !u!114 &6457802363227824443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   _muzzleTrm: {fileID: 6966682823062461205}
   _shellExitTrm: {fileID: 5054432409508635677}
   _bulletSpeed: 20
-  _coolingSpeed: 50
+  _coolingSpeed: 100
 --- !u!1001 &4677306291271963011
 PrefabInstance:
   m_ObjectHideFlags: 0

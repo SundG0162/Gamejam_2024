@@ -1,11 +1,14 @@
 using System.Collections;
+using BSM.Core.StatSystem;
 using BSM.Entities;
 using UnityEngine;
 
 namespace BSM.Enemies
 {
     public class DashEnemy : BTEnemy
-    {        private EntityRenderer _renderer;
+    {
+        [SerializeField] private StatElementSO Stat;
+        private EntityRenderer _renderer;
         private EntityMover _mover;
         private DashEnemy _meleeEnemy;
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
@@ -26,12 +29,12 @@ namespace BSM.Enemies
         public override void HandleDeadEvt()
         {
             base.HandleDeadEvt();
-            
+
             _btAgent.enabled = false;
 
             _hpBar.SetActive(false);
             _mover.StopImmediately();
-            
+
             _renderer.Dissolve(0f, 2.5f);
 
             StartCoroutine(WaitDieTime(2.5f));
@@ -43,5 +46,20 @@ namespace BSM.Enemies
             Destroy(gameObject);
         }
 
+        public override void DashAttack(Collider2D other)
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            float Damage = gameObject.GetComponent<EntityStat>().GetStatElement(Stat).Value;
+
+            if (damageable != null)
+            {
+                damageable.ApplyDamage(other.transform, Damage, false, 0); // 데미지 적용
+            }
+            else
+            {
+                Debug.LogWarning($"Object {other.name} does not implement IDamageable.");
+                return;
+            }
+        }
     }
 }

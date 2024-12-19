@@ -30,9 +30,10 @@ namespace BSM
         public void SetActive(bool isActive, float duration = 0)
         {
             float alpha = isActive ? 1f : 0;
-            _canvasGroup.DOFade(alpha, duration);
+            _uiState = isActive ? EUIState.Opening : EUIState.Closing;
+            _canvasGroup.DOFade(alpha, duration).SetUpdate(true).OnComplete(() => _uiState = isActive ? EUIState.Opened : EUIState.Closed);
             _canvasGroup.interactable = isActive;
-            _canvasGroup.blocksRaycasts = !isActive;
+            _canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

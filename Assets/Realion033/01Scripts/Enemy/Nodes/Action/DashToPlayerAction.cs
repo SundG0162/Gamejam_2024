@@ -17,6 +17,8 @@ public partial class DashToPlayerAction : Action
     [SerializeReference] public BlackboardVariable<float> dashForceMultiplier; // 대시 힘
     [SerializeReference] public BlackboardVariable<float> stopDistanceThreshold; // 플레이어 근처에서 멈출 거리
 
+    private float currentTime = 0;
+
     protected override Status OnStart()
     {
         if (Mover.Value == null || Self.Value == null || Player.Value == null)
@@ -37,14 +39,16 @@ public partial class DashToPlayerAction : Action
 
     protected override Status OnUpdate()
     {
+        currentTime += Time.deltaTime;
         // 플레이어와의 거리를 계산
         float distanceToPlayer = Vector3.Distance(Self.Value.transform.position, Player.Value.position);
 
         // 플레이어 근처에 도달하면 멈춤
-        if (distanceToPlayer <= stopDistanceThreshold)
+        if (distanceToPlayer <= stopDistanceThreshold || currentTime >= 0.6f)
         {
             Mover.Value.CanManualMove = true;
             Mover.Value.StopImmediately(); // 이동 정지
+            Self.Value.GetComponent<Entity>().GetEntityComponent<DamageCast>().CastDamage();
             return Status.Success;
         }
 

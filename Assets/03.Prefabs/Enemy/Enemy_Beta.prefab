@@ -75,6 +75,7 @@ MonoBehaviour:
   - rid: 9203982565112021361
   - rid: 9203982565112021362
   - rid: 9203982565112021363
+  - rid: 9203982590304322261
   references:
     version: 2
     RefIds:
@@ -118,6 +119,14 @@ MonoBehaviour:
           m_Value1: 10367262799022158591
         Name: PlayerTrm
         m_Value: {fileID: 0}
+    - rid: 9203982590304322261
+      type: {class: 'BlackboardVariable`1[[BSM.Core.StatSystem.StatElementSO, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 10282374850547989778
+          m_Value1: 9728712246195256746
+        Name: DamageElement
+        m_Value: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
 --- !u!50 &4009746133444177702
 Rigidbody2D:
   serializedVersion: 5
@@ -175,7 +184,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -224,7 +233,7 @@ MonoBehaviour:
   - _stat: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 5
+    _overridedBaseValue: 15
   - _stat: {fileID: 11400000, guid: 050333ef50e262f4dab8238704358151, type: 2}
     _statValueType: 0
     _isUseOverride: 1

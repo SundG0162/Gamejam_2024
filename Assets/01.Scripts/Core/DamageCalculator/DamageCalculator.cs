@@ -29,8 +29,9 @@ namespace BSM.Core.DamageCalculator
             StatElementSO armor = targetStat.GetStatElement(_armorElement);
             if (armor == null)
                 return damage.Value;
+            if (Mathf.Approximately(float.MaxValue, armor.Value))
+                return 0;
             float calcArmor = armor.Value - armor.Value * 0.01f * _armorPenetrationElement.Value;
-            Debug.Log(calcArmor);
             float calcDamage = damage.Value - damage.Value * 0.01f * calcArmor;
             return calcDamage;
         }
