@@ -44,6 +44,7 @@ Material:
     - _BlinkValue: 0
     - _DissolveAmount: 1
     - _DissolveNoiseScale: 7
+    - _TeleportAmount: -1
     m_Colors:
     - _DissolveColor: {r: 5.7911468, g: 5.7911468, b: 5.7911468, a: 1}
     - _PixelSize: {r: 1, g: 1, b: 0, a: 0}

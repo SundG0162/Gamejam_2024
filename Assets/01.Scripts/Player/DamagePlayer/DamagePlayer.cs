@@ -23,6 +23,9 @@ namespace BSM.Players.DamagePlayer
 
             InputReader.OnAttackEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
+
+            _entityRenderer.Disappear(0.15f);
+
         }
 
         protected override void Update()
