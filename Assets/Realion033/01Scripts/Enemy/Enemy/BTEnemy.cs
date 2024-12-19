@@ -3,7 +3,6 @@ using Crogen.CrogenPooling;
 using UnityEngine;
 using Unity.Behavior;
 using System;
-using Crogen.CrogenPooling;
 using BSM.UI;
 
 namespace BSM.Enemies
