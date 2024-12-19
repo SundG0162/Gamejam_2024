@@ -18,7 +18,7 @@ public partial class ShotToTargetAction : Action
         Vector3 direction = (Target.Value.position - Self.Value.transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
 
-        //Bullet.Value.Pop(PoolType.EnemyBullet, Self.Value.transform.position, rotation);
+        Bullet.Value.Pop(PoolType.EnemyBullet, Self.Value.transform.position, rotation);
         //UnityEngine.Object.Instantiate(Bullet.Value, Self.Value.transform.position, rotation);
 
         return Status.Success; // 성공 상태 반환

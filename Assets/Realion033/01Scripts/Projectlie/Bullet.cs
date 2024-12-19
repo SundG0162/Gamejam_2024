@@ -1,6 +1,7 @@
+using System;
+using System.Collections;
 using Crogen.CrogenPooling;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace BSM.Projectile
 {
@@ -8,14 +9,13 @@ namespace BSM.Projectile
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _moveTime;
-        private float currentTime = 0;
 
         public PoolType OriginPoolType { get; set; }
         GameObject IPoolingObject.gameObject { get; set; }
 
         public void OnPop()
-        {
-
+        {   
+            StartCoroutine(PushWaitTimeCo(_moveTime));
         }
 
         public void OnPush()
@@ -25,18 +25,13 @@ namespace BSM.Projectile
 
         void Update()
         {
-            currentTime += Time.deltaTime;
-
             transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        }
 
-            if (Keyboard.current.bKey.wasPressedThisFrame)
-            {
-                gameObject.Pop(PoolType.EnemyBullet, new Vector2(0, 0), Quaternion.identity);
-            }
-            // if (currentTime >= _moveTime)
-            // {
-            //     Destroy(gameObject);
-            // }
+        IEnumerator PushWaitTimeCo(float t)
+        {
+            yield return new WaitForSeconds(t);
+            this.Push();
         }
     }
 }
