@@ -1,6 +1,7 @@
 using System.Collections;
 using BSM.Core.StatSystem;
 using BSM.Entities;
+using BSM.Core.DamageCalculator;
 using UnityEngine;
 
 namespace BSM.Enemies
@@ -49,11 +50,11 @@ namespace BSM.Enemies
         public override void DashAttack(Collider2D other)
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
-            float Damage = gameObject.GetComponent<EntityStat>().GetStatElement(Stat).Value;
+            float calcDmg = DamageCalculator.GetCaculatedDamage(this, other.GetComponent<Entity>());
 
             if (damageable != null)
             {
-                damageable.ApplyDamage(other.transform, Damage, false, 0); // 데미지 적용
+                damageable.ApplyDamage(other.transform, calcDmg, false, 0); // 데미지 적용
             }
             else
             {
