@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnInfoListSO: {fileID: 11400000, guid: 0f5f9c6de2be8f348b02548a620e246a, type: 2}
   _spawnInfos:
-  - _spawnCount: 010000000100000001000000
+  - _spawnEnemyInfo:
+    - enemyPoolType: 3
+      spawnCount: 3
+    - enemyPoolType: 5
+      spawnCount: 3
     _spawnDelay: 4
-  - _spawnCount: 020000000300000005000000
+  - _spawnEnemyInfo:
+    - enemyPoolType: 5
+      spawnCount: 6
     _spawnDelay: 1

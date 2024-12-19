@@ -51,4 +51,6 @@ MonoBehaviour:
   PropertiesToBeModified:
   - {fileID: 11400000, guid: 4d4058bb9730f1e4fb756036b4c2b300, type: 2}
   - {fileID: 11400000, guid: 90bc22fd3677900408c46a05302383c9, type: 2}
+  - {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
+  - {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
   - {fileID: 11400000, guid: b7ab1e53d432c5c48ba6d888070910dd, type: 2}
