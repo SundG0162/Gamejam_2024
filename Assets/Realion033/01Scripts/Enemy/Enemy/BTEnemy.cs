@@ -92,7 +92,7 @@ namespace BSM.Enemies
 
             if (target != null)
             {
-                damageable.ApplyDamage(transform, damage, false, 0);
+                damageable.ApplyDamage(transform, calcDmg, false, 0);
             }
         }
 
