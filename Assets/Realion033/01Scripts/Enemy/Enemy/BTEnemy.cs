@@ -2,21 +2,31 @@ using BSM.Entities;
 using Crogen.CrogenPooling;
 using UnityEngine;
 using Unity.Behavior;
-using System;
-using Crogen.CrogenPooling;
 using BSM.UI;
+using System;
 
 namespace BSM.Enemies
 {
     public class BTEnemy : Entity, IPoolingObject
     {
         [SerializeField] protected LayerMask _whatIsTarget;
+        protected EntityHealth _health;
+        protected BoxCollider2D _coll;
         protected BehaviorGraphAgent _btAgent;
         protected override void Awake()
         {
             base.Awake();
+
+            _coll = GetComponent<BoxCollider2D>();
             _btAgent = GetComponent<BehaviorGraphAgent>();
             GetEntityComponent<EntityHealth>().OnDamageTakenEvent += HandleOnDamageTaken;
+
+            GetEntityComponent<EntityHealth>().OnDeadEvent += HandleDeadEvt;
+        }
+
+        public virtual void HandleDeadEvt()
+        {
+            _coll.enabled = false;
         }
 
         private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)
