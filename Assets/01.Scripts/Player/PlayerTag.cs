@@ -36,7 +36,10 @@ namespace BSM.Players
                 player.GetEntityComponent<EntityRenderer>().Disappear(0);
             }
 
-            TagPlayer(EPlayerType.Damage);
+            CurrentPlayer = _playerDictionary[EPlayerType.Damage];
+            CurrentPlayer.gameObject.SetActive(true);
+            CurrentPlayer.GetEntityComponent<EntityRenderer>().Appear(0);
+            OnPlayerChangeEvent?.Invoke(CurrentPlayer);
         }
 
         private void Update()
