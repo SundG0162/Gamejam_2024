@@ -7,6 +7,7 @@ using System;
 using BSM.Players;
 using Unity.Mathematics;
 using BSM.Core.DamageCalculator;
+using BSM.Core.Audios;
 
 namespace BSM.Enemies
 {
@@ -57,6 +58,7 @@ namespace BSM.Enemies
         private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)
         {
             //여기 물 enum 추가 안하면 에러남
+            AudioManager.Instance.PlayAudio("EnemyHit");
             gameObject.Pop(PoolType.DamageText, transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f, Quaternion.identity).gameObject.GetComponent<DamageText>().Initialize(damage);
         }
 
@@ -96,6 +98,7 @@ namespace BSM.Enemies
             if (target != null)
             {
                 damageable.ApplyDamage(transform, calcDmg, false, 0);
+                AudioManager.Instance.PlayAudio("EnemySlash");
             }
         }
 

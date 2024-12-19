@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7eb50b96fb2494e8a733e3b10e246c, type: 3}
   m_Name: AudioBase
   m_EditorClassIdentifier: 
-  pairs: []
+  pairs:
+  - key: EnemyHit
+    clip: {fileID: 8300000, guid: 856c6468c071749498cd8b3a2c961ce5, type: 3}
+  - key: EnemySlash
+    clip: {fileID: 8300000, guid: 4651fd89be2deac46b89aaa5dee5fa63, type: 3}
