@@ -21,7 +21,7 @@ namespace BSM.Enemies
             _btAgent = GetComponent<BehaviorGraphAgent>();
             GetEntityComponent<EntityHealth>().OnDamageTakenEvent += HandleOnDamageTaken;
 
-            _health.OnDeadEvent += HandleDeadEvt;
+            GetEntityComponent<EntityHealth>().OnDeadEvent += HandleDeadEvt;
         }
 
         public virtual void HandleDeadEvt()
