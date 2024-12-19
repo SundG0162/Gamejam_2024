@@ -19051,6 +19051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908628055}
+  - component: {fileID: 1908628056}
   m_Layer: 5
   m_Name: TagPanel
   m_TagString: Untagged
@@ -19080,6 +19081,18 @@ RectTransform:
   m_AnchoredPosition: {x: -15, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
+--- !u!225 &1908628056
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908628054}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1975498782
 GameObject:
   m_ObjectHideFlags: 0

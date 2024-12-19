@@ -37,6 +37,7 @@ namespace BSM.Players
 
         public event Action<Player> OnPlayerChangeEvent;
         public event ManaChangeEvent OnManaChangeEvent;
+        public event Action<int> OnTagEvent;
 
         [SerializeField]
         private EPlayerType[] _tagPlayers = new EPlayerType[3];
@@ -72,10 +73,12 @@ namespace BSM.Players
             if (index == 1)
             {
                 _tagPlayers.PullArray(1);
+                OnTagEvent?.Invoke(-1);
             }
             else if(index == 2)
             {
                 _tagPlayers.PushArray(1);
+                OnTagEvent?.Invoke(1);
             }
             TagPlayer(_tagPlayers[0]);
         }
@@ -89,9 +92,15 @@ namespace BSM.Players
         {
             if(type != _tagPlayers[0]) // ArmorPlayer로부터 넘어왔다는 뜻
                 if (_tagPlayers[1] == type)
+                {
                     _tagPlayers.PullArray(1);
+                    OnTagEvent?.Invoke(-1);
+                }
                 else
+                {
                     _tagPlayers.PushArray(1);
+                    OnTagEvent?.Invoke(1);
+                }
             Vector3 pos = Vector3.zero;
             if (CurrentPlayer != null)
             {
