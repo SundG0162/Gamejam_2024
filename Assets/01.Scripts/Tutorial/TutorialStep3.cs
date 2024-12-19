@@ -30,6 +30,10 @@ namespace BSM.Tutorials
                     _tutorialManager.SetText("<무제한 공격속도를 가진 캐릭터.\n 빠른 공격으로 적을 밀쳐내 처치합니다.");
                     _tutorialManager.HighlightOneCharacter(2);
                     break;
+                //case 4:
+                    //_tutorialManager.SetText("숫자 1과 2를 눌러 캐릭터를 태그 할 수 있습니다.");
+                    //_tutorialManager.HighlightOneCharacter(-1);
+                    //break;
                 case 4:
                     _tutorialManager.SetCharacterVisual(false);
                     _tutorialManager.NextTutorial();
