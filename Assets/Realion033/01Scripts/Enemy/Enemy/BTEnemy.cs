@@ -46,7 +46,7 @@ namespace BSM.Enemies
         private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)
         {
             //여기 물 enum 추가 안하면 에러남
-            gameObject.Pop(PoolType.DamageText, transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.2f, Quaternion.identity).gameObject.GetComponent<DamageText>().Initialize(damage);
+            gameObject.Pop(PoolType.DamageText, transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f, Quaternion.identity).gameObject.GetComponent<DamageText>().Initialize(damage);
         }
 
         public BlackboardVariable<T> GetVariable<T>(string variableName)

@@ -19,6 +19,9 @@ namespace BSM.Players
         [SerializeField]
         private AnimatorParameterSO _idleParameter;
 
+        public event Action OnJoinEvent;
+        public event Action OnQuitEvent;
+
         public bool StopFlip { get; set; } = false;
 
         protected override void Awake()
@@ -69,11 +72,13 @@ namespace BSM.Players
         public virtual void Join()
         {
             _entityRenderer.Appear(0.15f);
+            OnJoinEvent?.Invoke();
         }
 
         public virtual void Quit()
         {
             _entityRenderer.Disappear(0.15f);
+            OnQuitEvent?.Invoke();
         }
 
     }

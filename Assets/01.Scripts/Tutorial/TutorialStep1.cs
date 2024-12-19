@@ -10,6 +10,7 @@ namespace BSM.Tutorials
 
         public void SetIndexText()
         {
+            Debug.Log(textIndex);
             switch (textIndex)
             {
                 case 0:
@@ -28,17 +29,19 @@ namespace BSM.Tutorials
         
         public override void OnEnter()
         {
+            _tutorialManager.SetBackground(true);
             SetIndexText();
+            _tutorialManager.InputSO.OnMouseClickEvent += SetIndexText;
         }
 
         public override void OnUpdate()
         {
-            if(Mouse.current.leftButton.isPressed) SetIndexText();
-                
+            Debug.Log("step1");
         }
 
         public override void OnExit()
         {
+            _tutorialManager.InputSO.OnMouseClickEvent -= SetIndexText;
             
         }
     }

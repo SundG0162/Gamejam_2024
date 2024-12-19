@@ -15,20 +15,20 @@ MonoBehaviour:
   _spawnInfoListSO: {fileID: 11400000, guid: 0f5f9c6de2be8f348b02548a620e246a, type: 2}
   _spawnInfos:
   - _spawnEnemyInfo:
-    - enemyPoolType: 3
+    - enemyPoolType: 6
       spawnCount: 5
-    - enemyPoolType: 5
+    - enemyPoolType: 9
       spawnCount: 1
     _spawnDelay: 2
   - _spawnEnemyInfo:
-    - enemyPoolType: 3
+    - enemyPoolType: 6
       spawnCount: 2
-    - enemyPoolType: 4
+    - enemyPoolType: 7
       spawnCount: 3
     _spawnDelay: 2
   - _spawnEnemyInfo:
-    - enemyPoolType: 4
+    - enemyPoolType: 6
       spawnCount: 3
-    - enemyPoolType: 5
+    - enemyPoolType: 7
       spawnCount: 3
     _spawnDelay: 2

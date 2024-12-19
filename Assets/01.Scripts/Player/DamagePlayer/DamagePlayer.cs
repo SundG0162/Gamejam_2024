@@ -36,14 +36,14 @@ namespace BSM.Players.DamagePlayer
         protected override void OnEnable()
         {
             base.OnEnable();
-            InputReader.OnAttackEvent += HandleOnAttackEvent;
+            InputReader.OnMouseClickEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            InputReader.OnAttackEvent -= HandleOnAttackEvent;
+            InputReader.OnMouseClickEvent -= HandleOnAttackEvent;
             InputReader.OnMouseUpEvent -= HandleOnTryAttackEvent;
         }
 

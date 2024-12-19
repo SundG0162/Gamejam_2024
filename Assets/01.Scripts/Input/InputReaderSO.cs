@@ -12,12 +12,13 @@ namespace BSM.Inputs
         public Vector2 Movement { get; private set; }
         public Vector2 MousePosition { get; private set; }
 
-        public event Action OnAttackEvent;
+        public event Action OnMouseClickEvent;
         public event Action OnMouseUpEvent;
         public event Action OnInteractEvent;
         public event Action<Vector2> OnMovementEvent;
         public event Action<Vector2> OnMouseMoveEvent;
         public event Action OnOpenStatUIEvent;
+        public event Action<int> OnTagEvent;
 
         private void OnEnable()
         {
@@ -59,7 +60,7 @@ namespace BSM.Inputs
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed)
-                OnAttackEvent?.Invoke();
+                OnMouseClickEvent?.Invoke();
             else if (context.canceled)
                 OnMouseUpEvent?.Invoke();
         }
@@ -86,11 +87,22 @@ namespace BSM.Inputs
             OnMovementEvent?.Invoke(Movement);
         }
         
-        
         public void OnOpenStatUI(InputAction.CallbackContext context)
         {
             if (context.performed)
                 OnOpenStatUIEvent?.Invoke();
+        }
+
+        public void OnTag1(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnTagEvent?.Invoke(1);
+        }
+
+        public void OnTag2(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnTagEvent?.Invoke(2);
         }
         #endregion
 
@@ -134,7 +146,6 @@ namespace BSM.Inputs
         public void OnTrackedDeviceOrientation(InputAction.CallbackContext context)
         {
         }
-
         #endregion
     }
 }

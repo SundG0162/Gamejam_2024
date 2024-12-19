@@ -13,22 +13,27 @@ namespace BSM.Players.AttackSpeedPlayer
         {
             base.Awake();
             _weapon = GetEntityComponent<AttackSpeedPlayerWeapon>();
-            InputReader.OnAttackEvent += HandleOnAttackEvent;
+            InputReader.OnMouseClickEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnCancelAttackEvent;
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            InputReader.OnAttackEvent += HandleOnAttackEvent;
+            InputReader.OnMouseClickEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnCancelAttackEvent;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            InputReader.OnAttackEvent -= HandleOnAttackEvent;
+            InputReader.OnMouseClickEvent -= HandleOnAttackEvent;
             InputReader.OnMouseUpEvent -= HandleOnCancelAttackEvent;
+        }
+
+        public override void Join()
+        {
+            base.Join();
         }
 
         protected override void Update()
