@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BSM
+namespace BSM.Utils
 {
     public class TMPSortingLayer : MonoBehaviour
     {

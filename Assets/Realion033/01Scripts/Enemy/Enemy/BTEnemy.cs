@@ -12,8 +12,6 @@ namespace BSM.Enemies
     {
         [SerializeField] protected LayerMask _whatIsTarget;
         protected BehaviorGraphAgent _btAgent;
-        private IPoolingObject _poolingObjectImplementation;
-
         protected override void Awake()
         {
             base.Awake();
@@ -48,26 +46,16 @@ namespace BSM.Enemies
             return collider != null ? collider.transform : null;
         }
 
-        public PoolType OriginPoolType
-        {
-            get => _poolingObjectImplementation.OriginPoolType;
-            set => _poolingObjectImplementation.OriginPoolType = value;
-        }
+        public PoolType OriginPoolType { get; set; }
 
-        public GameObject gameObject
-        {
-            get => _poolingObjectImplementation.gameObject;
-            set => _poolingObjectImplementation.gameObject = value;
-        }
+        GameObject IPoolingObject.gameObject { get; set; }
 
         public void OnPop()
         {
-            _poolingObjectImplementation.OnPop();
         }
 
         public void OnPush()
         {
-            _poolingObjectImplementation.OnPush();
         }
     }
 }
