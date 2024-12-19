@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd9e3a2536a895347af5098da95bab68, type: 3}
-  m_Name: MoveSpeed
+  m_Name: Armor
   m_EditorClassIdentifier: 
   statValueType: 0
-  statName: MoveSpeed
-  description: "\uC774\uB3D9\uC18D"
-  displayName: Move Speed
+  statName: Armor
+  description: "\uBC29\uC5B4\uB825"
+  displayName: Armor
   _icon: {fileID: -6746367964621234244, guid: 517e6ddc15ac6c343850001cf675e1c3, type: 3}
   _baseValue: 5
   _minValue: 0

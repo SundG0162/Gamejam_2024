@@ -1,17 +1,22 @@
 using System.Collections;
 using BSM.Entities;
+using Crogen.CrogenPooling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace BSM.Enemies
 {
-    public class DashEnemy : BTEnemy
+    public class DashEnemy : BTEnemy, IPoolingObject
     {
         [SerializeField] private GameObject _hpBar;
         private EntityHealth _health;
         private EntityRenderer _renderer;
         private EntityMover _mover;
         private DashEnemy _meleeEnemy;
+
+        public PoolType OriginPoolType { get; set; }
+        GameObject IPoolingObject.gameObject { get; set; }
+
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
 
         protected override void Awake()
@@ -26,13 +31,6 @@ namespace BSM.Enemies
             _health.OnDeadEvent += HandleDeadEvt;
         }
 
-        private void Update()
-        {
-            if (Keyboard.current.zKey.wasPressedThisFrame)
-            {
-                _health.ApplyDamage(_meleeEnemy, 1, false, 0);
-            }
-        }
 
         private void HandleDeadEvt()
         {
@@ -50,6 +48,14 @@ namespace BSM.Enemies
         {
             yield return new WaitForSeconds(time);
             Destroy(gameObject);
+        }
+
+        public void OnPop()
+        {
+        }
+
+        public void OnPush()
+        {
         }
     }
 }

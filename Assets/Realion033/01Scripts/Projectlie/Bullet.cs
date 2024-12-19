@@ -1,5 +1,6 @@
 using Crogen.CrogenPooling;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace BSM.Projectile
 {
@@ -14,12 +15,12 @@ namespace BSM.Projectile
 
         public void OnPop()
         {
-            throw new System.NotImplementedException();
+
         }
 
         public void OnPush()
         {
-            throw new System.NotImplementedException();
+
         }
 
         void Update()
@@ -28,10 +29,14 @@ namespace BSM.Projectile
 
             transform.Translate(Vector2.up * _speed * Time.deltaTime);
 
-            if (currentTime >= _moveTime)
+            if (Keyboard.current.bKey.wasPressedThisFrame)
             {
-                Destroy(gameObject);
+                gameObject.Pop(PoolType.EnemyBullet, new Vector2(0, 0), Quaternion.identity);
             }
+            // if (currentTime >= _moveTime)
+            // {
+            //     Destroy(gameObject);
+            // }
         }
     }
 }
