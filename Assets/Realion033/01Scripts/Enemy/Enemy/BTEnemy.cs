@@ -41,6 +41,8 @@ namespace BSM.Enemies
         {
             _animator.enabled = false;
             _coll.enabled = false;
+
+            //gameObject.Pop(poolty)
         }
 
         private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)
