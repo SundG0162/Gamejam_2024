@@ -2566,12 +2566,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1889281937987093824, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Size.y
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3132396729840251065, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: _background
       value: 
       objectReference: {fileID: 1720260081}
+    - target: {fileID: 3132396729840251065, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: _moveDirAmount.x
+      value: 39
+      objectReference: {fileID: 0}
     - target: {fileID: 3589437282001997138, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_SortingOrder
       value: -99
@@ -2582,7 +2586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931113162224399705, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Size.y
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4100279035921269044, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Size.x
@@ -11872,6 +11876,14 @@ PrefabInstance:
       propertyPath: _background
       value: 
       objectReference: {fileID: 1720260081}
+    - target: {fileID: 4166860538776803809, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: _moveDirAmount.x
+      value: -39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166860538776803809, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: _moveDirAmount.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5287572672410136929, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Name
       value: InfiniteMap
@@ -18920,6 +18932,10 @@ PrefabInstance:
       propertyPath: _background
       value: 
       objectReference: {fileID: 1720260081}
+    - target: {fileID: 5992766692782951835, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: _moveDirAmount.y
+      value: -39
+      objectReference: {fileID: 0}
     - target: {fileID: 6079835692901986663, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -18962,16 +18978,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091485361715525730, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Size.x
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8124827922154705210, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_Size.x
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9195392696370986370, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: _background
       value: 
       objectReference: {fileID: 1720260081}
+    - target: {fileID: 9195392696370986370, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: _moveDirAmount.y
+      value: 39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19031,6 +19051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908628055}
+  - component: {fileID: 1908628056}
   m_Layer: 5
   m_Name: TagPanel
   m_TagString: Untagged
@@ -19060,6 +19081,18 @@ RectTransform:
   m_AnchoredPosition: {x: -15, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
+--- !u!225 &1908628056
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908628054}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1975498782
 GameObject:
   m_ObjectHideFlags: 0

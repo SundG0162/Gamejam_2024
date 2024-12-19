@@ -4,6 +4,7 @@ using BSM.Inputs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using DG.Tweening;
 
 namespace BSM.Tutorials
 {
@@ -16,7 +17,9 @@ namespace BSM.Tutorials
         private int _currentStepIndex = 0;
         private TutorialStep _currentStep;
         [SerializeField] private TextMeshProUGUI _text;
-        public GameObject destination;
+        public GameObject Destination;
+        public GameObject DummuEnemy;
+        public GameObject CharactersVisual;
         public SpriteRenderer blackBackground;
         private void Awake()
         {
@@ -30,7 +33,10 @@ namespace BSM.Tutorials
             _tutorialStepList.ForEach(step => step.Initialize(this));
             _currentStep = _tutorialStepList[0];
             _currentStep.OnEnter();
-            destination.GetComponent<DestinationCircle>().PlayerArrived += NextTutorial;
+            Destination.GetComponent<DestinationCircle>().PlayerArrived += NextTutorial;
+            
+            SetBackground(true);
+            SetCharacterVisual(false);
         }
 
         private void Update()
@@ -52,7 +58,11 @@ namespace BSM.Tutorials
 
         public void CreateDestination()
         {
-            destination.SetActive(true);
+            Destination.SetActive(true);
+        }
+        public void CreateDummyEnemy()
+        {
+            Destination.SetActive(true);
         }
 
         public void SetBackground(bool isBlack)
@@ -63,6 +73,23 @@ namespace BSM.Tutorials
             else
                 color.a = 0f;
             blackBackground.color = color;
+        }
+        public void SetCharacterVisual(bool isOpen)
+        {
+            if (isOpen)
+                CharactersVisual.SetActive(true);
+            else
+                CharactersVisual.SetActive(false);
+        }
+
+        public void HighlightOneCharacter(int index)
+        {
+            for (int i = 0; i < CharactersVisual.transform.childCount; i++)
+            {
+                CharactersVisual.transform.GetChild(i).transform.localScale = Vector3.one;
+            }
+
+            CharactersVisual.transform.GetChild(index).transform.DOScale(new Vector3(1.5f, 1.5f, 1f), 0.5f);
         }
     }
 }

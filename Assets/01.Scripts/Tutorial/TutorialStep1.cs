@@ -14,7 +14,7 @@ namespace BSM.Tutorials
             switch (textIndex)
             {
                 case 0:
-                    _tutorialManager.SetText("태그!는 스탯중 하나가 무제한인 캐릭터들을 바꿔가며 싸우는 게임입니다.");
+                    _tutorialManager.SetText("<b>태그!</b>는 스탯중 하나가 무제한인 캐릭터들을 바꿔가며 싸우는 게임입니다.");
                     break;
                 case 1:
                     _tutorialManager.SetText("지금부터 튜토리얼을 알려드리겠습니다.");
@@ -36,7 +36,7 @@ namespace BSM.Tutorials
 
         public override void OnUpdate()
         {
-            Debug.Log("step1");
+            
         }
 
         public override void OnExit()
