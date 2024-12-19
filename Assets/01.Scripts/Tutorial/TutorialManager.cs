@@ -12,7 +12,7 @@ namespace BSM.Tutorials
         [SerializeField]public InputReaderSO InputSO;
         
         private List<TutorialStep> _tutorialStepList = new List<TutorialStep>();
-        private int _tutorialCount = 2; //올려줘야함
+        private int _tutorialCount = 3; //올려줘야함
         private int _currentStepIndex = 0;
         private TutorialStep _currentStep;
         [SerializeField] private TextMeshProUGUI _text;
@@ -29,6 +29,7 @@ namespace BSM.Tutorials
             }
             _tutorialStepList.ForEach(step => step.Initialize(this));
             _currentStep = _tutorialStepList[0];
+            _currentStep.OnEnter();
             destination.GetComponent<DestinationCircle>().PlayerArrived += NextTutorial;
         }
 
