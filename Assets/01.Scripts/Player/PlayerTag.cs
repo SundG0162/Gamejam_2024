@@ -34,6 +34,7 @@ namespace BSM.Players
                 player.gameObject.SetActive(false);
                 player.transform.localPosition = Vector3.zero;
                 player.GetEntityComponent<EntityRenderer>().Disappear(0);
+                player.Initialize(this);
             }
 
             CurrentPlayer = _playerDictionary[EPlayerType.Damage];
@@ -51,6 +52,10 @@ namespace BSM.Players
             if (Keyboard.current.hKey.wasPressedThisFrame)
             {
                 TagPlayer(EPlayerType.Damage);
+            }
+            if (Keyboard.current.jKey.wasPressedThisFrame)
+            {
+                TagPlayer(EPlayerType.Armor);
             }
         }
 

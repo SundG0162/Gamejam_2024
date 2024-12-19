@@ -206,7 +206,7 @@ MonoBehaviour:
   - _stat: {fileID: 11400000, guid: edb2c290326c3684db2ce646367068c6, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 3000
+    _overridedBaseValue: 1500
 --- !u!114 &6457802363227824443
 MonoBehaviour:
   m_ObjectHideFlags: 0

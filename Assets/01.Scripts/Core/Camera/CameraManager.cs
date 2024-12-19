@@ -12,7 +12,7 @@ namespace BSM.Core.Cameras
         [field: SerializeField]
         public CinemachineCamera CurrentCam { get; private set; }
         private CinemachineBasicMultiChannelPerlin _multiChannelPerlin;
-
+        private Tween _tiltTween;
         private Sequence _shakeSequence;
 
         private void Awake()
@@ -33,6 +33,13 @@ namespace BSM.Core.Cameras
             _shakeSequence
                 .Append(DOTween.To(() => _multiChannelPerlin.AmplitudeGain, v => _multiChannelPerlin.AmplitudeGain = v, 0, time).SetEase(ease))
                 .Join(DOTween.To(() => _multiChannelPerlin.FrequencyGain, v => _multiChannelPerlin.FrequencyGain = v, 0, time).SetEase(ease));
+        }
+
+        public void TiltCamera(float tiltValue, float time)
+        {
+            if (_tiltTween != null && _tiltTween.IsActive())
+                _tiltTween.Kill();
+            _tiltTween = CurrentCam.transform.DORotate(new Vector3(0, 0, tiltValue), time);
         }
     }
 }
