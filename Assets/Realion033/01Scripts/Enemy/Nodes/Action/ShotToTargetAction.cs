@@ -22,6 +22,7 @@ public partial class ShotToTargetAction : Action
         Vector3 direction = (Target.Value.position - Self.Value.transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
 
+        Bullet.Value.GetComponent<Bullet>().Dealer = Self.Value.GetComponent<Entity>();
         Bullet.Value.GetComponent<Bullet>().Damage = Self.Value.GetComponent<EntityStat>().GetStatElement(Stat).Value;
         Bullet.Value.Pop(PoolType.EnemyBullet, Self.Value.transform.position, rotation);
         

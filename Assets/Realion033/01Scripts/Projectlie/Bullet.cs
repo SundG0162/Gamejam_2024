@@ -1,5 +1,5 @@
 using System.Collections;
-using BSM.Core.StatSystem;
+using BSM.Core.DamageCalculator;
 using BSM.Entities;
 using Crogen.CrogenPooling;
 using UnityEngine;
@@ -12,6 +12,8 @@ namespace BSM.Projectile
         [SerializeField] private float _moveTime; // 총알이 움직이는 시간
         [SerializeField] private LayerMask _whatIsPlayer; // 플레이어 레이어
         public float Damage; // 총알 데미지
+        public Entity Dealer;
+        private Entity _target;
 
         public PoolType OriginPoolType { get; set; }
         private EntityStat _stat;
@@ -45,6 +47,9 @@ namespace BSM.Projectile
             {
                 // IDamageable 인터페이스 확인
                 IDamageable damageable = other.GetComponent<IDamageable>();
+                _target = other.GetComponent<Entity>();
+
+                float calcDmg = DamageCalculator.GetCaculatedDamage(Dealer, _target);
                 if (damageable != null)
                 {
                     damageable.ApplyDamage(other.transform, Damage, false, 0); // 데미지 적용
