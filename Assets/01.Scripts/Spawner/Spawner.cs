@@ -124,6 +124,8 @@ namespace SSH.Spawn
             StartCoroutine(AddSpawningList());
         }
 
+        private WaitForSeconds _waitFor17Seconds = new WaitForSeconds(17f);
+        private WaitForSeconds _waitFor3Seconds = new WaitForSeconds(3f);
         private IEnumerator AddSpawningList()
         {
             while (true)
@@ -134,13 +136,17 @@ namespace SSH.Spawn
                     AddEnemyToQueue(1, 3, PoolType.EnemyAlpha, i);
                 }
 
-                yield return new WaitForSeconds(17f);
+                yield return _waitFor17Seconds;
+                yield return _waitFor3Seconds;
+                
                 for (int i = 0; i < 6; i++)
                 {
                     AddEnemyToQueue(1, 3,  PoolType.EnemyAlpha, i);
                 }
 
-                yield return new WaitForSeconds(17f);
+                yield return _waitFor17Seconds;
+                yield return _waitFor3Seconds;
+                
                 for (int i = 0; i < 6; i++)
                 {
                     AddEnemyToQueue(0, 3, PoolType.EnemyAlpha, i);
@@ -148,7 +154,7 @@ namespace SSH.Spawn
                 int index = Random.Range(0, 3); 
                 AddEnemyToQueue(1, 2,  PoolType.EnemyEta, index);
 
-                yield return new WaitForSeconds(17f);
+                yield return _waitFor17Seconds;
             }
         }
 
