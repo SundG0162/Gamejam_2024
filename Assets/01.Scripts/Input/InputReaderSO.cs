@@ -15,6 +15,7 @@ namespace BSM.Inputs
         public event Action OnMouseClickEvent;
         public event Action OnMouseUpEvent;
         public event Action OnInteractEvent;
+        public event Action OnDashEvent;
         public event Action<Vector2> OnMovementEvent;
         public event Action<Vector2> OnMouseMoveEvent;
         public event Action OnOpenStatUIEvent;
@@ -22,7 +23,7 @@ namespace BSM.Inputs
 
         private void OnEnable()
         {
-            if(_controls == null)
+            if (_controls == null)
             {
                 _controls = new Controls();
                 _controls.Player.SetCallbacks(this);
@@ -71,10 +72,6 @@ namespace BSM.Inputs
                 OnInteractEvent?.Invoke();
         }
 
-        public void OnJump(InputAction.CallbackContext context)
-        {
-        }
-
         public void OnMouseMove(InputAction.CallbackContext context)
         {
             MousePosition = context.ReadValue<Vector2>();
@@ -86,7 +83,7 @@ namespace BSM.Inputs
             Movement = context.ReadValue<Vector2>();
             OnMovementEvent?.Invoke(Movement);
         }
-        
+
         public void OnOpenStatUI(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -103,6 +100,12 @@ namespace BSM.Inputs
         {
             if (context.performed)
                 OnTagEvent?.Invoke(2);
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnDashEvent?.Invoke();
         }
         #endregion
 
