@@ -1,5 +1,5 @@
 
 public enum PoolType
 {
-    Shell, AudioPlayer, 
+    Shell, AudioPlayer, EnemyBullet, EnemyAlpha, EnemyBeta, EnemyGamma, 
 }  

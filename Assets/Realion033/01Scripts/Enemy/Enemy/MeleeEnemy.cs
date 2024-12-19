@@ -1,17 +1,22 @@
 using System.Collections;
 using BSM.Entities;
+using Crogen.CrogenPooling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace BSM.Enemies
 {
-    public class MeleeEnemy : BTEnemy
+    public class MeleeEnemy : BTEnemy, IPoolingObject
     {
         [SerializeField] private GameObject _hpBar;
         private EntityHealth _health;
         private EntityRenderer _renderer;
         private EntityMover _mover;
         private MeleeEnemy _meleeEnemy;
+
+        public PoolType OriginPoolType { get; set; }
+        GameObject IPoolingObject.gameObject { get; set; }
+
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
 
         protected override void Awake()
@@ -56,6 +61,14 @@ namespace BSM.Enemies
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, 1.2f);
+        }
+
+        public void OnPop()
+        {
+        }
+
+        public void OnPush()
+        {
         }
     }
 }
