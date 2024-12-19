@@ -742,6 +742,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035284679}
   m_CullTransparentMesh: 1
+--- !u!1 &1067284671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067284673}
+  - component: {fileID: 1067284672}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1067284672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067284671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fbe56d4b9a18646880001a86590426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waves:
+  - {fileID: 11400000, guid: b4fe3e958b7730b40824d4c370f5afa6, type: 2}
+  - {fileID: 11400000, guid: aac44a97c790e03469895c197b053284, type: 2}
+  - {fileID: 11400000, guid: bbfc2cc6b377d9e44a80d57d887b65e7, type: 2}
+  - {fileID: 11400000, guid: 3bfecb711b309354daf2312e75214eaa, type: 2}
+  - {fileID: 11400000, guid: 244b4822a729e3148926fe5fe07349d1, type: 2}
+  - {fileID: 11400000, guid: 50b7a616ec98ef24a95cdfddf5847ad1, type: 2}
+  - {fileID: 11400000, guid: 3f6f33471f2b6f74994d712930e429b6, type: 2}
+  - {fileID: 11400000, guid: db3a78c77df0b0b4eb55484e62214566, type: 2}
+  - {fileID: 11400000, guid: 290f924a0940f6d418f257e3e858d2c8, type: 2}
+  - {fileID: 11400000, guid: 010f5e3abd8bcdd49a753ca477a14553, type: 2}
+--- !u!4 &1067284673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067284671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 300, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321894014
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundMap
       objectReference: {fileID: 0}
+    - target: {fileID: 5287572672410136929, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6079835692901986663, guid: e623b04d7156985418fa77f8aad34ff6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -937,3 +996,4 @@ SceneRoots:
   - {fileID: 73570575}
   - {fileID: 1321894017}
   - {fileID: 2030264858268349238}
+  - {fileID: 1067284673}
