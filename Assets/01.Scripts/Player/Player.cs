@@ -14,6 +14,7 @@ namespace BSM.Players
         public InputReaderSO InputReader { get; private set; }
         protected EntityMover _entityMover;
         protected EntityRenderer _entityRenderer;
+        protected PlayerTag _playerTag;
 
         [SerializeField]
         private AnimatorParameterSO _idleParameter;
@@ -23,9 +24,18 @@ namespace BSM.Players
         protected override void Awake()
         {
             base.Awake();
-            InputReader.OnMovementEvent += HandleOnMovementEvent;
             _entityMover = GetEntityComponent<EntityMover>();
             _entityRenderer = GetEntityComponent<EntityRenderer>();
+        }
+
+        public void Initialize(PlayerTag tag)
+        {
+            _playerTag = tag;
+        }
+
+        protected virtual void OnEnable()
+        {
+            InputReader.OnMovementEvent += HandleOnMovementEvent;
         }
 
         protected virtual void OnDisable()
