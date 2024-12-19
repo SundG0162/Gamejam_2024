@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69242e929951574dbbdfa8250728b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputReader: {fileID: 0}
   _playerDictionary:
     _serializedList:
     - Key: 0
@@ -193,6 +194,7 @@ MonoBehaviour:
     - Key: 1
       Value: {fileID: 8671747069953563274, guid: e1907903b19148f42860aae12a8151fc, type: 3}
   <MaxMana>k__BackingField: 0
+  _tagPlayers: 000000000000000000000000
 --- !u!4 &316350095
 Transform:
   m_ObjectHideFlags: 0
@@ -593,19 +595,19 @@ MonoBehaviour:
   - _stat: {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 30
+    _overridedBaseValue: 40
   - _stat: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 2
+    _overridedBaseValue: 10
   - _stat: {fileID: 11400000, guid: 050333ef50e262f4dab8238704358151, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 8
+    _overridedBaseValue: 10
   - _stat: {fileID: 11400000, guid: ac4587744a9c7d24da986f8824e2ced2, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 3.5
+    _overridedBaseValue: 4
 --- !u!1 &267550457930746437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _whatIsTarget:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isDashAttack: 0
   _hpBar: {fileID: 2259691512527787102}
 --- !u!114 &2886158793589646573
@@ -1715,19 +1717,19 @@ MonoBehaviour:
   - _stat: {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 20
+    _overridedBaseValue: 30
   - _stat: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 11
+    _overridedBaseValue: 25
   - _stat: {fileID: 11400000, guid: 050333ef50e262f4dab8238704358151, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 9
+    _overridedBaseValue: 5
   - _stat: {fileID: 11400000, guid: ac4587744a9c7d24da986f8824e2ced2, type: 2}
     _statValueType: 0
     _isUseOverride: 1
-    _overridedBaseValue: 4
+    _overridedBaseValue: 4.5
 --- !u!114 &4175393847819142509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2385,7 +2387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6228510715734381579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,7 +2427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &6284883857623181539
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2592,6 +2594,8 @@ MonoBehaviour:
   - rid: 9203982592609092331
   - rid: 9203982592609092330
   - rid: 9203982592609092391
+  - rid: 9203982596005691569
+  - rid: 9203982596005691570
   references:
     version: 2
     RefIds:
@@ -2643,6 +2647,22 @@ MonoBehaviour:
           m_Value1: 12306338841245373585
         Name: MeleeEnemy
         m_Value: {fileID: 3661436709140764816}
+    - rid: 9203982596005691569
+      type: {class: 'BlackboardVariable`1[[BSM.Core.StatSystem.StatElementSO, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 10885499265096619891
+          m_Value1: 1404294997573005138
+        Name: Health
+        m_Value: {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
+    - rid: 9203982596005691570
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15866294299402149464
+          m_Value1: 588746892458450154
+        Name: AddHealthValue
+        m_Value: 7
 --- !u!212 &7052004933541530769
 SpriteRenderer:
   m_ObjectHideFlags: 0
