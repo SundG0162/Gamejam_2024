@@ -2,7 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BSM;
+using BSM.Core.StatSystem;
 using BSM.Players;
+using Crogen.CrogenPooling;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +14,7 @@ namespace SSH.Spawn
     public class Spawner : MonoBehaviour
     {
         public List<WaveInfoSO> Waves;
-
+        public StatElementSO[] PropertiesToBeModified;
         private int _currentWave;
         
         PlayerTag playerObject;
@@ -21,6 +24,7 @@ namespace SSH.Spawn
             _currentWave = 1;
             _amount = 15;
             playerObject = GameObject.Find("Player").GetComponent<PlayerTag>();
+            gameObject.Pop((PoolType.DamageText), transform.position, Quaternion.identity);
             StartCoroutine(SpawnObjects());
         }
 
@@ -39,7 +43,9 @@ namespace SSH.Spawn
                             {
                                 print("spawned");
                                 print(Time.time);
-                                Instantiate(wave._spawnInfoListSO.SpawnObject[i]).transform.position = GetSpawnPos();
+                                GameObject g = Instantiate(wave._spawnInfoListSO.SpawnObject[i]);
+                                g.transform.position = GetSpawnPos();
+                                
                             }
                         }
 
