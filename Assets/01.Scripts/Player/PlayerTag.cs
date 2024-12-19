@@ -89,27 +89,6 @@ namespace BSM.Players
             {
                 _resultPanelUI.Open();
             });
-            _inputReader.OnPauseEvent += HandleOnPauseEvent;
-        }
-
-        private void HandleOnPauseEvent()
-        {
-            _pausePanelUI.Open();
-        }
-
-        private void OnDestroy()
-        {
-            _inputReader.OnTagEvent -= HandleOnTagEvent;
-            _inputReader.OnPauseEvent -= HandleOnPauseEvent;
-        }
-
-        private void HandleOnDeadEvent()
-        {
-            Time.timeScale = 0;
-            CameraManager.Instance.CameraOnDead(() => 
-            {
-                _resultPanelUI.Open();
-            });
         }
 
         private void HandleOnTagEvent(int index)
