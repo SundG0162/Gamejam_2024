@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96245a63d85ab0c4e9f4e38635022845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityHealth: {fileID: 0}
+  _playerTag: {fileID: 1135658553}
   _barImage: {fileID: 625375617}
   _whiteBarImage: {fileID: 1358163195}
 --- !u!4 &469784729 stripped

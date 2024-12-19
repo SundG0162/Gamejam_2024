@@ -1,4 +1,5 @@
 using BSM.Entities;
+using BSM.Players;
 using DG.Tweening;
 using System;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace BSM.UI
     public class PlayerHPBarUI : UIBase
     {
         [SerializeField]
+        private PlayerTag _playerTag;
         private EntityHealth _entityHealth;
         [SerializeField]
         private SlicedFilledImage _barImage, _whiteBarImage;
@@ -22,9 +24,17 @@ namespace BSM.UI
         protected override void Awake()
         {
             base.Awake();
-            _entityHealth.OnHealthChangeEvent += HandleOnHealthChangeEvent;
+            _playerTag.OnPlayerChangeEvent += HandleOnPlayerChangeEvent;
             _blinkMaterial = _barImage.material;
             Open();
+        }
+
+        private void HandleOnPlayerChangeEvent(Player player)
+        {
+            if (_entityHealth != null)
+                _entityHealth.OnHealthChangeEvent -= HandleOnHealthChangeEvent;
+            _entityHealth = player.GetEntityComponent<EntityHealth>();
+            _entityHealth.OnHealthChangeEvent += HandleOnHealthChangeEvent;
         }
 
         private void HandleOnHealthChangeEvent(float prevHealth, float currentHealth)
