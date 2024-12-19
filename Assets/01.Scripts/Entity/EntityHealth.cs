@@ -24,7 +24,7 @@ namespace BSM.Entities
         public float CurrentHealth { get => _currentHealth;
             private set 
             {
-                _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
+                _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
             } }
         public bool isinvincible = false;
 
