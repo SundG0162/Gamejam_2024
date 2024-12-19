@@ -5,9 +5,7 @@ using UnityEngine;
 namespace BSM.Enemies
 {
     public class DashEnemy : BTEnemy
-    {
-        [SerializeField] private GameObject _hpBar;        
-        private EntityRenderer _renderer;
+    {        private EntityRenderer _renderer;
         private EntityMover _mover;
         private DashEnemy _meleeEnemy;
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");

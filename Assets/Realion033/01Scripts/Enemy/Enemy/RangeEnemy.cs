@@ -6,7 +6,6 @@ namespace BSM.Enemies
 {
     public class RangeEnemy : BTEnemy
     {
-        [SerializeField] private GameObject _hpBar;
         private EntityRenderer _renderer;
         private EntityMover _mover;
         private RangeEnemy _meleeEnemy;
