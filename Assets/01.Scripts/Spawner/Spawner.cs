@@ -33,7 +33,6 @@ namespace SSH.Spawn
         {
             while (true)
             {
-                ++_currentWave;
                 foreach (var wave in Waves)
                 {
                     foreach (var spawnInfo in wave._spawnInfos)
@@ -55,6 +54,7 @@ namespace SSH.Spawn
                         yield return new WaitForSeconds(spawnInfo._spawnDelay);
                     }
                 }
+                ++_currentWave;
             }
         }
 
