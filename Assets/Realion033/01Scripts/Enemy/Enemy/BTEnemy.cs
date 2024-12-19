@@ -44,6 +44,9 @@ namespace BSM.Enemies
             _animator.enabled = false;
             _coll.enabled = false;
 
+            int caughtEnemyCount = PlayerPrefs.GetInt("CaughtEnemy", 0);
+            PlayerPrefs.SetInt("CaughtEnemy", caughtEnemyCount + 1);    
+
             // 30% 확률로 Pop 호출
             if (UnityEngine.Random.value <= 0.3f) // Random.value는 0.0f에서 1.0f 사이의 값을 반환
             {
