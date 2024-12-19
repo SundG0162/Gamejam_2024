@@ -1,19 +1,23 @@
 using System;
 using System.Collections.Generic;
+using BSM.Inputs;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BSM.Tutorials
 {
     public class TutorialManager : MonoBehaviour
     {
+        [SerializeField]public InputReaderSO InputSO;
+        
         private List<TutorialStep> _tutorialStepList = new List<TutorialStep>();
-        private int _tutorialCount = 2; //올려줘야함
-        private int _currentStepIndex = 1;
+        private int _tutorialCount = 3; //올려줘야함
+        private int _currentStepIndex = 0;
         private TutorialStep _currentStep;
         [SerializeField] private TextMeshProUGUI _text;
         public GameObject destination;
-
+        public SpriteRenderer blackBackground;
         private void Awake()
         {
             for (int i = 1; i <= _tutorialCount; i++)
@@ -25,6 +29,7 @@ namespace BSM.Tutorials
             }
             _tutorialStepList.ForEach(step => step.Initialize(this));
             _currentStep = _tutorialStepList[0];
+            _currentStep.OnEnter();
             destination.GetComponent<DestinationCircle>().PlayerArrived += NextTutorial;
         }
 
@@ -45,9 +50,19 @@ namespace BSM.Tutorials
             _text.text = text;
         }
 
-        public void CreateDestiantion()
+        public void CreateDestination()
         {
             destination.SetActive(true);
+        }
+
+        public void SetBackground(bool isBlack)
+        {
+            Color color = blackBackground.color;
+            if (isBlack)
+                color.a = 0.5f;
+            else
+                color.a = 0f;
+            blackBackground.color = color;
         }
     }
 }
