@@ -1,3 +1,5 @@
+using System.Xml;
+using BSM.Entities;
 using BSM.Tutorials;
 using UnityEngine;
 
@@ -9,11 +11,12 @@ namespace BSM.Tutorials
         {
             _tutorialManager.SetBackground(false);
             _tutorialManager.SetText("좌클릭을 꾹 눌러 차징후 적을 처치하세요!");
-            _tutorialManager.CreateDestination();
+            _tutorialManager.CreateDummyEnemy();
         }
 
         public override void OnUpdate()
         {
+            if(_tutorialManager.DummyEnemy==null) _tutorialManager.NextTutorial();
         }
 
         public override void OnExit()

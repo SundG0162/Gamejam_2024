@@ -13,13 +13,14 @@ namespace BSM.Tutorials
         [SerializeField]public InputReaderSO InputSO;
         
         private List<TutorialStep> _tutorialStepList = new List<TutorialStep>();
-        private int _tutorialCount = 3; //올려줘야함
+        private int _tutorialCount = 5; //올려줘야함
         private int _currentStepIndex = 0;
         private TutorialStep _currentStep;
         [SerializeField] private TextMeshProUGUI _text;
         public GameObject Destination;
-        public GameObject DummuEnemy;
+        public GameObject DummyEnemy;
         public GameObject CharactersVisual;
+        public GameObject ManaPart;
         public SpriteRenderer blackBackground;
         private void Awake()
         {
@@ -37,6 +38,7 @@ namespace BSM.Tutorials
             
             SetBackground(true);
             SetCharacterVisual(false);
+            DummyEnemy.SetActive(false);
         }
 
         private void Update()
@@ -62,7 +64,11 @@ namespace BSM.Tutorials
         }
         public void CreateDummyEnemy()
         {
-            Destination.SetActive(true);
+            DummyEnemy.SetActive(true);
+        }
+        public void CreateManaPart()
+        {
+            ManaPart.SetActive(true);
         }
 
         public void SetBackground(bool isBlack)
@@ -88,7 +94,7 @@ namespace BSM.Tutorials
             {
                 CharactersVisual.transform.GetChild(i).transform.localScale = Vector3.one;
             }
-
+            if(index==-1) return;
             CharactersVisual.transform.GetChild(index).transform.DOScale(new Vector3(1.5f, 1.5f, 1f), 0.5f);
         }
     }
