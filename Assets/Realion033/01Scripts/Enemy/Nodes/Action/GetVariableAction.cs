@@ -5,6 +5,7 @@ using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using BSM.Enemies;
+using BSM.Players;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "GetVariable", story: "Get variable from [Entity]", category: "Action", id: "afe33d9466240d9810732da503b68e05")]
@@ -20,9 +21,8 @@ public partial class GetVariableAction : Action
         enemy.SetVariable("Mover", enemy.GetEntityComponent<EntityMover>());
         enemy.SetVariable("Renderer", enemy.GetEntityComponent<EntityRenderer>());
         enemy.SetVariable("Coll", enemy.GetComponent<BoxCollider2D>());
-        enemy.SetVariable("PlayerTrm", playerObject.transform);
+        enemy.SetVariable("PlayerTrm", playerObject.GetComponentInChildren<Player>().transform);
         //enemy.SetVariable("AnimTriggrier", enemy.GetEntityComponent<EntityAnimatorTrigger>());
-
         return Status.Success;
     }
 }
