@@ -30,7 +30,7 @@ public class PoolManager : MonoBehaviour
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"Press to \"Generate Enum\" : {ex.Message}");
+                    Debug.LogError($"Press to \"Generate Enum\" : {ex.Message}");
                 return;
             }
             for (int i = 0; i < poolPairs[(int)type].poolCount; ++i)
