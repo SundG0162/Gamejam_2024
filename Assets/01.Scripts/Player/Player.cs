@@ -68,12 +68,12 @@ namespace BSM.Players
 
         public virtual void Join()
         {
-
+            _entityRenderer.Appear(0.15f);
         }
 
         public virtual void Quit()
         {
-
+            _entityRenderer.Disappear(0.15f);
         }
 
     }

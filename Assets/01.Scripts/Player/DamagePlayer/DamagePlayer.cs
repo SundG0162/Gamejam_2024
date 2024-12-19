@@ -1,11 +1,7 @@
-using BSM.Effects;
 using BSM.Entities;
-using BSM.UI;
-using Crogen.CrogenPooling;
-using System;
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Random = UnityEngine.Random;
 
 namespace BSM.Players.DamagePlayer
 {
@@ -13,13 +9,23 @@ namespace BSM.Players.DamagePlayer
     {
         private DamagePlayerWeapon _weapon;
 
+        private Sequence _tagSequence;
+        [Header("Tag Skill Setting")]
         [SerializeField]
-        private ShellEffect _shell;
+        private float _swipeRadius = 2f;
+        [SerializeField]
+        private float _swipeForce = 5f;
+        [SerializeField]
+        private int _maxDetectEnemy = 30;
+        [SerializeField]
+        private LayerMask _whatIsTarget;
+        private Collider2D[] _targets;
 
         protected override void Awake()
         {
             base.Awake();
             _weapon = GetEntityComponent<DamagePlayerWeapon>();
+            _targets = new Collider2D[_maxDetectEnemy];
         }
 
         protected override void OnEnable()
@@ -36,26 +42,6 @@ namespace BSM.Players.DamagePlayer
             InputReader.OnMouseUpEvent -= HandleOnTryAttackEvent;
         }
 
-        protected override void Update()
-        {
-            base.Update();
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                ShellEffect shell = gameObject.Pop(PoolType.Shell, transform.position, Quaternion.identity).gameObject.GetComponent<ShellEffect>();
-                Vector2 force = Random.insideUnitCircle;
-                force.Normalize();
-                if (force.y < 0)
-                    force.y *= -1;
-                if(force.x > 0)
-                    force.x *= -1;
-                Debug.Log(force);
-                force *= 5;
-                shell.Initialize(force);
-            }
-        }
-
-       
-
         private void HandleOnAttackEvent()
         {
             if (_weapon.CanAttack())
@@ -70,6 +56,38 @@ namespace BSM.Players.DamagePlayer
                 _weapon.Attack();
             else
                 _weapon.UnsetWeapon();
+        }
+
+        public override void Join()
+        {
+            base.Join();
+            StartCoroutine(TagSkillCoroutine());
+        }
+
+        private IEnumerator TagSkillCoroutine()
+        {
+            InputReader.DisablePlayerInput();
+            SwipeEnemies();
+            yield return new WaitForSeconds(0.2f);
+            _weapon.SetupWeapon(0.4f);
+            yield return new WaitForSeconds(0.6f);
+            _weapon.Attack();
+            yield return new WaitForSeconds(0.15f);
+            InputReader.EnablePlayerInput();
+        }
+
+        private void SwipeEnemies()
+        {
+            int count = Physics2D.OverlapCircle(transform.position, _swipeRadius, new ContactFilter2D { layerMask = _whatIsTarget, useLayerMask = true, useTriggers = true},_targets);
+            for(int i = 0; i < count;i++)
+            {
+                if (_targets[i].TryGetComponent(out EntityMover mover))
+                {
+                    Vector2 direction = _targets[i].transform.position - transform.position;
+                    direction.Normalize();
+                    mover.Knockback(direction * _swipeForce, 0.6f);
+                }
+            }
         }
     }
 }

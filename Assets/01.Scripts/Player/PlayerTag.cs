@@ -36,7 +36,10 @@ namespace BSM.Players
                 player.GetEntityComponent<EntityRenderer>().Disappear(0);
             }
 
-            TagPlayer(EPlayerType.Damage);
+            CurrentPlayer = _playerDictionary[EPlayerType.Damage];
+            CurrentPlayer.gameObject.SetActive(true);
+            CurrentPlayer.GetEntityComponent<EntityRenderer>().Appear(0);
+            OnPlayerChangeEvent?.Invoke(CurrentPlayer);
         }
 
         private void Update()
@@ -57,15 +60,15 @@ namespace BSM.Players
             if (CurrentPlayer != null)
             {
                 CurrentPlayer.GetEntityComponent<EntityMover>().StopImmediately();
-                CurrentPlayer.GetEntityComponent<EntityRenderer>().Disappear(0.15f);
+                CurrentPlayer.Quit();
                 CurrentPlayer.gameObject.SetActive(false);
                 pos = CurrentPlayer.transform.position;
             }
             CurrentPlayer = _playerDictionary[type];
             CurrentPlayer.transform.position = pos;
             CurrentPlayer.gameObject.SetActive(true);
-            CurrentPlayer.GetEntityComponent<EntityRenderer>().Appear(0.15f);
             CurrentPlayer.GetEntityComponent<EntityMover>().StopImmediately();
+            CurrentPlayer.Join();
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
         }
     }

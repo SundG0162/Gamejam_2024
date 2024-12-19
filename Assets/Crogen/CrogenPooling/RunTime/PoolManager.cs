@@ -12,6 +12,7 @@ public class PoolManager : MonoBehaviour
 
 	private void Awake()
 	{
+        poolDic.Clear();
         Transform = transform;
         PopCore.Init(this, poolBase);
         PushCore.Init(this);
