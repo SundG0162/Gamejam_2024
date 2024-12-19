@@ -42,9 +42,10 @@ namespace BSM.Players.AttackSpeedPlayer
         {
             if (collision.TryGetComponent(out BTEnemy enemy))
             {
+                gameObject.Pop(PoolType.BulletDestroyEffect, transform.position, Quaternion.identity);
                 float calcDamage = DamageCalculator.GetCaculatedDamage(_shooter, enemy);
-                calcDamage += Random.Range(0f, 2f);
-                enemy.GetEntityComponent<EntityHealth>().ApplyDamage(transform, calcDamage, false, 1f, 0.1f);
+                calcDamage += Random.Range(5, 10f);
+                enemy.GetEntityComponent<EntityHealth>().ApplyDamage(transform, calcDamage, false, 6f, 0.2f);
                 this.Push();
             }
         }

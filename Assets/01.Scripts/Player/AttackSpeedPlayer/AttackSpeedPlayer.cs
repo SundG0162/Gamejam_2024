@@ -31,6 +31,11 @@ namespace BSM.Players.AttackSpeedPlayer
             InputReader.OnMouseUpEvent -= HandleOnCancelAttackEvent;
         }
 
+        public override void Join()
+        {
+            base.Join();
+        }
+
         protected override void Update()
         {
             base.Update();

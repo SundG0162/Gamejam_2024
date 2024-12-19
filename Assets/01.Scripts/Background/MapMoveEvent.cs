@@ -1,3 +1,4 @@
+using BSM.Players;
 using UnityEngine;
 
 namespace SSH
@@ -10,8 +11,8 @@ namespace SSH
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            print("triggerenter");
-            _background.MovePosition(_moveDirAmount);
+            if (other.TryGetComponent(out Player player))
+                _background.MovePosition(_moveDirAmount);
         }
     }
 }
