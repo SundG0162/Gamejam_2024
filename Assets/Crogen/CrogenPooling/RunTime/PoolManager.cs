@@ -28,9 +28,9 @@ public class PoolManager : MonoBehaviour
             {
                 poolDic.Add(type, new Stack<IPoolingObject>());
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                Debug.LogError("Press to \"Generate Enum\"");
+                Debug.LogError($"Press to \"Generate Enum\" : {ex.Message}");
                 return;
             }
             for (int i = 0; i < poolPairs[(int)type].poolCount; ++i)

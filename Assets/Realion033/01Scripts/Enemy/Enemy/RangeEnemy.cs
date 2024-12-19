@@ -6,16 +6,13 @@ using UnityEngine.InputSystem;
 
 namespace BSM.Enemies
 {
-    public class RangeEnemy : BTEnemy, IPoolingObject
+    public class RangeEnemy : BTEnemy
     {
         [SerializeField] private GameObject _hpBar;
         private EntityHealth _health;
         private EntityRenderer _renderer;
         private EntityMover _mover;
         private RangeEnemy _meleeEnemy;
-
-        public PoolType OriginPoolType { get; set; }
-        GameObject IPoolingObject.gameObject { get; set; }
 
         //private readonly int _dissolveAmountID = Shader.PropertyToID("_DissoleAmount");
 
@@ -49,12 +46,5 @@ namespace BSM.Enemies
             Destroy(gameObject);
         }
 
-        public void OnPop()
-        {
-        }
-
-        public void OnPush()
-        {
-        }
     }
 }
