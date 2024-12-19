@@ -117,7 +117,7 @@ namespace BSM.Players
 
         public void TagPlayer(EPlayerType type)
         {
-            if(type != _tagPlayers[0]) // ArmorPlayer·ÎºÎÅÍ ³Ñ¾î¿Ô´Ù´Â ¶æ
+            if(type != _tagPlayers[0]) // ArmorPlayerï¿½Îºï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½Ô´Ù´ï¿½ ï¿½ï¿½
                 if (_tagPlayers[1] == type)
                 {
                     _tagPlayers.PullArray(1);
