@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AttackSpeedPlayer
+  m_Controller: {fileID: 9100000, guid: f6f582ae76232a141b8817630beafedb, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a210ec3dc4a74284dbcf54c8dee6e24a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 786d05230023ec54b86f84750c978398, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c66e8379f7b8ae84dae5a5fd1b84a71b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e61074af5d14bff4782eff514aa92944, type: 2}

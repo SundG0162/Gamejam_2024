@@ -72,7 +72,7 @@ namespace BSM.Players
 
         public virtual void Attack()
         {
-
+            OnAttackEvent?.Invoke();
         }
     }
 }
