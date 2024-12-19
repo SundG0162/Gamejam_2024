@@ -1,15 +1,12 @@
 using System.Collections;
 using BSM.Entities;
-using Crogen.CrogenPooling;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace BSM.Enemies
 {
     public class RangeEnemy : BTEnemy
     {
         [SerializeField] private GameObject _hpBar;
-        private EntityHealth _health;
         private EntityRenderer _renderer;
         private EntityMover _mover;
         private RangeEnemy _meleeEnemy;
@@ -28,8 +25,10 @@ namespace BSM.Enemies
             _health.OnDeadEvent += HandleDeadEvt;
         }
 
-        private void HandleDeadEvt()
+        public override void HandleDeadEvt()
         {
+            base.HandleDeadEvt();
+
             _btAgent.enabled = false;
 
             _hpBar.SetActive(false);
