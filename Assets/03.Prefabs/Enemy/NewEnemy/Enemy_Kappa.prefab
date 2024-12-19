@@ -477,7 +477,7 @@ MonoBehaviour:
           m_Value0: 11466347331274191364
           m_Value1: 11313348375563766684
         Name: DashPower
-        m_Value: 15
+        m_Value: 50
     - rid: 9203982566625640696
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea0450294f1b14a85d8a923e478c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isinvincible: 0
   _maxHealthElement: {fileID: 11400000, guid: 26f06e4dfb6eef04a9c9fb25604d81c6, type: 2}
 --- !u!1 &8689049993676373755
 GameObject:
