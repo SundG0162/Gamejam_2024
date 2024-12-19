@@ -54,5 +54,11 @@ namespace SSH.Spawn
                 }
             }
         }
+
+        public Vector3 GetSpawnPos()
+        {
+            
+            return new Vector3();
+        }
     }
 }

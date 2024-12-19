@@ -43,3 +43,6 @@ MonoBehaviour:
   - poolType: Enemy_Gamma
     prefab: {fileID: 1137223674268225865, guid: 763956964ad3c6a47a05aa77222281e3, type: 3}
     poolCount: 20
+  - poolType: DamageText
+    prefab: {fileID: 4468071641363645857, guid: d89f1f988910b724281936a61ded1f52, type: 3}
+    poolCount: 20
