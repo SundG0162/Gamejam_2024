@@ -31,3 +31,6 @@ MonoBehaviour:
   - poolType: EnemyGamma
     prefab: {fileID: 1137223674268225865, guid: 763956964ad3c6a47a05aa77222281e3, type: 3}
     poolCount: 15
+  - poolType: PlayerBullet
+    prefab: {fileID: 2458067274638834981, guid: ae16a3ddd20a22a4dab1254234375ac5, type: 3}
+    poolCount: 30

@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 713028189}
   - component: {fileID: 713028188}
   - component: {fileID: 713028187}
+  - component: {fileID: 713028190}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -620,6 +621,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputReaderSO: {fileID: 11400000, guid: 8751211b50bb95144b1f2b79b907e257, type: 2}
   _moveSpeed: 2
+--- !u!114 &713028190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713028184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4889394bf6bb225498bb7f1958045b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolBase: {fileID: 11400000, guid: 286033b731b861849bca3618b3ab1255, type: 2}
+  poolingPairs:
+  - poolType: Shell
+    prefab: {fileID: 925948527579942387, guid: d1e1a2f4196733f48aafb613f0adcd28, type: 3}
+    poolCount: 30
+  - poolType: AudioPlayer
+    prefab: {fileID: 1866734606823914424, guid: 7f09f3d315da1df48a12a0b8d304e5ef, type: 3}
+    poolCount: 20
 --- !u!1 &1035284679
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f0104488856274c9be8ed28df21c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 0}
 --- !u!225 &1035284682
 CanvasGroup:
   m_ObjectHideFlags: 0
