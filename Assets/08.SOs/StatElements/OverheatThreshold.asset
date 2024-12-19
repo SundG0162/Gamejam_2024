@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9e3a2536a895347af5098da95bab68, type: 3}
+  m_Name: OverheatThreshold
+  m_EditorClassIdentifier: 
+  statValueType: 0
+  statName: OverheatThreshold
+  description: "\uACFC\uC5F4\uAC8C\uC774\uC9C0\uD55C\uACC4\uC810"
+  displayName: Overheat Threshold
+  _icon: {fileID: -6746367964621234244, guid: 517e6ddc15ac6c343850001cf675e1c3, type: 3}
+  _baseValue: 5
+  _minValue: 5
+  _maxValue: 30
+  <IsPercent>k__BackingField: 0

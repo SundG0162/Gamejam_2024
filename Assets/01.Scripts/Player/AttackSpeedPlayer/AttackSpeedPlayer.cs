@@ -4,12 +4,12 @@ namespace BSM.Players.AttackSpeedPlayer
 {
     public class AttackSpeedPlayer : Player
     {
-        private AttackSpeedWeapon _weapon;
+        private AttackSpeedPlayerWeapon _weapon;
 
         protected override void Awake()
         {
             base.Awake();
-            _weapon = GetEntityComponent<AttackSpeedWeapon>();
+            _weapon = GetEntityComponent<AttackSpeedPlayerWeapon>();
         }
     }
 }
