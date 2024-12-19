@@ -192,6 +192,7 @@ MonoBehaviour:
       Value: {fileID: 8324610665453928762, guid: 596496a2b148a2a41bdee194ead3079b, type: 3}
     - Key: 1
       Value: {fileID: 8671747069953563274, guid: e1907903b19148f42860aae12a8151fc, type: 3}
+  <MaxMana>k__BackingField: 0
 --- !u!4 &316350095
 Transform:
   m_ObjectHideFlags: 0
@@ -683,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9affa30c1b99fe4483fc6138c64e139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 5132221425457835974}
   <FacingDirection>k__BackingField: 1
 --- !u!212 &708103627942104283
 SpriteRenderer:
@@ -1192,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9affa30c1b99fe4483fc6138c64e139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 267577913096872582}
   <FacingDirection>k__BackingField: 1
 --- !u!212 &1976075511173763743
 SpriteRenderer:

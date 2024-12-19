@@ -11,6 +11,7 @@ namespace BSM.Entities
 
         private Material _sampleMaterial;
         private readonly int _blinkValueID = Shader.PropertyToID("_BlinkValue");
+        private readonly int _dissolveNoiseScale = Shader.PropertyToID("_DissolveNoiseScale");
         private readonly int _dissolveAmountID = Shader.PropertyToID("_DissolveAmount");
         private readonly int _teleportAmountID = Shader.PropertyToID("_TeleportAmount");
 
@@ -50,8 +51,11 @@ namespace BSM.Entities
 
         public void Dissolve(float endValue, float time)
         {
+            _sampleMaterial.SetFloat(_dissolveNoiseScale, Random.Range(4f, 16f));
+
             if (_dissolveTween != null && _dissolveTween.IsActive())
                 _dissolveTween.Kill();
+
             _dissolveTween = DOTween.To(() => _sampleMaterial.GetFloat(_dissolveAmountID), v => _sampleMaterial.SetFloat(_dissolveAmountID, v), endValue, time);
         }
 
