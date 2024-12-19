@@ -23,13 +23,15 @@ namespace BSM.Core.DamageCalculator
         {
             EntityStat dealerStat = dealer.GetEntityComponent<EntityStat>();
             EntityStat targetStat = dealer.GetEntityComponent<EntityStat>();
-            _armorPenetrationElement = dealerStat.GetStatElement(_armorPenetrationElement);
-            if (_armorPenetrationElement == null)
-                _armorPenetrationElement.BaseValue = 0;
-            _damageElement = dealerStat.GetStatElement(_damageElement);
-            _armorElement = targetStat.GetStatElement(_armorElement);
-            float calcArmor = _armorElement.Value - _armorElement.Value * 0.01f * _armorPenetrationElement.Value;
-            float calcDamage = _damageElement.Value - _damageElement.Value * 0.01f * calcArmor;
+            StatElementSO damage = dealerStat.GetStatElement(_damageElement);
+            if (damage == null)
+                return 0;
+            StatElementSO armor = targetStat.GetStatElement(_armorElement);
+            if (armor == null)
+                return damage.Value;
+            float calcArmor = armor.Value - armor.Value * 0.01f * _armorPenetrationElement.Value;
+            Debug.Log(calcArmor);
+            float calcDamage = damage.Value - damage.Value * 0.01f * calcArmor;
             return calcDamage;
         }
     }

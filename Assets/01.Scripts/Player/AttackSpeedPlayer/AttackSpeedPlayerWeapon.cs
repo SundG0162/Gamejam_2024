@@ -30,7 +30,8 @@ namespace BSM.Players.AttackSpeedPlayer
         private float _currentOverheat;
         private float _overheatThreshold;
 
-        private float _coolingSpeed = 300f;
+        [SerializeField]
+        private float _coolingSpeed = 100f;
 
         private Tween _shakeTween;
 
@@ -86,7 +87,6 @@ namespace BSM.Players.AttackSpeedPlayer
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             PlayerBullet bullet = gameObject.Pop(PoolType.PlayerBullet, _muzzleTrm.position, Quaternion.identity) as PlayerBullet;
-            Debug.Log(direction);
             bullet.Initialize(direction * _bulletSpeed, _player);
             ShellEffect shell = gameObject.Pop(PoolType.Shell, _shellExitTrm.position, Quaternion.identity).gameObject.GetComponent<ShellEffect>();
             Vector3 shellDir = _pivotTrm.right;
