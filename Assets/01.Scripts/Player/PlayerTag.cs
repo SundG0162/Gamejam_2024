@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace BSM.Players
 {
@@ -85,10 +86,7 @@ namespace BSM.Players
 
         private void HandleOnDeadEvent()
         {
-            CameraManager.Instance.CameraOnDead(() => 
-            {
-                _resultPanelUI.Open();
-            });
+            SceneManager.LoadScene("TitleScene");
         }
 
         private void HandleOnTagEvent(int index)

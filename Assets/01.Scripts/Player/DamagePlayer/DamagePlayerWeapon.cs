@@ -104,7 +104,7 @@ namespace BSM.Players.DamagePlayer
                     _player.StopFlip = false;
                     _lastAttackTime = Time.time;
                 });
-            CameraManager.Instance.ShakeCamera(6, 3, 0.3f);
+            CameraManager.Instance?.ShakeCamera(6, 3, 0.3f);
         }
 
         public void CastDamage()

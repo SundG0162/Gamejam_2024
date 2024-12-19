@@ -2605,7 +2605,7 @@ MonoBehaviour:
       Value: {fileID: 546341627100735703, guid: e02ce526b116d2447bf6abc1e874faa6, type: 3}
     - Key: 1
       Value: {fileID: 8671747069953563274, guid: e1907903b19148f42860aae12a8151fc, type: 3}
-  <MaxMana>k__BackingField: 2
+  <MaxMana>k__BackingField: 100
   _tagPlayers: 000000000000000000000000
   _resultPanelUI: {fileID: 1679798799}
   _pausePanelUI: {fileID: 1265384912}
@@ -3650,10 +3650,10 @@ RectTransform:
   - {fileID: 756973053}
   m_Father: {fileID: 168944392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1919, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1920, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1679798796
 MonoBehaviour:

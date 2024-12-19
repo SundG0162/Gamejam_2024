@@ -18,6 +18,7 @@ namespace SSH.UI
         private void Awake()
         {
             _changeEffect.material.SetFloat(Center,-4f);
+            Screen.SetResolution(1920, 1080, true);
         }
 
         public void StartGame()

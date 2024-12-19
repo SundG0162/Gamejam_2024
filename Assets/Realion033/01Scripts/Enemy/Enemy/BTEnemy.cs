@@ -58,7 +58,7 @@ namespace BSM.Enemies
         private void HandleOnDamageTaken(Transform dealer, float damage, bool isCritical)
         {
             //여기 물 enum 추가 안하면 에러남
-            AudioManager.Instance.PlayAudio("EnemyHit");
+            AudioManager.Instance?.PlayAudio("EnemyHit");
             gameObject.Pop(PoolType.DamageText, transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f, Quaternion.identity).gameObject.GetComponent<DamageText>().Initialize(damage);
         }
 

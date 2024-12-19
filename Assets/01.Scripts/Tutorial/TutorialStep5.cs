@@ -43,7 +43,7 @@ namespace BSM.Tutorials
         {
             _tutorialManager.InputSO.OnMouseClickEvent -= SetIndexText;
             _tutorialManager.SetBackground(false);
-            SceneManager.LoadScene("CopyTitle");
+            SceneManager.LoadScene("TitleScene");
         }
     }
 }
