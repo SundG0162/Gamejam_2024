@@ -7,7 +7,7 @@ namespace BSM.Tutorials
     public class TutorialManager : MonoBehaviour
     {
         private List<TutorialStep> _tutorialStepList;
-        private int _tutorialCount = 0;
+        private int _tutorialCount = 0; //올려줘야함
         private int _currentStepIndex = 0;
         private TutorialStep _currentStep;
 
