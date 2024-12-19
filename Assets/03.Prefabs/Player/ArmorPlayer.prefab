@@ -524,10 +524,10 @@ MonoBehaviour:
     _statValueType: 1
     _isUseOverride: 0
     _overridedBaseValue: 3000
-  - _stat: {fileID: 11400000, guid: 050333ef50e262f4dab8238704358151, type: 2}
-    _statValueType: 1
-    _isUseOverride: 0
-    _overridedBaseValue: 3000
+  - _stat: {fileID: 11400000, guid: 7e9ec0df68cbdae4d93d15d57bf9f787, type: 2}
+    _statValueType: 0
+    _isUseOverride: 1
+    _overridedBaseValue: 1.3
 --- !u!114 &3070040358977889124
 MonoBehaviour:
   m_ObjectHideFlags: 0
