@@ -19152,6 +19152,9 @@ MonoBehaviour:
   - poolType: ManaPiece
     prefab: {fileID: 5702118648930319915, guid: 31f56caa461fbe54a9eb597f62f435fe, type: 3}
     poolCount: 20
+  - poolType: GhostTrail
+    prefab: {fileID: 8397749548410434674, guid: d5b47fc3069f954458b92c723830ddec, type: 3}
+    poolCount: 5
 --- !u!1 &2083156234
 GameObject:
   m_ObjectHideFlags: 0

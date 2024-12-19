@@ -1,6 +1,10 @@
 using BSM.Core.StatSystem;
+using BSM.Inputs;
+using BSM.Players;
+using Crogen.CrogenPooling;
 using DG.Tweening;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace BSM.Entities
@@ -74,5 +78,23 @@ namespace BSM.Entities
             AddForce(force, ForceMode2D.Impulse);
             DOVirtual.DelayedCall(time, () => CanManualMove = true);
         }
+
+        public void Dash(Vector2 direction)
+        {
+            StartCoroutine(DashCoroutine(direction));
+        }
+
+        private IEnumerator DashCoroutine(Vector2 direction)
+        {
+            _moveSpeedElement.AddModifier(this, 20f);
+            for (int i = 0; i < 5; i++)
+            {
+                GhostTrail trail = gameObject.Pop(PoolType.GhostTrail, transform.position, Quaternion.identity) as GhostTrail;
+                trail.Initialize(_entity);
+                yield return new WaitForSeconds(0.03f);
+            }
+            _moveSpeedElement.RemoveModifier(this);
+        }
+
     }
 }
