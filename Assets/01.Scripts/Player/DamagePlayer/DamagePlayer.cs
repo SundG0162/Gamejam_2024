@@ -20,9 +20,20 @@ namespace BSM.Players.DamagePlayer
         {
             base.Awake();
             _weapon = GetEntityComponent<DamagePlayerWeapon>();
+        }
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
             InputReader.OnAttackEvent += HandleOnAttackEvent;
             InputReader.OnMouseUpEvent += HandleOnTryAttackEvent;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            InputReader.OnAttackEvent -= HandleOnAttackEvent;
+            InputReader.OnMouseUpEvent -= HandleOnTryAttackEvent;
         }
 
         protected override void Update()
@@ -43,12 +54,7 @@ namespace BSM.Players.DamagePlayer
             }
         }
 
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            InputReader.OnAttackEvent -= HandleOnAttackEvent;
-            InputReader.OnMouseUpEvent -= HandleOnTryAttackEvent;
-        }
+       
 
         private void HandleOnAttackEvent()
         {

@@ -40,16 +40,16 @@ namespace BSM.UI
             if (_whiteBarSequence != null && _whiteBarSequence.IsActive())
                 _whiteBarSequence.Kill();
             float ratio = currentHealth / _entityHealth.MaxHealth;
+            FillAmount = ratio;
             _whiteBarSequence = DOTween.Sequence();
             _whiteBarSequence
-                .AppendInterval(0.8f)
-                .Append(DOTween.To(() => _whitePivotTrm.transform.localScale.x, v => _whitePivotTrm.transform.localScale = new Vector2(v,1), ratio, 0.3f));
+                .AppendInterval(0.5f)
+                .Append(DOTween.To(() => _whitePivotTrm.transform.localScale.x, v => _whitePivotTrm.transform.localScale = new Vector2(v,1), FillAmount, 0.3f));
             _sampleMaterial.SetFloat(_blinkValueID, 1);
             _barSequence = DOTween.Sequence();
             _barSequence
-                .Append(DOTween.To(() => FillAmount, v => FillAmount = v, ratio, 0.3f))
+                .Append(DOTween.To(() => FillAmount, v => FillAmount = v, FillAmount, 0.3f))
                 .Join(DOTween.To(() => _sampleMaterial.GetFloat(_blinkValueID), v => _sampleMaterial.SetFloat(_blinkValueID, v), 0, 0.25f));
-            FillAmount = ratio;
         }
     }
 }
