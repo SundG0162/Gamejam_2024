@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095944634da2bc04c9b531712e140fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 8
   _moveTime: 5
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  _damage: {fileID: 11400000, guid: 1f212c5be7ced7e4db2ce7b408c21a16, type: 2}
+  Damage: 8
 --- !u!61 &7133201622257382528
 BoxCollider2D:
   m_ObjectHideFlags: 0

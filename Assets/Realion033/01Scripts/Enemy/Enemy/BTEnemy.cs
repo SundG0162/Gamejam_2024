@@ -11,6 +11,7 @@ namespace BSM.Enemies
     public class BTEnemy : Entity, IPoolingObject
     {
         [SerializeField] private LayerMask _whatIsTarget;
+        public bool isDashAttack = false;
         public GameObject _hpBar;
         protected EntityHealth _health;
         protected BoxCollider2D _coll;
@@ -72,17 +73,17 @@ namespace BSM.Enemies
         {
             if (target == null)
             {
-                Debug.Log("NO");
+                //Debug.Log("NO");
                 return;
             }
             IDamageable damageable = target.GetComponent<IDamageable>();
 
-            Debug.Log(target);
+            //Debug.Log(target);
 
             if (target != null)
             {
-                Debug.Log("Yes");
-                damageable. ApplyDamage(transform, damage, false, 0);
+                //Debug.Log("Yes");
+                damageable.ApplyDamage(transform, damage, false, 0);
             }
         }
 
@@ -97,5 +98,18 @@ namespace BSM.Enemies
         public void OnPush()
         {
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (isDashAttack)
+            {
+                if (((1 << other.gameObject.layer) & _whatIsTarget) != 0)
+                {
+                    DashAttack(other);
+                }
+            }
+        }
+
+        public virtual void DashAttack(Collider2D other) { }
     }
 }

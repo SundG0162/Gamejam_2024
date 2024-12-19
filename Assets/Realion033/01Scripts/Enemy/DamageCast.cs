@@ -13,6 +13,14 @@ namespace BSM.Enemies
         private EntityStat _entitystat;
         private Entity _entity;
 
+        public void Initialize(Entity entity)
+        {
+            _entity = entity;
+            _enemy = GetComponentInParent<BTEnemy>();
+            _entitystat = _entity.GetEntityComponent<EntityStat>();
+            _damage = _entitystat.GetStatElement(_damage);
+        }
+        
         public void CastDamage()
         {
             Transform target = _enemy.GetTargetInRadius(_attackRange);
@@ -25,12 +33,5 @@ namespace BSM.Enemies
             Gizmos.DrawWireSphere(transform.position, _attackRange);
         }
 
-        public void Initialize(Entity entity)
-        {
-            _entity = entity;
-            _enemy = GetComponentInParent<BTEnemy>();
-            _entitystat = _entity.GetEntityComponent<EntityStat>();
-            _damage = _entitystat.GetStatElement(_damage);
-        }
     }
 }
