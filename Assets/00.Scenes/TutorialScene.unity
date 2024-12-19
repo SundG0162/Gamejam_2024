@@ -833,7 +833,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerDictionary:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 8324610665453928762, guid: 596496a2b148a2a41bdee194ead3079b, type: 3}
+    - Key: 2
+      Value: {fileID: 546341627100735703, guid: e02ce526b116d2447bf6abc1e874faa6, type: 3}
+    - Key: 1
+      Value: {fileID: 8671747069953563274, guid: e1907903b19148f42860aae12a8151fc, type: 3}
 --- !u!1 &1035284679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,10 +1107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927485826234bf948a2094453ad61d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
+  input: {fileID: 11400000, guid: 8751211b50bb95144b1f2b79b907e257, type: 2}
   _text: {fileID: 1087197609}
   destination: {fileID: 419699406}
-  blackBackground: {fileID: 0}
+  blackBackground: {fileID: 583783393}
 --- !u!4 &1139661499
 Transform:
   m_ObjectHideFlags: 0

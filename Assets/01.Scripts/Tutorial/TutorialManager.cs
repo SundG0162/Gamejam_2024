@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using BSM.Inputs;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BSM.Tutorials
 {
     public class TutorialManager : MonoBehaviour
     {
-        public InputReaderSO input;
+        [SerializeField]public InputReaderSO InputSO;
         
         private List<TutorialStep> _tutorialStepList = new List<TutorialStep>();
         private int _tutorialCount = 2; //올려줘야함
-        private int _currentStepIndex = 1;
+        private int _currentStepIndex = 0;
         private TutorialStep _currentStep;
         [SerializeField] private TextMeshProUGUI _text;
         public GameObject destination;
@@ -48,7 +49,7 @@ namespace BSM.Tutorials
             _text.text = text;
         }
 
-        public void CreateDestiantion()
+        public void CreateDestination()
         {
             destination.SetActive(true);
         }

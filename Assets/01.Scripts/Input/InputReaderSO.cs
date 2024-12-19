@@ -60,7 +60,11 @@ namespace BSM.Inputs
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed)
+            {
                 OnAttackEvent?.Invoke();
+                OnMouseClickEvent?.Invoke();
+                Debug.Log("onmouseclickevent");
+            }
             else if (context.canceled)
                 OnMouseUpEvent?.Invoke();
         }
@@ -94,11 +98,6 @@ namespace BSM.Inputs
                 OnOpenStatUIEvent?.Invoke();
         }
         
-        public void OnClick(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnMouseClickEvent?.Invoke();
-        }
         
         #endregion
 
@@ -118,7 +117,9 @@ namespace BSM.Inputs
         public void OnPoint(InputAction.CallbackContext context)
         {
         }
-
+        public void OnClick(InputAction.CallbackContext context)
+        {
+        }
         public void OnRightClick(InputAction.CallbackContext context)
         {
         }
