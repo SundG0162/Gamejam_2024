@@ -8,6 +8,7 @@ namespace BSM.Entities
     {
         private Entity _entity;
         private SpriteRenderer _spriteRenderer;
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
 
         private Material _sampleMaterial;
         private readonly int _blinkValueID = Shader.PropertyToID("_BlinkValue");
