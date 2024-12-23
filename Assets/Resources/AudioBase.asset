@@ -17,3 +17,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 856c6468c071749498cd8b3a2c961ce5, type: 3}
   - key: EnemySlash
     clip: {fileID: 8300000, guid: 4651fd89be2deac46b89aaa5dee5fa63, type: 3}
+  - key: PlayerSword
+    clip: {fileID: 8300000, guid: f55bc28fa7a72304cb7bd091d800585d, type: 3}
+  - key: PlayerGun
+    clip: {fileID: 8300000, guid: 98c46dd026697bc489d48516117143a8, type: 3}

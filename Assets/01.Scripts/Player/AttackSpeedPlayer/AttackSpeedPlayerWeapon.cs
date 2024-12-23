@@ -1,3 +1,4 @@
+using BSM.Core.Audios;
 using BSM.Core.Cameras;
 using BSM.Core.StatSystem;
 using BSM.Effects;
@@ -99,7 +100,8 @@ namespace BSM.Players.AttackSpeedPlayer
             shellDir.x *= Random.Range(-1f, -2.5f);
             shellDir.y += Random.Range(1f, 4f);
             shell.Initialize(shellDir);
-            _currentOverheat += 10f;
+            _currentOverheat += 15f;
+            AudioManager.Instance.PlayAudio("PlayerGun");
         }
     }
 }

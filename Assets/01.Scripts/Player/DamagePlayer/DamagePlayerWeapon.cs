@@ -1,3 +1,4 @@
+using BSM.Core.Audios;
 using BSM.Core.Cameras;
 using BSM.Entities;
 using BSM.UI;
@@ -97,6 +98,7 @@ namespace BSM.Players.DamagePlayer
             _player.StopFlip = true;
             _shakeTween.Kill();
             CastDamage();
+            AudioManager.Instance.PlayAudio("PlayerSword");
             _pivotTrm.DOLocalRotate(new Vector3(0, 0, -380f), 0.25f, RotateMode.FastBeyond360)
                 .OnComplete(() =>
                 {
