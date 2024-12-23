@@ -22,6 +22,14 @@ namespace BSM.Core.Audios
             _audioSource.Play();
         }
 
+        private void Update()
+        {
+            if (!_audioSource.isPlaying)
+            {
+                this.Push();
+            }
+        }
+
         public void OnPop()
         {
         }
