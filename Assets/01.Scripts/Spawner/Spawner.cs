@@ -161,12 +161,12 @@ namespace SSH.Spawn
 
         private void AddEnemyToQueue(int minCount, int maxCount, PoolType startPoolType, int scope)
         {
-            int count = Random.Range(minCount, maxCount+_currentWave);
+            int count = Random.Range(minCount+_currentWave/2, maxCount+_currentWave);
             float time = Random.Range(0f, 17f);
             SpawnInfo spawnInfo;
             spawnInfo.enemyPoolType = (PoolType)((int)startPoolType + scope);
             spawnInfo.spawnCount = count;
-            spawnInfo.spawnTime = time;
+            spawnInfo.spawnTime = time + Time.time;
 
             spawnQueue.Enqueue(spawnInfo);  // 큐에 추가
         }
