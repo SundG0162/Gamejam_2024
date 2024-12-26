@@ -195,6 +195,8 @@ MonoBehaviour:
       Value: {fileID: 8671747069953563274, guid: e1907903b19148f42860aae12a8151fc, type: 3}
   <MaxMana>k__BackingField: 0
   _tagPlayers: 000000000000000000000000
+  _resultPanelUI: {fileID: 0}
+  _pausePanelUI: {fileID: 0}
 --- !u!4 &316350095
 Transform:
   m_ObjectHideFlags: 0
