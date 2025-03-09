@@ -89,15 +89,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""32f7308e-a06f-4d5d-9e92-b42ffced93eb"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -386,17 +377,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Tag2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b868366a-3254-4345-ba62-797d8d073951"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -409,6 +389,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""c95b2375-e6d9-4b88-9c4c-c5e76515df4b"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""c725b9a1-93d5-46bc-97c9-c849a99e3f46"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -771,6 +760,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""53d968ef-df3e-4a94-94b1-92132316bbc8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9e92bb26-7e3b-4ec4-b06b-3c8f8e498ddc"",
                     ""path"": ""*/{Submit}"",
                     ""interactions"": """",
@@ -1009,10 +1009,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
         m_Player_Tag1 = m_Player.FindAction("Tag1", throwIfNotFound: true);
         m_Player_Tag2 = m_Player.FindAction("Tag2", throwIfNotFound: true);
-        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -1097,7 +1097,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseMove;
     private readonly InputAction m_Player_Tag1;
     private readonly InputAction m_Player_Tag2;
-    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1109,7 +1108,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
         public InputAction @Tag1 => m_Wrapper.m_Player_Tag1;
         public InputAction @Tag2 => m_Wrapper.m_Player_Tag2;
-        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1140,9 +1138,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Tag2.started += instance.OnTag2;
             @Tag2.performed += instance.OnTag2;
             @Tag2.canceled += instance.OnTag2;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1168,9 +1163,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Tag2.started -= instance.OnTag2;
             @Tag2.performed -= instance.OnTag2;
             @Tag2.canceled -= instance.OnTag2;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1193,6 +1185,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Point;
@@ -1208,6 +1201,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Point => m_Wrapper.m_UI_Point;
@@ -1230,6 +1224,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
             @Submit.started += instance.OnSubmit;
             @Submit.performed += instance.OnSubmit;
             @Submit.canceled += instance.OnSubmit;
@@ -1267,6 +1264,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
             @Submit.started -= instance.OnSubmit;
             @Submit.performed -= instance.OnSubmit;
             @Submit.canceled -= instance.OnSubmit;
@@ -1368,11 +1368,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseMove(InputAction.CallbackContext context);
         void OnTag1(InputAction.CallbackContext context);
         void OnTag2(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnNavigate(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);

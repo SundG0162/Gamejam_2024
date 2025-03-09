@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using BSM.Core.Audios;
 using BSM.Core.Cameras;
 using BSM.Entities;
 using BSM.Inputs;
@@ -36,17 +37,13 @@ namespace BSM.Players
         private float _currentMana = 0;
         public delegate void ManaChangeEvent(float prevValue, float currentValue);
 
+        public event Action OnDeadEvent;
         public event Action<Player> OnPlayerChangeEvent;
         public event ManaChangeEvent OnManaChangeEvent;
         public event Action<int> OnTagEvent;
 
         [SerializeField]
         private EPlayerType[] _tagPlayers = new EPlayerType[3];
-
-        [SerializeField]
-        private ResultPanelUI _resultPanelUI;
-        [SerializeField]
-        private PausePanelUI _pausePanelUI;
 
         private void Awake()
         {
@@ -70,23 +67,23 @@ namespace BSM.Players
             CameraManager.Instance.ChangeTarget(CurrentPlayer.transform);
             OnPlayerChangeEvent?.Invoke(CurrentPlayer);
             _inputReader.OnTagEvent += HandleOnTagEvent;
-            _inputReader.OnPauseEvent += HandleOnPauseEvent;
+
         }
 
-        private void HandleOnPauseEvent()
+        private void Start()
         {
-            _pausePanelUI.Open();
+            AudioManager.Instance.PlayAudio("InGameBGM", true);
         }
 
         private void OnDestroy()
         {
             _inputReader.OnTagEvent -= HandleOnTagEvent;
-            _inputReader.OnPauseEvent -= HandleOnPauseEvent;
         }
 
         private void HandleOnDeadEvent()
         {
-            SceneManager.LoadScene("TitleScene");
+            OnDeadEvent?.Invoke();
+            _inputReader.DisablePlayerInput();
         }
 
         private void HandleOnTagEvent(int index)

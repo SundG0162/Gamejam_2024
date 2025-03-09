@@ -1033,6 +1033,62 @@ MonoBehaviour:
       Value: {fileID: 8671747069953563274, guid: e1907903b19148f42860aae12a8151fc, type: 3}
   <MaxMana>k__BackingField: 0
   _tagPlayers: 000000000000000000000000
+  _resultPanelUI: {fileID: 0}
+  _pausePanelUI: {fileID: 0}
+--- !u!1 &718006539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718006541}
+  - component: {fileID: 718006540}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &718006540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718006539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f4d242c3a8314488b5328acb336965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioBase: {fileID: 11400000, guid: 83696cde4f06bb64e90629b789187073, type: 2}
+  audioPairs:
+  - key: EnemyHit
+    clip: {fileID: 8300000, guid: 856c6468c071749498cd8b3a2c961ce5, type: 3}
+  - key: EnemySlash
+    clip: {fileID: 8300000, guid: 4651fd89be2deac46b89aaa5dee5fa63, type: 3}
+  - key: PlayerSword
+    clip: {fileID: 8300000, guid: f55bc28fa7a72304cb7bd091d800585d, type: 3}
+  - key: PlayerGun
+    clip: {fileID: 8300000, guid: 98c46dd026697bc489d48516117143a8, type: 3}
+--- !u!4 &718006541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718006539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7288721, y: -0.24729876, z: 0.12727675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881032461 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6194442047223876792, guid: adeae04069fdfa440bb24aa30aaafb35, type: 3}
@@ -1943,6 +1999,103 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2064386741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2064386743}
+  - component: {fileID: 2064386742}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2064386742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064386741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4889394bf6bb225498bb7f1958045b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolBase: {fileID: 11400000, guid: 286033b731b861849bca3618b3ab1255, type: 2}
+  poolingPairs:
+  - poolType: Shell
+    prefab: {fileID: 925948527579942387, guid: d1e1a2f4196733f48aafb613f0adcd28, type: 3}
+    poolCount: 30
+  - poolType: AudioPlayer
+    prefab: {fileID: 1866734606823914424, guid: 7f09f3d315da1df48a12a0b8d304e5ef, type: 3}
+    poolCount: 20
+  - poolType: EnemyBullet
+    prefab: {fileID: 8235313467199476190, guid: d400ebe5b769d1b4fbf649e22a8453cd, type: 3}
+    poolCount: 15
+  - poolType: DamageText
+    prefab: {fileID: 4468071641363645857, guid: d89f1f988910b724281936a61ded1f52, type: 3}
+    poolCount: 20
+  - poolType: PlayerBullet
+    prefab: {fileID: 2458067274638834981, guid: ae16a3ddd20a22a4dab1254234375ac5, type: 3}
+    poolCount: 30
+  - poolType: BulletDestroyEffect
+    prefab: {fileID: 3010148952300280233, guid: d4e03d6f96f95bb41be541fc931ad088, type: 3}
+    poolCount: 15
+  - poolType: EnemyAlpha
+    prefab: {fileID: 6194442047223876792, guid: adeae04069fdfa440bb24aa30aaafb35, type: 3}
+    poolCount: 15
+  - poolType: EnemyBeta
+    prefab: {fileID: 7769059952299546417, guid: 04f26c041ae7b7041b07a93cf4d6683d, type: 3}
+    poolCount: 15
+  - poolType: EnemyDeGamma
+    prefab: {fileID: 906485585355395079, guid: deeb8a3763d90db4d9c7c390e4f6cf91, type: 3}
+    poolCount: 15
+  - poolType: EnemyDelta
+    prefab: {fileID: 2425206145128649423, guid: acc5e454aa6ec404ca96883dca4764ff, type: 3}
+    poolCount: 15
+  - poolType: EnemyEpsilon
+    prefab: {fileID: 6229196444330697396, guid: 849a3c58627d286458155a31758b1860, type: 3}
+    poolCount: 15
+  - poolType: EnemyEta
+    prefab: {fileID: 5429768852771109424, guid: 7eb1b7e3af26901408fefb3e8518b174, type: 3}
+    poolCount: 15
+  - poolType: EnemyGamma
+    prefab: {fileID: 5232562627376042524, guid: 0bc9706e5d1bc7543990a0b890875c2e, type: 3}
+    poolCount: 15
+  - poolType: EnemyIota
+    prefab: {fileID: 430927969290554915, guid: 1d14bf8e817d2924faa4500d646775a4, type: 3}
+    poolCount: 15
+  - poolType: EnemyKappa
+    prefab: {fileID: 6562991813257440665, guid: 242dbaccbbb057c48bf39f28ca5f1fca, type: 3}
+    poolCount: 15
+  - poolType: ManaPiece
+    prefab: {fileID: 5702118648930319915, guid: 31f56caa461fbe54a9eb597f62f435fe, type: 3}
+    poolCount: 20
+  - poolType: GhostTrail
+    prefab: {fileID: 8397749548410434674, guid: d5b47fc3069f954458b92c723830ddec, type: 3}
+    poolCount: 5
+--- !u!4 &2064386743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064386741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 473.75, y: 590, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &33707188135075481
 Transform:
   m_ObjectHideFlags: 0
@@ -7772,3 +7925,5 @@ SceneRoots:
   - {fileID: 505092299}
   - {fileID: 529614643}
   - {fileID: 1933063470}
+  - {fileID: 2064386743}
+  - {fileID: 718006541}

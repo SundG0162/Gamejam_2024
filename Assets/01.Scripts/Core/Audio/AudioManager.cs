@@ -1,11 +1,10 @@
+using Crogen.CrogenPooling;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace BSM.Core.Audios
 {
-    
-
     public class AudioManager : MonoSingleton<AudioManager>
     {
         public AudioBaseSO audioBase;
@@ -20,11 +19,16 @@ namespace BSM.Core.Audios
         private void AddAudiosToDictionary()
         {
             _audioDictionary = new Dictionary<string, AudioClip>();
-            audioPairs.ToList().ForEach(pair => _audioDictionary.Add(pair.key, pair.clip));
+            audioBase.pairs.ToList().ForEach(pair => 
+            { 
+                _audioDictionary.Add(pair.key, pair.clip);
+            });
         }
 
         public void PlayAudio(string key, bool isRepeat = false)
         {
+            AudioPlayer player = gameObject.Pop(PoolType.AudioPlayer, null) as AudioPlayer;
+            player.Initialize(_audioDictionary[key], isRepeat);
         }
     }
 }

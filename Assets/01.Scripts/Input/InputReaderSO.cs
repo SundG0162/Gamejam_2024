@@ -29,6 +29,7 @@ namespace BSM.Inputs
             {
                 _controls = new Controls();
                 _controls.Player.SetCallbacks(this);
+                _controls.UI.SetCallbacks(this);
             }
             _controls.Enable();
         }

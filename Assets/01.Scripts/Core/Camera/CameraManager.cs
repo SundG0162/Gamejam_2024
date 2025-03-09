@@ -21,6 +21,14 @@ namespace BSM.Core.Cameras
             _multiChannelPerlin = CurrentCam.GetComponent<CinemachineBasicMultiChannelPerlin>();
         }
 
+        public void Zoom(float size, float duration, Ease ease = Ease.InOutSine, bool setUpdate = false, Action OnComplete = null)
+        {
+            DOVirtual.Float(CurrentCam.Lens.OrthographicSize, size, duration, v => CurrentCam.Lens.OrthographicSize = v)
+                .SetEase(ease)
+                .SetUpdate(setUpdate)
+                .OnComplete(() => OnComplete?.Invoke());
+        }
+
         public void ShakeCamera(float amplitude, float frequency, float time, Ease ease = Ease.Linear)
         {
             if (_shakeSequence != null && _shakeSequence.IsActive())
@@ -36,23 +44,19 @@ namespace BSM.Core.Cameras
                 .Join(DOTween.To(() => _multiChannelPerlin.FrequencyGain, v => _multiChannelPerlin.FrequencyGain = v, 0, time).SetEase(ease));
         }
 
-        public void TiltCamera(float tiltValue, float time, Ease ease = Ease.InOutSine)
+        public void TiltCamera(float tiltValue, float time, Ease ease = Ease.InOutSine, bool setUpdate = false, Action OnComplete = null)
         {
             if (_tiltTween != null && _tiltTween.IsActive())
                 _tiltTween.Kill();
-            _tiltTween = CurrentCam.transform.DORotate(new Vector3(0, 0, tiltValue), time).SetEase(ease).SetUpdate(true);
+            _tiltTween = CurrentCam.transform.DORotate(new Vector3(0, 0, tiltValue), time)
+                .SetEase(ease)
+                .SetUpdate(setUpdate)
+                .OnComplete(() => OnComplete?.Invoke());
         }
 
         public void ChangeTarget(Transform target)
         {
             CurrentCam.Follow = target;
-        }
-
-        public void CameraOnDead(Action OnComplete)
-        {
-            TiltCamera(50, 0.7f, Ease.InQuart);
-            DOTween.To(() => CurrentCam.Lens.OrthographicSize, v => CurrentCam.Lens.OrthographicSize = v, 3f, 0.7f).SetEase(Ease.InQuart)
-                .OnComplete(()=> OnComplete?.Invoke());
         }
     }
 }

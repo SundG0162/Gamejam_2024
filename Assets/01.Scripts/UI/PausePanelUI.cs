@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using BSM.Inputs;
+using System;
+using BSM.Players;
 
 namespace BSM.UI
 {
@@ -9,11 +12,32 @@ namespace BSM.UI
         [SerializeField]
         private Button _continueBtn, _exitBtn;
 
+        [SerializeField]
+        private PlayerTag _playerTag;
+
+        [SerializeField]
+        private InputReaderSO _inputReader;
+
         protected override void Awake()
         {
             base.Awake();
             _continueBtn.onClick.AddListener(HandleOnContinueButtonClick);
             _exitBtn.onClick.AddListener(HandleOnExitButtonClick);
+            _inputReader.OnPauseEvent += HandleOnPauseEvent;
+            _playerTag.OnDeadEvent += HandleOnDeadEvent;
+        }
+
+        private void HandleOnDeadEvent()
+        {
+            _inputReader.OnPauseEvent -= HandleOnPauseEvent;
+        }
+
+        private void HandleOnPauseEvent()
+        {
+            if (_uiState == EUIState.Closed)
+                Open();
+            else
+                Close();
         }
 
         private void HandleOnContinueButtonClick()

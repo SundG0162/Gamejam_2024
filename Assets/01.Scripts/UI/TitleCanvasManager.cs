@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using BSM.Core.Audios;
 
 namespace SSH.UI
 {
@@ -21,8 +22,14 @@ namespace SSH.UI
             Screen.SetResolution(1920, 1080, true);
         }
 
+        private void Start()
+        {
+            AudioManager.Instance.PlayAudio("TitleBGM", true);
+        }
+
         public void StartGame()
         {
+            AudioManager.Instance.PlayAudio("SceneTransition");
             _changeEffect.material.SetFloat(Center, -4f);
             DontDestroyOnLoad(_changeEffect.transform.parent.gameObject);
 
@@ -42,8 +49,23 @@ namespace SSH.UI
 
         public void StartTutorial()
         {
-            SceneManager.LoadScene(TutorialSceneName);
+            AudioManager.Instance.PlayAudio("SceneTransition");
+            _changeEffect.material.SetFloat(Center, -4f);
+            DontDestroyOnLoad(_changeEffect.transform.parent.gameObject);
+
+            _changeEffect.material.DOFloat(1f, Center, 0.5f)
+                .OnComplete(() =>
+                {
+                    SceneManager.LoadScene(TutorialSceneName);
+
+                    _changeEffect.material.DOFloat(6f, Center, 0.5f)
+                        .OnComplete(() =>
+                        {
+                            Destroy(_changeEffect.transform.parent.gameObject);
+                        });
+                });
         }
+
         public void EndGame()
         {
             Application.Quit();
